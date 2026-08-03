@@ -1,0 +1,1 @@
+total = price * quantity + tax - discount / 2 % 3

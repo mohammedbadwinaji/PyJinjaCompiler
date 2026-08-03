@@ -1,0 +1,31 @@
+Program
+│
+├── Statements
+│   ├── FunctionDef
+│   ├── Assign
+│   ├── ReturnStmt
+│   ├── ExprStmt
+│   ├── IfStmt
+│   └── ForStmt
+│
+├── Expressions
+│   ├── Identifier
+│   ├── BinaryExpr
+│   ├── CallExpr
+│   ├── AttributeAccess
+│   ├── IndexAccess
+│   ├── ListExpr
+│   ├── DictExpr
+│   ├── IntegerLiteral
+│   ├── FloatLiteral
+│   ├── StringLiteral
+│   ├── BooleanLiteral
+│   └── NoneLiteral
+│
+└── Supporting Nodes
+    ├── Decorator
+    ├── FunctionParameter
+    ├── DictEntry
+    ├── ElifClause
+    ├── PositionalArgument
+    └── KeywordArgument
