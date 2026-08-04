@@ -1,0 +1,408 @@
+The grammar already supports:
+
+- Raw HTML
+- {{ expression }}
+- {% if %}
+- {% elif %}
+- {% else %}
+- {% endif %}
+- {% for item in items %}
+- {% endfor %}
+- Variables
+- Attribute access
+- Function calls
+
+These features MUST continue working exactly as they do now.
+
+========================================================
+REQUIRED IMPROVEMENTS
+========================================================
+
+--------------------------------------------------------
+1. Boolean Operators
+--------------------------------------------------------
+
+The parser already references:
+
+    and
+    or
+    not
+
+but the lexer does not define them.
+
+Add lexer tokens:
+
+AND
+OR
+NOT
+
+Support expressions such as:
+
+{{ a and b }}
+
+{{ a or b }}
+
+{{ not value }}
+
+--------------------------------------------------------
+2. Fix HTML_TEXT
+--------------------------------------------------------
+
+The current lexer rule
+
+HTML_TEXT : .+? ;
+
+is incorrect because it can consume
+
+{{
+{%
+{#
+
+before those delimiters become lexer tokens.
+
+Rewrite HTML_TEXT so it stops immediately before any Jinja opening delimiter.
+
+The lexer must correctly alternate between
+
+HTML
+
+↓
+
+Jinja Expression
+
+↓
+
+HTML
+
+↓
+
+Jinja Statement
+
+↓
+
+HTML
+
+without consuming delimiters.
+
+--------------------------------------------------------
+3. Boolean Literals
+--------------------------------------------------------
+
+Support
+
+true
+
+false
+
+Add lexer tokens
+
+TRUE
+
+FALSE
+
+and parser support.
+
+Examples:
+
+{{ true }}
+
+{{ false }}
+
+--------------------------------------------------------
+4. None Literal
+--------------------------------------------------------
+
+Support
+
+none
+
+Add lexer token
+
+NONE
+
+Parser should recognize
+
+{{ none }}
+
+--------------------------------------------------------
+5. Float Literals
+--------------------------------------------------------
+
+Current grammar only supports integers.
+
+Add
+
+FLOAT
+
+Support
+
+{{ 12.5 }}
+
+{{ 3.14159 }}
+
+--------------------------------------------------------
+6. Parenthesized Expressions
+--------------------------------------------------------
+
+Support
+
+{{ (a+b)*c }}
+
+{{ (x>0) and flag }}
+
+--------------------------------------------------------
+7. Index Access
+--------------------------------------------------------
+
+Support indexing exactly like Python.
+
+Examples:
+
+{{ items[0] }}
+
+{{ matrix[1][2] }}
+
+{{ user.posts[0] }}
+
+Add
+
+LBRACK
+
+RBRACK
+
+Support chaining
+
+foo()[0].name
+
+user.posts[0].title
+
+matrix[0][1]
+
+--------------------------------------------------------
+8. Operator Precedence
+--------------------------------------------------------
+
+The current expression grammar is ambiguous.
+
+Rewrite expressions using precedence levels.
+
+Use something similar to the Python grammar:
+
+expression
+
+logicalOr
+
+logicalAnd
+
+comparison
+
+addition
+
+multiplication
+
+unary
+
+atom
+
+Required precedence:
+
+Highest
+
+()
+
+attribute
+
+call
+
+index
+
+unary
+
+*
+
+/
+
+%
+
++
+
+-
+
+comparisons
+
+and
+
+or
+
+Lowest
+
+The following expressions must build the correct parse tree:
+
+1+2*3
+
+(a+b)*c
+
+not a and b
+
+a+b<c
+
+a or b and c
+
+--------------------------------------------------------
+9. Jinja Comments
+--------------------------------------------------------
+
+Support
+
+{# comment #}
+
+Comments should be ignored.
+
+No AST node required.
+
+--------------------------------------------------------
+10. Keep Existing Features Working
+--------------------------------------------------------
+
+Variables
+
+{{ user }}
+
+Attribute access
+
+{{ user.name }}
+
+Nested attributes
+
+{{ user.address.city }}
+
+Function calls
+
+{{ add(1,2) }}
+
+Nested calls
+
+{{ obj.get().name }}
+
+If statements
+
+{% if condition %}
+
+{% elif other %}
+
+{% else %}
+
+{% endif %}
+
+For loops
+
+{% for item in items %}
+
+{% endfor %}
+
+Mixed HTML
+
+<html>
+
+{{ name }}
+
+{% if logged %}
+
+Hello
+
+{% endif %}
+
+========================================================
+DO NOT IMPLEMENT
+========================================================
+
+This project intentionally does NOT support these features yet.
+
+Do NOT add them.
+
+- filters (|)
+- include
+- extends
+- block
+- macro
+- set
+- import
+- from
+- tests (is)
+- whitespace trimming
+- raw blocks
+- autoescape
+- with
+- call
+- namespace
+- recursive loops
+
+========================================================
+DESIGN REQUIREMENTS
+========================================================
+
+The grammar should closely mirror the existing Python frontend.
+
+The AST Builder should later be able to create nodes equivalent to:
+
+Template
+
+HtmlNode
+
+OutputNode
+
+IfNode
+
+ForNode
+
+Identifier
+
+CallExpr
+
+AttributeExpr
+
+IndexExpr
+
+BinaryExpr
+
+UnaryExpr
+
+IntegerLiteral
+
+FloatLiteral
+
+StringLiteral
+
+BooleanLiteral
+
+NoneLiteral
+
+Therefore, the grammar should expose clean parse-tree structures that make AST construction straightforward.
+
+
+ Improve JinjaLexer.g4.
+ Improve JinjaParser.g4.
+
+ Create comprehensive parser test files covering:
+
+ - HTML only
+ - Variables
+ - Arithmetic
+ - Comparisons
+ - Boolean expressions
+ - Parentheses
+ - Function calls
+ - Nested function calls
+ - Attribute access
+ - Nested attributes
+ - Index access
+ - Nested indexing
+ - Mixed attribute + index
+ - if
+ - if / elif / else
+ - for
+ - comments
+ - HTML mixed with Jinja
+ - Complex templates combining all supported features
+
+ Finally, verify that the resulting grammar is stable, clean, compiler-oriented, and ready for the next phase: Jinja AST Builder, without requiring future grammar redesign.

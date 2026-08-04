@@ -1,0 +1,23 @@
+Expressions
+{{ name }}
+
+{{ user.name }}
+
+{{ add(1, 2) }}
+
+{{ items[0] }} (if you add index trailer later)
+
+Control Flow
+Code
+{% if condition %}
+{% elif condition %}
+{% else %}
+{% endif %}
+
+Loops
+Code
+{% for item in items %}
+{% endfor %}
+
+HTML
+Everything outside Jinja tags is treated as raw HTML.

@@ -29,3 +29,6 @@ Program
     ├── ElifClause
     ├── PositionalArgument
     └── KeywordArgument
+
+
+PythonParser → Python AST → extract render_template(...) → load Jinja file → JinjaParser → Jinja AST → merge dynamic data → generate HTML
