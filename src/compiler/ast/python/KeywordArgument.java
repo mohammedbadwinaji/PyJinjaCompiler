@@ -32,4 +32,12 @@ public final class KeywordArgument extends AbstractAstNode implements Argument {
         return visitor.visitKeywordArgument(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("KeywordArgument (").append(name).append(") [line ").append(getLine()).append("]");
+        sb.append("\n").append(value.prettyPrint(indent + "  "));
+        return sb.toString();
+    }
+
 }

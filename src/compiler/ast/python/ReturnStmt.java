@@ -30,4 +30,12 @@ public final class ReturnStmt
         return visitor.visitReturnStmt(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+        if (value == null) {
+            return indent + "ReturnStmt [line " + getLine() + "]";
+        }
+        return indent + "ReturnStmt [line " + getLine() + "]\n" + value.prettyPrint(indent + "  ");
+    }
+
 }

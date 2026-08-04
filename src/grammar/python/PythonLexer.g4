@@ -57,45 +57,17 @@ STRING_LITERAL
     | '\'' (ESC_SEQ | ~['\\\r\n])* '\''
     ;
 
-UNCLOSED_DOUBLE_STRING
-    : '"' (ESC_SEQ | ~["\\\r\n])*
-      { throw new compiler.exception.LexicalException("Unterminated string at line " + getLine()); }
-    ;
-
-UNCLOSED_SINGLE_STRING
-    : '\'' (ESC_SEQ | ~['\\\r\n])*
-      { throw new compiler.exception.LexicalException("Unterminated string at line " + getLine()); }
-    ;
-
 IDENTIFIER : [_a-zA-Z] [_a-zA-Z0-9]* ;
 
 NEWLINE
-    : ('\r'? '\n' | '\r')
-      { setText("\n"); }
+    : '\r'? '\n' | '\r'
     ;
 
 COMMENT : '#' ~[\r\n]* -> skip ;
 
 WS
-    : [ \t]+
-      {
-          int next = _input.LA(1);
-          if (next != '\n' && next != '\r') {
-              skip();
-          }
-      }
+    : [ \t]+ -> skip
     ;
 
 fragment DIGIT : [0-9];
 fragment ESC_SEQ : '\\' . ;
-
-ERROR_CHAR
-    : .
-      {
-          throw new compiler.exception.LexicalException(
-              "Illegal character '" + getText() +
-              "' at line " + getLine() +
-              ", column " + getCharPositionInLine()
-          );
-      }
-    ;

@@ -48,4 +48,18 @@ public final class ForStmt
         return visitor.visitForStmt(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("ForStmt (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Variable: ").append(variable);
+        sb.append("\n").append(indent).append("  Iterable");
+        sb.append("\n").append(iterable.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Body");
+        for (Statement stmt : body) {
+            sb.append("\n").append(stmt.prettyPrint(indent + "    "));
+        }
+        return sb.toString();
+    }
+
 }

@@ -5,20 +5,20 @@ options { tokenVocab=PythonLexer; }
 tokens { INDENT, DEDENT }
 
 program
-    : statement* EOF
+    : (statement | NEWLINE)* EOF
     ;
 
 statement
-    : RETURN exprList? NEWLINE                                      #returnStatement
-    | exprList (ASSIGN exprList)* NEWLINE                           #assignOrExprStatement
-    | decorator* DEF IDENTIFIER LPAREN paramList? RPAREN COLON suite #functionDef
+    : RETURN expr (COMMA expr)* NEWLINE?                    #returnStatement
+    | expr (ASSIGN expr)* NEWLINE?                           #assignOrExprStatement
+    | decorator* NEWLINE? DEF IDENTIFIER LPAREN paramList? RPAREN COLON suite #functionDef
     | IF expr COLON suite (ELIF expr COLON suite)* (ELSE COLON suite)? #ifStatement
     | WHILE expr COLON suite                                        #whileStatement
     | FOR IDENTIFIER IN expr COLON suite                            #forStatement
     ;
 
 decorator
-    : AT IDENTIFIER (DOT IDENTIFIER)* LPAREN argList? RPAREN NEWLINE
+    : AT IDENTIFIER (DOT IDENTIFIER)* LPAREN argList? RPAREN
     ;
 
 paramList
@@ -31,12 +31,8 @@ suite
     ;
 
 simpleLine
-    : exprList (ASSIGN exprList)* NEWLINE
-    ;
+    : expr (ASSIGN expr)* NEWLINE?;
 
-exprList
-    : expr (COMMA expr)* (COMMA)?
-    ;
 
 expr
     : expr OR expr                         #orExpr
@@ -49,9 +45,13 @@ expr
     | atom                                 #atomExpr
     ;
 
+listItems
+    : expr (COMMA expr)* (COMMA)?
+    ;
+
 atom
     : LPAREN expr RPAREN                   #parenExpr
-    | LBRACK exprList? RBRACK              #listExpr
+    | LBRACK listItems? RBRACK              #listExpr
     | LBRACE dictItems? RBRACE             #dictExpr
     | STRING_LITERAL                       #stringLiteral
     | INTEGER_LITERAL                      #intLiteral

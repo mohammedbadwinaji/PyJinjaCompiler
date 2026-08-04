@@ -33,4 +33,22 @@ public final class CallExpr extends AbstractExpression {
         return visitor.visitCallExpr(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("CallExpr (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Callee");
+        sb.append("\n").append(callee.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Arguments");
+        if (arguments.isEmpty()) {
+            sb.append(" []");
+        } else {
+            for (Argument arg : arguments) {
+                sb.append("\n").append(arg.prettyPrint(indent + "    "));
+            }
+        }
+        return sb.toString();
+    }
+
+
 }

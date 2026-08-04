@@ -22,4 +22,13 @@ public final class PositionalArgument extends AbstractAstNode implements Argumen
         return visitor.visitPositionalArgument(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("PositionalArgument (line ").append(getLine()).append(")");
+        sb.append("\n").append(value.prettyPrint(indent + "  "));
+        return sb.toString();
+    }
+
+
 }

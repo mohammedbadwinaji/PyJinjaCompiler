@@ -53,5 +53,7 @@ public interface AstVisitor<T> {
 
     T visitIfStmt(IfStmt node);
 
+    T visitWhileStmt(WhileStmt node);
+
     T visitFunctionDef(FunctionDef node);
 }

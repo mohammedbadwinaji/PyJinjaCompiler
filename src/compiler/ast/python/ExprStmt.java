@@ -32,4 +32,19 @@ public final class ExprStmt extends AbstractStatement {
         return visitor.visitExprStmt(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(indent)
+                .append("ExprStmt [line ")
+                .append(getLine())
+                .append("]");
+
+        sb.append("\n")
+                .append(expression.prettyPrint(indent + "  "));
+
+        return sb.toString();
+    }
 }
