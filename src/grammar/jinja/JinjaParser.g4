@@ -6,131 +6,129 @@ options { tokenVocab = JinjaLexer; }
 // TEMPLATE ROOT
 // ===============================
 template
-    : element* EOF
+    : body=templateBody EOF
+    ;
 
+// ===============================
+// TEMPLATE BODY
+// ===============================
+templateBody
+    : element*
     ;
 
 // ===============================
 // ELEMENTS
 // ===============================
 element
-    : HTML_TEXT              #HtmlElement
-    | jinjaExpr              #ExprElement
-    | jinjaStmt              #StmtElement
-    | jinjaComment           #CommentElement
+    : HTML_TEXT                              #htmlElement
+    | expressionOutput                       #expressionElement
+    | ifStatement                            #ifElement
+    | forStatement                           #forElement
     ;
 
 // ===============================
 // {{ expression }}
 // ===============================
-jinjaExpr
-    : JINJA_EXPR_START expr JINJA_EXPR_END
-      #JinjaExpression
+expressionOutput
+    : JINJA_EXPR_START expression=expr JINJA_EXPR_END
     ;
 
 // ===============================
-// {% statement %}
-//
+// {% if %} ... {% elif %} ... {% else %} ... {% endif %}
 // ===============================
-jinjaStmt
-    : JINJA_STMT_START stmt JINJA_STMT_END
-      #JinjaStatement
+ifStatement
+    : JINJA_STMT_START IF condition=expr JINJA_STMT_END
+      thenBody=templateBody
+      elifClause*
+      elseClause?
+      JINJA_STMT_START ENDIF JINJA_STMT_END
+    ;
+
+elifClause
+    : JINJA_STMT_START ELIF condition=expr JINJA_STMT_END
+      body=templateBody
+    ;
+
+elseClause
+    : JINJA_STMT_START ELSE JINJA_STMT_END
+      body=templateBody
     ;
 
 // ===============================
-// {# comment #}
+// {% for %} ... {% endfor %}
 // ===============================
-jinjaComment
-    : JINJA_COMMENT_START COMMENT_TEXT? JINJA_COMMENT_END
-      #Comment
-    ;
-
-
-// ===============================
-// STATEMENTS
-// ===============================
-stmt
-    : ifStmt     #IfStatement
-    | forStmt    #ForStatement
+forStatement
+    : JINJA_STMT_START FOR variable=IDENTIFIER IN iterable=expr JINJA_STMT_END
+      body=templateBody
+      JINJA_STMT_START ENDFOR JINJA_STMT_END
     ;
 
 // ===============================
-// IF / ELIF / ELSE / ENDIF
-// ===============================
-ifStmt
-    : IF expr        #IfOpen
-    | ELIF expr      #ElifOpen
-    | ELSE           #ElseOpen
-    | ENDIF          #IfClose
-    ;
-
-// ===============================
-// FOR / ENDFOR
-// ===============================
-forStmt
-    : FOR IDENTIFIER IN expr   #ForOpen
-    | ENDFOR                   #ForClose
-    ;
-
-// ===============================
-// EXPRESSIONS (with proper precedence)
+// EXPRESSIONS (helper rules for operator precedence)
 // ===============================
 expr
-    : logicalOr                       #LogicalOrRoot
+    : logicalOr
     ;
 
 logicalOr
-    : logicalOr OR logicalAnd         #OrExpr
-    | logicalAnd                      #AndRoot
+    : left=logicalOr op=OR right=logicalAnd              #orExpr
+    | logicalAnd                           #logicalAndExpr
     ;
 
 logicalAnd
-    : logicalAnd AND comparison       #AndExpr
-    | comparison                      #ComparisonRoot
+    : left=logicalAnd op=AND right=comparison           #andExpr
+    | comparison                          #comparisonExpr
     ;
 
 comparison
-    : comparison (EQ|NE|LT|GT|LE|GE) additive  #CompareExpr
-    | additive                        #AdditiveRoot
+    : left=comparison op=(EQ|NE|LT|GT|LE|GE) right=additive  #comparisonOpExpr
+    | additive                            #additiveExpr
     ;
 
 additive
-    : additive (PLUS|MINUS) multiplicative #AddExpr
-    | multiplicative                 #MultiplicativeRoot
+    : left=additive op=(PLUS|MINUS) right=multiplicative    #addExpr
+    | multiplicative                      #multiplicativeExpr
     ;
 
 multiplicative
-    : multiplicative (STAR|SLASH|MOD) unary #MulExpr
-    | unary                          #UnaryRoot
+    : left=multiplicative op=(STAR|SLASH|MOD) right=unary   #mulExpr
+    | unary                               #unaryExpr
     ;
 
 unary
-    : NOT unary                       #NotExpr
-    | MINUS unary                     #UnaryMinusExpr
-    | atom                           #AtomRoot
+    : op=NOT operand=unary                #notExpr
+    | op=MINUS operand=unary              #unaryMinus
+    | primary                             #primaryExpr
     ;
 
 // ===============================
-// ATOMS
+// PRIMARY EXPRESSIONS
 // ===============================
-atom
-    : LPAREN expr RPAREN              #ParenAtom
-    | IDENTIFIER trailer*              #IdentifierAtom
-    | STRING                           #StringAtom
-    | INT                              #IntAtom
-    | FLOAT                            #FloatAtom
-    | TRUE                             #TrueAtom
-    | FALSE                            #FalseAtom
-    | NONE                             #NoneAtom
+primary
+    : LPAREN expression=expr RPAREN       #parenExpr
+    | literal                             #literalExpr
+    | identifier=IDENTIFIER trailers+=trailer*  #identifierExpr
     ;
 
 // ===============================
-// TRAILERS
+// LITERALS
+// ===============================
+literal
+    : STRING                              #stringLiteral
+    | INT                                 #intLiteral
+    | FLOAT                               #floatLiteral
+    | TRUE                                #trueLiteral
+    | FALSE                               #falseLiteral
+    | NONE                                #noneLiteral
+    ;
+
+// ===============================
+// TRAILERS (mirroring Python's atomTrailer)
 // ===============================
 trailer
-    : DOT IDENTIFIER                   #AttributeTrailer
-    | LBRACK expr RBRACK               #IndexTrailer
-    | LPAREN argList? RPAREN           #CallTrailer
+    : DOT attribute=IDENTIFIER             #attributeAccess
+    | LBRACK index=expr RBRACK             #indexAccess
+    | LPAREN arguments=argList? RPAREN     #callTrailer
     ;
 
 // ===============================

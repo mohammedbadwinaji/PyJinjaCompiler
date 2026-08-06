@@ -7,9 +7,9 @@ public class Main {
         Tester.testFile("input/Jinja/attribute_access.html",new JinjaLexerTest());
         System.out.println("jinja Parser Testing");
         Tester.testFile("input/Jinja/attribute_access.html",new JinjaParserTest());
-        System.out.println("Python Lexer Testing");
-        Tester.testFile("input/python/allErrors.py",new PythonLexerTest());
-        System.out.println("Python Parser Testing");
-        Tester.testFile("input/python/allErrors.py",new PythonParserTest());
+//        System.out.println("Python Lexer Testing");
+//        Tester.testFile("input/python/allErrors.py",new PythonLexerTest());
+//        System.out.println("Python Parser Testing");
+//        Tester.testFile("input/python/allErrors.py",new PythonParserTest());
     }
 }

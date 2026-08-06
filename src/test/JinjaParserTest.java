@@ -21,7 +21,7 @@ public class JinjaParserTest implements CompilerTest {
 
         ParseTree tree = parser.template();
 
-        ParseTreePrinter.showGuiTree(tree,parser);
+        ParseTreePrinter.printText(tree,parser);
     }
 
     private static void printTree(ParseTree tree, int level) {

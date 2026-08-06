@@ -13,6 +13,6 @@ public class JinjaLexerTest implements CompilerTest{
         CharStream input = CharStreams.fromFileName(file);
         JinjaLexer lexer = new JinjaLexer(input);
 
-        TokenPrinter.showGuiList(lexer);
+        TokenPrinter.printText(lexer);
     }
 }
