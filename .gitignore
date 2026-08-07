@@ -50,6 +50,6 @@ src/compiler/generated/
 # Local documentation and scratchpads
 *.txt
 *.md
-
+*.pdf
 # Exceptions (Optional): If you want to keep your project README visible on GitHub
 !README.md
