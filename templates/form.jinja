@@ -1,0 +1,13 @@
+{{ nav }}
+{% if mode == "edit" %}
+<h1>Edit Product</h1>
+{% else %}
+<h1>Add Product</h1>
+{% endif %}
+<form method="post" action="{% if mode == "edit" %}/products/{{ product.id }}{% else %}/products{% endif %}">
+<p>Name: <input type="text" name="name" value="{{ product.name }}"></p>
+<p>Price: <input type="text" name="price" value="{{ product.price }}"></p>
+<p>Description: <input type="text" name="description" value="{{ product.description }}"></p>
+<button type="submit">Save</button>
+</form>
+<p><a href="/products">Cancel</a></p>
