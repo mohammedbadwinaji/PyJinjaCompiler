@@ -1,6 +1,6 @@
 package compiler.printer;
 
-import compiler.ast.python.AstNode;
+import compiler.ast.common.AstNode;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,5 +1,7 @@
 package compiler.ast.python;
 
+import compiler.ast.common.AbstractAstNode;
+
 /**
  * Base class for all statement nodes.
  */

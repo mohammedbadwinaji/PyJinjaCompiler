@@ -17,6 +17,6 @@ public class PythonParserTest implements CompilerTest{
         PythonParser parser = new PythonParser(tokens);
 
         ParseTree tree = parser.program();
-        ParseTreePrinter.showGuiTree(tree, parser);
+        ParseTreePrinter.printText(tree, parser);
     }
 }

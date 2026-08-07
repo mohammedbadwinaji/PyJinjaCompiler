@@ -1,12 +1,16 @@
 package compiler.ast.python;
 
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+import compiler.ast.common.Identifier;
+
 import java.util.List;
 import java.util.Objects;
 
 public final class ForStmt
         extends AbstractStatement {
 
-    private final String variable;
+    private final Identifier variable;
 
     private final Expression iterable;
 
@@ -14,7 +18,7 @@ public final class ForStmt
 
     public ForStmt(
             int line,
-            String variable,
+            Identifier variable,
             Expression iterable,
             List<Statement> body) {
 
@@ -30,7 +34,7 @@ public final class ForStmt
                 List.copyOf(body);
     }
 
-    public String getVariable() {
+    public Identifier getVariable() {
         return variable;
     }
 
@@ -52,7 +56,8 @@ public final class ForStmt
     public String prettyPrint(String indent) {
         StringBuilder sb = new StringBuilder();
         sb.append(indent).append("ForStmt (line ").append(getLine()).append(")");
-        sb.append("\n").append(indent).append("  Variable: ").append(variable);
+        sb.append("\n").append(indent).append("  Variable");
+        sb.append("\n").append(variable.prettyPrint(indent + "    "));
         sb.append("\n").append(indent).append("  Iterable");
         sb.append("\n").append(iterable.prettyPrint(indent + "    "));
         sb.append("\n").append(indent).append("  Body");

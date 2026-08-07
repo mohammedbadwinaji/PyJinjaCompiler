@@ -4,8 +4,8 @@ import compiler.ast.python.Program;
 import compiler.frontend.python.AstBuilder;
 import compiler.generated.python.BasePythonLexer;
 import compiler.generated.python.PythonParser;
-import compiler.semantic.python.SemanticAnalyzer;
-import compiler.semantic.python.SemanticError;
+import compiler.semantic.python.PythonSemanticAnalyzer;
+import compiler.semantic.common.SemanticError;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -15,12 +15,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public final class PythonAnalyzerTest {
+public final class PythonAnalyzerTest implements CompilerTest {
 
-    private PythonAnalyzerTest() {
+    public PythonAnalyzerTest() {
     }
 
-    public static void analyze(String fileName) throws IOException {
+    @Override
+    public void test(String fileName) throws IOException {
 
         String source = Files.readString(Path.of(fileName));
 
@@ -40,12 +41,12 @@ public final class PythonAnalyzerTest {
 
 
 
-        System.out.println("======================================");
-        System.out.println("AST");
-        System.out.println("======================================");
-        System.out.println(program.prettyPrint(""));
+//        System.out.println("======================================");
+//        System.out.println("AST");
+//        System.out.println("======================================");
+//        System.out.println(program.prettyPrint(""));
 
-        SemanticAnalyzer analyzer = new SemanticAnalyzer();
+        PythonSemanticAnalyzer analyzer = new PythonSemanticAnalyzer();
 
         List<SemanticError> errors = analyzer.analyze(program);
 

@@ -1,6 +1,6 @@
 package test;
 
-import compiler.generated.jinja.JinjaLexer;
+import compiler.generated.jinja.*;
 import compiler.printer.TokenPrinter;
 import org.antlr.v4.runtime.*;
 

@@ -1,10 +1,12 @@
 package compiler.ast.python;
 
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+
 import java.util.List;
 import java.util.Objects;
 
-public final class ElifClause
-        extends AbstractAstNode {
+public final class ElifClause extends AbstractStatement {
 
     private final Expression condition;
 
@@ -37,4 +39,16 @@ public final class ElifClause
         return visitor.visitElifClause(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("ElifClause (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Condition");
+        sb.append("\n").append(condition.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Body");
+        for (Statement stmt : body) {
+            sb.append("\n").append(stmt.prettyPrint(indent + "    "));
+        }
+        return sb.toString();
+    }
 }

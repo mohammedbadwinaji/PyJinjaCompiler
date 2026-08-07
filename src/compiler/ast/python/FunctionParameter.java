@@ -1,5 +1,8 @@
 package compiler.ast.python;
 
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.AbstractAstNode;
+
 import java.util.Objects;
 
 /**

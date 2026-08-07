@@ -1,5 +1,8 @@
 package compiler.ast.python;
 
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.LiteralExpression;
+
 import java.util.List;
 import java.util.Objects;
 

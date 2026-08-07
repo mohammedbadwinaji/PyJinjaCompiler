@@ -1,11 +1,11 @@
 lexer grammar JinjaLexer;
 
-// Default mode - outside Jinja tags
-HTML_TEXT : (~[{] | '{' ~['{%#])+ ;
-
+// Jinja delimiters must come before HTML_TEXT to ensure they're matched first
 JINJA_EXPR_START : '{{' -> pushMode(JINJA_MODE);
 JINJA_STMT_START : '{%' -> pushMode(JINJA_MODE);
-JINJA_COMMENT_START : '{#' -> pushMode(COMMENT_MODE);
+
+// Default mode - outside Jinja tags
+HTML_TEXT : ( ~'{' | '{' ~[{%#] )+ ;
 
 // Jinja mode - inside {{ }} or {% %}
 mode JINJA_MODE;
@@ -56,7 +56,4 @@ IDENTIFIER : [_a-zA-Z] [_a-zA-Z0-9]*;
 
 WS : [ \t\r\n]+ -> skip;
 
-// Comment mode - inside {# }
-mode COMMENT_MODE;
-JINJA_COMMENT_END : '#}' -> popMode;
-COMMENT_TEXT : ~[#]+ ;
+

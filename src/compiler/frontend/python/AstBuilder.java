@@ -1,6 +1,7 @@
 package compiler.frontend.python;
 
 import compiler.ast.python.*;
+import compiler.ast.common.*;
 import compiler.generated.python.PythonParser;
 import compiler.generated.python.PythonParserBaseVisitor;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -161,19 +162,20 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
             elifs.add(new ElifClause(lineOf(ctx), elifCond, elifBody));
         }
 
-        List<Statement> elseBody = Collections.emptyList();
+        ElseClause elseClause = null;
         if (ctx.ELSE() != null) {
             PythonParser.SuiteContext elseSuite = ctx.suite(ctx.suite().size() - 1);
-            elseBody = visitSuiteAsStatements(elseSuite);
+            List<Statement> elseBody = visitSuiteAsStatements(elseSuite);
+            elseClause = new ElseClause(lineOf(ctx), elseBody);
         }
 
-        return new IfStmt(lineOf(ctx), cond, thenBody, elifs, elseBody);
+        return new IfStmt(lineOf(ctx), cond, thenBody, elifs, elseClause);
     }
 
     @Override
     public Object visitForStatement(PythonParser.ForStatementContext ctx) {
         // FOR IDENTIFIER IN expr COLON suite
-        String var = ctx.IDENTIFIER().getText();
+        Identifier var = new Identifier(lineOf(ctx.IDENTIFIER()), ctx.IDENTIFIER().getText());
         Expression iterable = toExpression(ctx.expr());
         List<Statement> body = visitSuiteAsStatements(ctx.suite());
         return new ForStmt(lineOf(ctx), var, iterable, body);

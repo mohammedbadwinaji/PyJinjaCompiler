@@ -1,4 +1,4 @@
-def add(x, x):
+def add(x, x,x):
     return x
 
 

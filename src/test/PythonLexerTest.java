@@ -14,6 +14,6 @@ public class PythonLexerTest implements CompilerTest {
         CharStream input = CharStreams.fromFileName(file);
         BasePythonLexer lexer = new BasePythonLexer(input);
 
-        TokenPrinter.showGuiList(lexer);
+        TokenPrinter.printText(lexer);
     }
 }

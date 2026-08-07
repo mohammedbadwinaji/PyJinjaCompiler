@@ -1,4 +1,4 @@
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\arithmetic.html 
+### ?? File: arithmetic.html 
  
 <p>{{ 1 + 2 }}</p>
 <p>{{ 10 - 5 }}</p>
@@ -9,7 +9,7 @@
 <p>{{ (1 + 2) * 3 }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\attribute_access.html 
+### ?? File: attribute_access.html 
  
 <p>{{ user.name }}</p>
 <p>{{ user.address.city }}</p>
@@ -17,7 +17,7 @@
 <p>{{ config.settings.theme }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\boolean_expressions.html 
+### ?? File: boolean_expressions.html 
  
 <p>{{ true }}</p>
 <p>{{ false }}</p>
@@ -28,17 +28,17 @@
 <p>{{ true and true or false }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\comments.html 
+### ?? File: comments.html 
  
 {# This is a comment #}
 <h1>Title</h1>
 {# Another comment #}
 <p>Content</p>
-{# Multi-line comment
+{# Multi-line comment}
    spanning multiple lines #}
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\comparisons.html 
+### ?? File: comparisons.html 
  
 <p>{{ 1 == 1 }}</p>
 <p>{{ 1 != 2 }}</p>
@@ -48,7 +48,7 @@
 <p>{{ 2 >= 1 }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\complex_template.html 
+### ?? File: complex_template.html 
  
 <!DOCTYPE html>
 <html>
@@ -113,7 +113,7 @@
 </html>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\floats.html 
+### ?? File: floats.html 
  
 <p>{{ 3.14 }}</p>
 <p>{{ 12.5 }}</p>
@@ -122,7 +122,7 @@
 <p>{{ 1.5 + 2.5 }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\for_loop.html 
+### ?? File: for_loop.html 
  
 <ul>
 {% for item in items %}
@@ -135,7 +135,7 @@
 {% endfor %}
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\function_calls.html 
+### ?? File: function_calls.html 
  
 <p>{{ add(1, 2) }}</p>
 <p>{{ greet("hello") }}</p>
@@ -143,7 +143,7 @@
 <p>{{ func() }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\html_only.html 
+### ?? File: html_only.html 
  
 <!DOCTYPE html>
 <html>
@@ -160,7 +160,7 @@
 </html>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\if_elif_else.html 
+### ?? File: if_elif_else.html 
  
 {% if score >= 90 %}
 <p>Grade: A</p>
@@ -173,7 +173,7 @@
 {% endif %}
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\if_statement.html 
+### ?? File: if_statement.html 
  
 {% if logged_in %}
 <p>Welcome back!</p>
@@ -184,7 +184,7 @@
 {% endif %}
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\index_access.html 
+### ?? File: index_access.html 
  
 <p>{{ items[0] }}</p>
 <p>{{ matrix[1][2] }}</p>
@@ -192,7 +192,7 @@
 <p>{{ list[5] }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\mixed_attribute_index.html 
+### ?? File: mixed_attribute_index.html 
  
 <p>{{ foo()[0].name }}</p>
 <p>{{ user.posts[0].title }}</p>
@@ -200,7 +200,7 @@
 <p>{{ data.list[0].name }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\mixed_html_jinja.html 
+### ?? File: mixed_html_jinja.html 
  
 <!DOCTYPE html>
 <html>
@@ -226,34 +226,34 @@
 </html>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\nested_attributes.html 
+### ?? File: nested_attributes.html 
  
 <p>{{ user.address.city }}</p>
 <p>{{ user.profile.settings.theme }}</p>
 <p>{{ app.config.database.host }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\nested_calls.html 
+### ?? File: nested_calls.html 
  
 <p>{{ obj.get().name }}</p>
 <p>{{ outer(inner(1)).value }}</p>
 <p>{{ func1(func2(x)) }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\nested_indexing.html 
+### ?? File: nested_indexing.html 
  
 <p>{{ matrix[0][1] }}</p>
 <p>{{ data[1][2][3] }}</p>
 <p>{{ grid[x][y] }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\none.html 
+### ?? File: none.html 
  
 <p>{{ none }}</p>
 <p>{{ value or none }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\parentheses.html 
+### ?? File: parentheses.html 
  
 <p>{{ (1 + 2) * 3 }}</p>
 <p>{{ (x > 0) and flag }}</p>
@@ -261,7 +261,7 @@
 <p>{{ ((1 + 2) * 3) - 4 }}</p>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\test01.html 
+### ?? File: test01.html 
  
 <h1>{{ title }}</h1>
 
@@ -278,7 +278,7 @@
 {% endif %}
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\jinja\variables.html 
+### ?? File: variables.html 
  
 <h1>{{ name }}</h1>
 <p>{{ user }}</p>
@@ -286,9 +286,9 @@
 <span>{{ description }}</span>
  
 
-### ?? File: \Compiler\PyJinjaCompiler\input\python\allErrors.py 
+### ?? File: allErrors.py 
  
-def add(x, x):
+def add(x, x,x):
     return x
 
 
@@ -312,13 +312,13 @@ result = text + 5
 
 value = add(1) 
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\callVariable.py 
+### ?? File: callVariable.py 
  
 x = 5
 x()
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\correctProgram.py 
+### ?? File: correctProgram.py 
  
 def add(a, b):
     return a + b
@@ -331,7 +331,7 @@ sum = add(10, 20)
 for n in numbers:
     x = n 
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\duplicateFunction.py 
+### ?? File: duplicateFunction.py 
  
 def printValue():
     return 10
@@ -340,12 +340,12 @@ def printValue():
 def printValue():
     return 20 
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\duplicateParameter.py 
+### ?? File: duplicateParameter.py 
  
 def add(value, value):
     return value 
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\nonIterable.py 
+### ?? File: nonIterable.py 
  
 number = 5
 
@@ -353,7 +353,16 @@ for i in number:
     x = i
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\test01.py 
+### ?? File: test.py 
+ 
+if a:
+    x = 1
+elif b:
+    x = 2
+else:
+    x = 3 
+.
+### ?? File: test01.py 
  
 
 @app.route("/")
@@ -379,7 +388,7 @@ def index():
     return summary
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\test02.py 
+### ?? File: test02.py 
  
 # exercise_supported_syntax_fixed.py
 @app.route("/")
@@ -453,24 +462,24 @@ top_list = [1, 2, 3]
 top_dict = {"a": 1, b: 2}
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\typeMismatch.py 
+### ?? File: typeMismatch.py 
  
 name = "John"
 
 value = name + 5 
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\undefinedFunction.py 
+### ?? File: undefinedFunction.py 
  
 foo()
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\undefinedVariable.py 
+### ?? File: undefinedVariable.py 
  
 x = y
 
 print(x) 
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\userFunction.py 
+### ?? File: userFunction.py 
  
 def hello():
     return 1
@@ -478,7 +487,7 @@ def hello():
 hello()
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\input\python\wrongArguments.py 
+### ?? File: wrongArguments.py 
  
 def add(a, b):
     return a + b
@@ -486,16 +495,17 @@ def add(a, b):
 
 x = add(10) 
 .
-### ?? File: \Compiler\PyJinjaCompiler\out\production\PyJinjaCompiler\grammar\jinja\JinjaLexer.g4 
+### ?? File: JinjaLexer.g4 
  
 lexer grammar JinjaLexer;
 
-// Default mode - outside Jinja tags
-HTML_TEXT : (~[{] | '{' ~['{%#])+ ;
-
+// Jinja delimiters must come before HTML_TEXT to ensure they're matched first
 JINJA_EXPR_START : '{{' -> pushMode(JINJA_MODE);
 JINJA_STMT_START : '{%' -> pushMode(JINJA_MODE);
 JINJA_COMMENT_START : '{#' -> pushMode(COMMENT_MODE);
+
+// Default mode - outside Jinja tags
+HTML_TEXT : ( ~'{' | '{' ~[{%#] )+ ;
 
 // Jinja mode - inside {{ }} or {% %}
 mode JINJA_MODE;
@@ -549,10 +559,10 @@ WS : [ \t\r\n]+ -> skip;
 // Comment mode - inside {# }
 mode COMMENT_MODE;
 JINJA_COMMENT_END : '#}' -> popMode;
-COMMENT_TEXT : ~[#]+ ;
+COMMENT_TEXT : (~[#] | '#' ~[}]) ;
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\out\production\PyJinjaCompiler\grammar\jinja\JinjaParser.g4 
+### ?? File: JinjaParser.g4 
  
 parser grammar JinjaParser;
 
@@ -585,6 +595,8 @@ element
 // ===============================
 // {{ expression }}
 // ===============================
+
+
 expressionOutput
     : JINJA_EXPR_START expression=expr JINJA_EXPR_END
     ;
@@ -695,7 +707,7 @@ argList
     ;
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\out\production\PyJinjaCompiler\grammar\python\PythonLexer.g4 
+### ?? File: PythonLexer.g4 
  
 lexer grammar PythonLexer;
 
@@ -772,7 +784,7 @@ fragment DIGIT : [0-9];
 fragment ESC_SEQ : '\\' . ;
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\out\production\PyJinjaCompiler\grammar\python\PythonParser.g4 
+### ?? File: PythonParser.g4 
  
 parser grammar PythonParser;
 
@@ -862,7 +874,7 @@ dictItem
     ;
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\out\production\PyJinjaCompiler\grammar\python\test.g4 
+### ?? File: test.g4 
  
 parser grammar PythonParser;
 
@@ -1150,32 +1162,28 @@ comparisonExpression
 
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\Main.java 
+### ?? File: Main.java 
  
 import test.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-
-        System.out.println("jinja Lexer Testing");
-        Tester.testFile("input/Jinja/attribute_access.html",new JinjaLexerTest());
-        System.out.println("jinja Parser Testing");
-        Tester.testFile("input/Jinja/attribute_access.html",new JinjaParserTest());
-//        System.out.println("Python Lexer Testing");
-//        Tester.testFile("input/python/allErrors.py",new PythonLexerTest());
-//        System.out.println("Python Parser Testing");
-//        Tester.testFile("input/python/allErrors.py",new PythonParserTest());
+//        Tester.testFile("input/python/callVariable.py",new PythonLexerTest());
+//        Tester.testFile("input/python/callVariable.py",new PythonParserTest());
+//        Tester.testFolder("input/python","py",new PythonAnalyzerTest());
+//        Tester.testFolder("input/python","py",new PythonAstBuilderTest());
+//        Tester.testFolder("input/jinja",".html",new JinjaLexerTest());
+//        Tester.testFolder("input/jinja",".html",new JinjaParserTest());
+        Tester.testFile("input/jinja/complex_template.html",new JinjaAstBuilderTest());
     }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\AbstractAstNode.java 
+### ?? File: AbstractAstNode.java 
  
-package compiler.ast.python;
-
-import java.util.Objects;
+package compiler.ast.common;
 
 /**
- * Shared implementation for all AST nodes.
+ * Base implementation for AST nodes.
  */
 public abstract class AbstractAstNode implements AstNode {
 
@@ -1183,58 +1191,1298 @@ public abstract class AbstractAstNode implements AstNode {
     private final int line;
 
     protected AbstractAstNode(String nodeName, int line) {
-
-        this.nodeName = Objects.requireNonNull(nodeName);
+        this.nodeName = nodeName;
         this.line = line;
     }
 
     @Override
-    public final String getNodeName() {
+    public String getNodeName() {
         return nodeName;
     }
 
     @Override
-    public final int getLine() {
+    public int getLine() {
         return line;
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        return indent + getNodeName() + " [line " + getLine() + "]";
+    }
+}
+ 
+.
+### ?? File: AbstractExpression.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Base implementation for expression nodes.
+ */
+public abstract class AbstractExpression extends AbstractAstNode implements Expression {
+
+    protected AbstractExpression(String nodeName, int line) {
+        super(nodeName, line);
+    }
+}
+ 
+.
+### ?? File: Argument.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Base interface for function arguments.
+ */
+public interface Argument extends AstNode {
+}
+ 
+.
+### ?? File: AstNode.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Base interface for all AST nodes.
+ */
+public interface AstNode extends PrettyPrintable {
+
+    /**
+     * Node type name.
+     */
+    String getNodeName();
+
+    /**
+     * Source line.
+     */
+    int getLine();
+
+    /**
+     * Visitor entry.
+     */
+    <T> T accept(AstVisitor<T> visitor);
+
+}
+ 
+.
+### ?? File: AstVisitor.java 
+ 
+package compiler.ast.common;
+
+import compiler.ast.python.*;
+import compiler.ast.jinja.*;
+
+/**
+ * Generic visitor for the entire compiler AST.
+ * Supports both Python-specific and common expression nodes, plus
+ * Jinja-specific template nodes.
+ */
+public interface AstVisitor<T> {
+
+    // Common expression nodes
+    T visitIdentifier(Identifier node);
+
+    T visitIntegerLiteral(IntegerLiteral node);
+
+    T visitFloatLiteral(FloatLiteral node);
+
+    T visitStringLiteral(StringLiteral node);
+
+    T visitBooleanLiteral(BooleanLiteral node);
+
+    T visitNoneLiteral(NoneLiteral node);
+
+    T visitBinaryExpr(BinaryExpr node);
+
+    T visitUnaryExpr(UnaryExpr node);
+
+    T visitCallExpr(CallExpr node);
+
+    T visitAttributeAccess(AttributeAccess node);
+
+    T visitIndexAccess(IndexAccess node);
+
+    T visitPositionalArgument(PositionalArgument node);
+
+    T visitKeywordArgument(KeywordArgument node);
+
+    // Python-specific nodes
+    T visitProgram(Program node);
+
+    T visitListExpr(ListExpr node);
+
+    T visitDictExpr(DictExpr node);
+
+    T visitDictEntry(DictEntry node);
+
+    T visitForStmt(ForStmt node);
+
+    T visitAssign(Assign node);
+
+    T visitExprStmt (ExprStmt node);
+
+    T visitElifClause(ElifClause node);
+
+    T visitReturnStmt(ReturnStmt node);
+
+    T visitFunctionParameter(FunctionParameter node);
+
+    T visitDecorator(Decorator node);
+
+    T visitIfStmt(IfStmt node);
+
+    T visitElseClause(ElseClause node);
+
+    T visitWhileStmt(WhileStmt node);
+
+    T visitFunctionDef(FunctionDef node);
+
+    // Jinja-specific nodes
+    T visitTemplate(Template node);
+
+    T visitHtmlText(HtmlText node);
+
+    T visitExpressionOutput(ExpressionOutput node);
+
+    T visitJinjaIfStmt(JinjaIfStmt node);
+
+    T visitJinjaElifClause(JinjaElifClause node);
+
+    T visitJinjaElseClause(JinjaElseClause node);
+
+    T visitJinjaForStmt(JinjaForStmt node);
+}
+ 
+.
+### ?? File: AttributeAccess.java 
+ 
+package compiler.ast.common;
+
+import java.util.Objects;
+
+/**
+ * obj.attribute
+ */
+public final class AttributeAccess extends AbstractExpression {
+
+    private final Expression target;
+
+    private final String attribute;
+
+    public AttributeAccess(
+            int line,
+            Expression target,
+            String attribute) {
+
+        super("AttributeAccess", line);
+
+        this.target = Objects.requireNonNull(target);
+        this.attribute = Objects.requireNonNull(attribute);
+    }
+
+    public Expression getTarget() {
+        return target;
+    }
+
+    public String getAttribute() {
+        return attribute;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitAttributeAccess(this);
+    }
+
+}
+ 
+.
+### ?? File: BinaryExpr.java 
+ 
+package compiler.ast.common;
+
+import java.util.Objects;
+
+/**
+ * Binary expression.
+ */
+public final class BinaryExpr extends AbstractExpression {
+
+    private final Expression left;
+
+    private final BinaryOperator operator;
+
+    private final Expression right;
+
+    public BinaryExpr(
+            int line,
+            Expression left,
+            BinaryOperator operator,
+            Expression right) {
+
+        super("BinaryExpr", line);
+
+        this.left = Objects.requireNonNull(left);
+        this.operator = Objects.requireNonNull(operator);
+        this.right = Objects.requireNonNull(right);
+    }
+
+    public Expression getLeft() {
+        return left;
+    }
+
+    public BinaryOperator getOperator() {
+        return operator;
+    }
+
+    public Expression getRight() {
+        return right;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitBinaryExpr(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        String child = indent + "  ";
+
+        return indent + "BinaryExpr (" + operator + ") [line " + getLine() + "]\n"
+                + left.prettyPrint(child) + "\n"
+                + right.prettyPrint(child);
+    }
+
+}
+ 
+.
+### ?? File: BinaryOperator.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Supported binary operators.
+ */
+public enum BinaryOperator {
+
+    OR,
+
+    AND,
+
+    EQ,
+    NE,
+    LT,
+    LE,
+    GT,
+    GE,
+
+    ADD,
+    SUBTRACT,
+
+    MULTIPLY,
+    DIVIDE,
+    MODULO
+
+}
+ 
+.
+### ?? File: BooleanLiteral.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Boolean literal.
+ */
+public final class BooleanLiteral
+        extends LiteralExpression {
+
+    private final boolean value;
+
+    public BooleanLiteral(int line, boolean value) {
+
+        super("BooleanLiteral", line);
+
+        this.value = value;
+    }
+
+    public boolean getValue() {
+        return value;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitBooleanLiteral(this);
     }
 
     @Override
     public String prettyPrint(String indent) {
 
         return indent +
-                nodeName +
-                " (line " +
-                line +
-                ")";
+                getNodeName() +
+                " (" +
+                value +
+                ") [line " +
+                getLine() +
+                "]";
+    }
+
+}
+ 
+.
+### ?? File: CallExpr.java 
+ 
+package compiler.ast.common;
+
+import java.util.List;
+import java.util.Objects;
+
+public final class CallExpr extends AbstractExpression {
+
+    private final Expression callee;
+
+    private final List<Argument> arguments;
+
+    public CallExpr(
+            int line,
+            Expression callee,
+            List<Argument> arguments) {
+
+        super("CallExpr", line);
+
+        this.callee = Objects.requireNonNull(callee);
+        this.arguments = List.copyOf(arguments);
+    }
+
+    public Expression getCallee() {
+        return callee;
+    }
+
+    public List<Argument> getArguments() {
+        return arguments;
     }
 
     @Override
-    public String toString() {
-        return prettyPrint("");
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitCallExpr(this);
     }
 
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\AbstractExpression.java 
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("CallExpr (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Callee");
+        sb.append("\n").append(callee.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Arguments");
+        if (arguments.isEmpty()) {
+            sb.append(" []");
+        } else {
+            for (Argument arg : arguments) {
+                sb.append("\n").append(arg.prettyPrint(indent + "    "));
+            }
+        }
+        return sb.toString();
+    }
+
+
+}
  
-package compiler.ast.python;
+.
+### ?? File: Expression.java 
+ 
+package compiler.ast.common;
 
 /**
- * Base class for all expression nodes.
+ * Marker interface for expressions.
  */
-public abstract class AbstractExpression
-        extends AbstractAstNode
-        implements Expression {
+public interface Expression extends AstNode {
+}
+ 
+.
+### ?? File: FloatLiteral.java 
+ 
+package compiler.ast.common;
 
-    protected AbstractExpression(String nodeName, int line) {
+/**
+ * Floating-point literal.
+ */
+public final class FloatLiteral
+        extends LiteralExpression {
+
+    private final double value;
+
+    public FloatLiteral(int line, double value) {
+
+        super("FloatLiteral", line);
+
+        this.value = value;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitFloatLiteral(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        return indent +
+                getNodeName() +
+                " (" +
+                value +
+                ") [line " +
+                getLine() +
+                "]";
+    }
+
+}
+ 
+.
+### ?? File: Identifier.java 
+ 
+package compiler.ast.common;
+
+import java.util.Objects;
+
+/**
+ * Identifier expression.
+ */
+public final class Identifier extends AbstractExpression {
+
+    private final String name;
+
+    public Identifier(int line, String name) {
+
+        super("Identifier", line);
+
+        this.name = Objects.requireNonNull(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitIdentifier(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        return indent +
+                getNodeName() +
+                " (" +
+                name +
+                ") [line " +
+                getLine() +
+                "]";
+    }
+
+}
+ 
+.
+### ?? File: IndexAccess.java 
+ 
+package compiler.ast.common;
+
+import java.util.Objects;
+
+/**
+ * target[index]
+ */
+public final class IndexAccess extends AbstractExpression {
+
+    private final Expression target;
+
+    private final Expression index;
+
+    public IndexAccess(
+            int line,
+            Expression target,
+            Expression index) {
+
+        super("IndexAccess", line);
+
+        this.target = Objects.requireNonNull(target);
+        this.index = Objects.requireNonNull(index);
+    }
+
+    public Expression getTarget() {
+        return target;
+    }
+
+    public Expression getIndex() {
+        return index;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitIndexAccess(this);
+    }
+
+}
+ 
+.
+### ?? File: IntegerLiteral.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Integer literal.
+ */
+public final class IntegerLiteral
+        extends LiteralExpression {
+
+    private final long value;
+
+    public IntegerLiteral(int line, long value) {
+
+        super("IntegerLiteral", line);
+
+        this.value = value;
+    }
+
+    public long getValue() {
+        return value;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitIntegerLiteral(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        return indent +
+                getNodeName() +
+                " (" +
+                value +
+                ") [line " +
+                getLine() +
+                "]";
+    }
+
+}
+ 
+.
+### ?? File: KeywordArgument.java 
+ 
+package compiler.ast.common;
+
+import java.util.Objects;
+
+public final class KeywordArgument extends AbstractAstNode implements Argument {
+
+    private final String name;
+
+    private final Expression value;
+
+    public KeywordArgument(
+            int line,
+            String name,
+            Expression value) {
+
+        super("KeywordArgument", line);
+
+        this.name = Objects.requireNonNull(name);
+        this.value = Objects.requireNonNull(value);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Expression getValue() {
+        return value;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitKeywordArgument(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("KeywordArgument (").append(name).append(") [line ").append(getLine()).append("]");
+        sb.append("\n").append(value.prettyPrint(indent + "  "));
+        return sb.toString();
+    }
+
+}
+ 
+.
+### ?? File: LiteralExpression.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Base class for all literal expressions.
+ *
+ * Examples:
+ * - Integer
+ * - Float
+ * - String
+ * - Boolean
+ * - None
+ * - List
+ * - Dictionary
+ */
+public abstract class LiteralExpression
+        extends AbstractExpression {
+
+    protected LiteralExpression(
+            String nodeName,
+            int line) {
+
         super(nodeName, line);
     }
 
-} 
+}
+ 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\AbstractStatement.java 
+### ?? File: NoneLiteral.java 
+ 
+package compiler.ast.common;
+
+/**
+ * None literal.
+ */
+public final class NoneLiteral
+        extends LiteralExpression {
+
+    public NoneLiteral(int line) {
+        super("NoneLiteral", line);
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitNoneLiteral(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        return indent +
+                getNodeName() +
+                " [line " +
+                getLine() +
+                "]";
+    }
+
+}
+ 
+.
+### ?? File: PositionalArgument.java 
+ 
+package compiler.ast.common;
+
+import java.util.Objects;
+
+public final class PositionalArgument extends AbstractAstNode implements Argument {
+
+    private final Expression value;
+
+    public PositionalArgument(int line, Expression value) {
+
+        super("PositionalArgument", line);
+
+        this.value = Objects.requireNonNull(value);
+    }
+
+    public Expression getValue() {
+        return value;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitPositionalArgument(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("PositionalArgument (line ").append(getLine()).append(")");
+        sb.append("\n").append(value.prettyPrint(indent + "  "));
+        return sb.toString();
+    }
+
+
+}
+ 
+.
+### ?? File: PrettyPrintable.java 
+ 
+package compiler.ast.common;
+
+/**
+ * Represents an AST node that can print itself in a readable tree format.
+ */
+public interface PrettyPrintable {
+
+    String prettyPrint(String indent);
+
+}
+ 
+.
+### ?? File: StringLiteral.java 
+ 
+package compiler.ast.common;
+
+import java.util.Objects;
+
+/**
+ * String literal.
+ */
+public final class StringLiteral
+        extends LiteralExpression {
+
+    private final String value;
+
+    public StringLiteral(int line, String value) {
+
+        super("StringLiteral", line);
+
+        this.value = Objects.requireNonNull(value);
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitStringLiteral(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        return indent +
+                getNodeName() +
+                " (\"" +
+                value +
+                "\") [line " +
+                getLine() +
+                "]";
+    }
+
+}
+ 
+.
+### ?? File: UnaryExpr.java 
+ 
+package compiler.ast.common;
+
+
+public class UnaryExpr extends AbstractExpression  {
+
+    private  final UnaryOperator operator;
+    private final Expression expr;
+    public UnaryExpr(
+            int line,
+            UnaryOperator operator,
+            Expression expr
+    ){
+
+        super("UnaryExpr", line);
+        this.operator = operator;
+        this.expr = expr;
+    }
+
+    public UnaryOperator getOperator() {
+        return operator;
+    }
+
+    public Expression getExpr() {
+        return expr;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitUnaryExpr(this);
+    }
+
+}
+ 
+.
+### ?? File: UnaryOperator.java 
+ 
+package compiler.ast.common;
+
+public enum UnaryOperator {
+    PLUS,
+    MINUS,
+    NOT
+}
+ 
+.
+### ?? File: AbstractTemplateElement.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AbstractAstNode;
+
+/**
+ * Base class for all Jinja template element nodes
+ * (the Jinja-tree equivalent of AbstractStatement.java on the Python side).
+ */
+public abstract class AbstractTemplateElement
+        extends AbstractAstNode
+        implements TemplateElement {
+
+    protected AbstractTemplateElement(String nodeName, int line) {
+        super(nodeName, line);
+    }
+
+}
+ 
+.
+### ?? File: ExpressionOutput.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+
+import java.util.Objects;
+
+/**
+ * A {{ expression }} output tag. Wraps the expression that should be
+ * evaluated and substituted into the rendered output.
+ */
+public final class ExpressionOutput extends AbstractTemplateElement {
+
+    private final Expression expression;
+
+    public ExpressionOutput(int line, Expression expression) {
+
+        super("ExpressionOutput", line);
+
+        this.expression = Objects.requireNonNull(expression);
+    }
+
+    public Expression getExpression() {
+        return expression;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitExpressionOutput(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("ExpressionOutput (line ").append(getLine()).append(")");
+        sb.append("\n").append(expression.prettyPrint(indent + "  "));
+        return sb.toString();
+    }
+
+}
+ 
+.
+### ?? File: HtmlText.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AstVisitor;
+
+import java.util.Objects;
+
+/**
+ * Raw HTML/text content that sits between Jinja tags (the HTML_TEXT token
+ * from the Jinja lexer). A leaf node in the Jinja AST.
+ */
+public final class HtmlText extends AbstractTemplateElement {
+
+    private final String text;
+
+    public HtmlText(int line, String text) {
+
+        super("HtmlText", line);
+
+        this.text = Objects.requireNonNull(text);
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitHtmlText(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        String preview = text.replace("\n", "\\n").replace("\r", "");
+        if (preview.length() > 40) {
+            preview = preview.substring(0, 40) + "...";
+        }
+
+        return indent +
+                getNodeName() +
+                " (\"" +
+                preview +
+                "\") [line " +
+                getLine() +
+                "]";
+    }
+
+}
+ 
+.
+### ?? File: JinjaElifClause.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * {% elif condition %} body (the Jinja-tree equivalent of ElifClause.java).
+ */
+public final class JinjaElifClause extends AbstractTemplateElement {
+
+    private final Expression condition;
+
+    private final List<TemplateElement> body;
+
+    public JinjaElifClause(
+            int line,
+            Expression condition,
+            List<TemplateElement> body) {
+
+        super("JinjaElifClause", line);
+
+        this.condition =
+                Objects.requireNonNull(condition);
+
+        this.body =
+                List.copyOf(body);
+    }
+
+    public Expression getCondition() {
+        return condition;
+    }
+
+    public List<TemplateElement> getBody() {
+        return body;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitJinjaElifClause(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("JinjaElifClause (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Condition");
+        sb.append("\n").append(condition.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Body");
+        for (TemplateElement element : body) {
+            sb.append("\n").append(element.prettyPrint(indent + "    "));
+        }
+        return sb.toString();
+    }
+}
+ 
+.
+### ?? File: JinjaElseClause.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AstVisitor;
+
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * {% else %} body (the Jinja-tree equivalent of ElseClause.java).
+ */
+public final class JinjaElseClause extends AbstractTemplateElement {
+
+    private final List<TemplateElement> body;
+
+    public JinjaElseClause(
+            int line,
+            List<TemplateElement> body) {
+
+        super("JinjaElseClause", line);
+
+        this.body = List.copyOf(
+                Objects.requireNonNull(body));
+    }
+
+    public List<TemplateElement> getBody() {
+        return body;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitJinjaElseClause(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("JinjaElseClause (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Body");
+        for (TemplateElement element : body) {
+            sb.append("\n").append(element.prettyPrint(indent + "    "));
+        }
+        return sb.toString();
+    }
+}
+ 
+.
+### ?? File: JinjaForStmt.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+import compiler.ast.common.Identifier;
+
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * {% for variable in iterable %} body {% endfor %}
+ * (the Jinja-tree equivalent of ForStmt.java on the Python side).
+ */
+public final class JinjaForStmt extends AbstractTemplateElement {
+
+    private final Identifier variable;
+
+    private final Expression iterable;
+
+    private final List<TemplateElement> body;
+
+    public JinjaForStmt(
+            int line,
+            Identifier variable,
+            Expression iterable,
+            List<TemplateElement> body) {
+
+        super("JinjaForStmt", line);
+
+        this.variable =
+                Objects.requireNonNull(variable);
+
+        this.iterable =
+                Objects.requireNonNull(iterable);
+
+        this.body =
+                List.copyOf(body);
+    }
+
+    public Identifier getVariable() {
+        return variable;
+    }
+
+    public Expression getIterable() {
+        return iterable;
+    }
+
+    public List<TemplateElement> getBody() {
+        return body;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitJinjaForStmt(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("JinjaForStmt (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Variable");
+        sb.append("\n").append(variable.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Iterable");
+        sb.append("\n").append(iterable.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Body");
+        for (TemplateElement element : body) {
+            sb.append("\n").append(element.prettyPrint(indent + "    "));
+        }
+        return sb.toString();
+    }
+
+}
+ 
+.
+### ?? File: JinjaIfStmt.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * {% if condition %} thenBody {% elif ... %} ... {% else %} ... {% endif %}
+ * (the Jinja-tree equivalent of IfStmt.java on the Python side).
+ */
+public final class JinjaIfStmt extends AbstractTemplateElement {
+
+    private final Expression condition;
+
+    private final List<TemplateElement> thenBody;
+
+    private final List<JinjaElifClause> elifClauses;
+
+    private final JinjaElseClause elseClause;
+
+    public JinjaIfStmt(
+            int line,
+            Expression condition,
+            List<TemplateElement> thenBody,
+            List<JinjaElifClause> elifClauses,
+            JinjaElseClause elseClause) {
+
+        super("JinjaIfStmt", line);
+
+        this.condition = Objects.requireNonNull(condition);
+        this.thenBody = List.copyOf(
+                Objects.requireNonNull(thenBody));
+        this.elifClauses = List.copyOf(
+                Objects.requireNonNull(elifClauses));
+        this.elseClause = elseClause; // Can be null
+    }
+
+    public Expression getCondition() {
+        return condition;
+    }
+
+    public List<TemplateElement> getThenBody() {
+        return thenBody;
+    }
+
+    public List<JinjaElifClause> getElifClauses() {
+        return elifClauses;
+    }
+
+    public JinjaElseClause getElseClause() {
+        return elseClause;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitJinjaIfStmt(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("JinjaIfStmt (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Condition");
+        sb.append("\n").append(condition.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  ThenBody");
+        for (TemplateElement element : thenBody) {
+            sb.append("\n").append(element.prettyPrint(indent + "    "));
+        }
+        for (JinjaElifClause elif : elifClauses) {
+            sb.append("\n").append(elif.prettyPrint(indent + "  "));
+        }
+        if (elseClause != null) {
+            sb.append("\n").append(elseClause.prettyPrint(indent + "  "));
+        }
+        return sb.toString();
+    }
+}
+ 
+.
+### ?? File: Template.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AbstractAstNode;
+import compiler.ast.common.AstVisitor;
+
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * Root of the Jinja AST (the Jinja-tree equivalent of Program.java on the
+ * Python side). Holds the ordered sequence of top-level template elements:
+ * raw HTML text, {{ expression }} outputs, {% if %} blocks and {% for %} blocks.
+ */
+public final class Template extends AbstractAstNode {
+
+    private final List<TemplateElement> elements;
+
+    public Template(
+            int line,
+            List<TemplateElement> elements) {
+
+        super("Template", line);
+
+        this.elements = List.copyOf(
+                Objects.requireNonNull(elements));
+    }
+
+    public List<TemplateElement> getElements() {
+        return elements;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitTemplate(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(super.prettyPrint(indent));
+
+        for (TemplateElement element : elements) {
+
+            builder.append(System.lineSeparator())
+                    .append(element.prettyPrint(indent + "  "));
+        }
+
+        return builder.toString();
+    }
+
+}
+ 
+.
+### ?? File: TemplateElement.java 
+ 
+package compiler.ast.jinja;
+
+import compiler.ast.common.AstNode;
+
+/**
+ * Marker interface for Jinja template elements
+ * (the Jinja-tree equivalent of Statement.java on the Python side).
+ */
+public interface TemplateElement extends AstNode {
+}
+ 
+.
+### ?? File: AbstractStatement.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AbstractAstNode;
 
 /**
  * Base class for all statement nodes.
@@ -1249,19 +2497,12 @@ public abstract class AbstractStatement
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\Argument.java 
+### ?? File: Assign.java 
  
 package compiler.ast.python;
 
-/**
- * Base interface for function arguments.
- */
-public interface Argument extends AstNode {
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\Assign.java 
- 
-package compiler.ast.python;
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
 
 import java.util.List;
 import java.util.Objects;
@@ -1330,325 +2571,14 @@ public final class Assign extends AbstractStatement {
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\AstNode.java 
+### ?? File: Decorator.java 
  
 package compiler.ast.python;
 
-/**
- * Base interface for all Python AST nodes.
- */
-public interface AstNode extends PrettyPrintable {
-
-    /**
-     * Node type name.
-     */
-    String getNodeName();
-
-    /**
-     * Source line.
-     */
-    int getLine();
-
-    /**
-     * Visitor entry.
-     */
-    <T> T accept(AstVisitor<T> visitor);
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\AstVisitor.java 
- 
-package compiler.ast.python;
-
-/**
- * Generic visitor for Python AST.
- */
-public interface AstVisitor<T> {
-
-    T visitProgram(Program node);
-
-    T visitIdentifier(Identifier node);
-
-    T visitIntegerLiteral(IntegerLiteral node);
-
-    T visitFloatLiteral(FloatLiteral node);
-
-    T visitStringLiteral(StringLiteral node);
-
-    T visitBooleanLiteral(BooleanLiteral node);
-
-    T visitNoneLiteral(NoneLiteral node);
-
-    T visitListExpr(ListExpr node);
-
-    T visitDictExpr(DictExpr node);
-
-    T visitDictEntry(DictEntry node);
-
-    T visitPositionalArgument(PositionalArgument node);
-
-    T visitIndexAccess(IndexAccess node);
-
-    T visitKeywordArgument(KeywordArgument node);
-
-    T visitAttributeAccess(AttributeAccess node);
-
-    T visitCallExpr(CallExpr node);
-
-    T visitBinaryExpr(BinaryExpr node);
-
-    T visitForStmt(ForStmt node);
-
-    T visitAssign(Assign node);
-
-    T visitExprStmt (ExprStmt node);
-
-    T visitElifClause(ElifClause node);
-
-    T visitReturnStmt(ReturnStmt node);
-
-    T visitFunctionParameter(FunctionParameter node);
-
-    T visitDecorator(Decorator node);
-
-    T visitIfStmt(IfStmt node);
-
-    T visitWhileStmt(WhileStmt node);
-
-    T visitFunctionDef(FunctionDef node);
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\AttributeAccess.java 
- 
-package compiler.ast.python;
-
-import java.util.Objects;
-
-/**
- * obj.attribute
- */
-public final class AttributeAccess extends AbstractExpression {
-
-    private final Expression target;
-
-    private final String attribute;
-
-    public AttributeAccess(
-            int line,
-            Expression target,
-            String attribute) {
-
-        super("AttributeAccess", line);
-
-        this.target = Objects.requireNonNull(target);
-        this.attribute = Objects.requireNonNull(attribute);
-    }
-
-    public Expression getTarget() {
-        return target;
-    }
-
-    public String getAttribute() {
-        return attribute;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitAttributeAccess(this);
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\BinaryExpr.java 
- 
-package compiler.ast.python;
-
-import java.util.Objects;
-
-/**
- * Binary expression.
- */
-public final class BinaryExpr extends AbstractExpression {
-
-    private final Expression left;
-
-    private final BinaryOperator operator;
-
-    private final Expression right;
-
-    public BinaryExpr(
-            int line,
-            Expression left,
-            BinaryOperator operator,
-            Expression right) {
-
-        super("BinaryExpr", line);
-
-        this.left = Objects.requireNonNull(left);
-        this.operator = Objects.requireNonNull(operator);
-        this.right = Objects.requireNonNull(right);
-    }
-
-    public Expression getLeft() {
-        return left;
-    }
-
-    public BinaryOperator getOperator() {
-        return operator;
-    }
-
-    public Expression getRight() {
-        return right;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitBinaryExpr(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-
-        String child = indent + "  ";
-
-        return indent + "BinaryExpr (" + operator + ") [line " + getLine() + "]\n"
-                + left.prettyPrint(child) + "\n"
-                + right.prettyPrint(child);
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\BinaryOperator.java 
- 
-package compiler.ast.python;
-
-/**
- * Supported binary operators.
- */
-public enum BinaryOperator {
-
-    OR,
-
-    AND,
-
-    EQ,
-    NE,
-    LT,
-    LE,
-    GT,
-    GE,
-
-    ADD,
-    SUBTRACT,
-
-    MULTIPLY,
-    DIVIDE,
-    MODULO
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\BooleanLiteral.java 
- 
-package compiler.ast.python;
-
-/**
- * Boolean literal.
- */
-public final class BooleanLiteral
-        extends LiteralExpression {
-
-    private final boolean value;
-
-    public BooleanLiteral(int line, boolean value) {
-
-        super("BooleanLiteral", line);
-
-        this.value = value;
-    }
-
-    public boolean getValue() {
-        return value;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitBooleanLiteral(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-
-        return indent +
-                getNodeName() +
-                " (" +
-                value +
-                ") [line " +
-                getLine() +
-                "]";
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\CallExpr.java 
- 
-package compiler.ast.python;
-
-import java.util.List;
-import java.util.Objects;
-
-public final class CallExpr extends AbstractExpression {
-
-    private final Expression callee;
-
-    private final List<Argument> arguments;
-
-    public CallExpr(
-            int line,
-            Expression callee,
-            List<Argument> arguments) {
-
-        super("CallExpr", line);
-
-        this.callee = Objects.requireNonNull(callee);
-        this.arguments = List.copyOf(arguments);
-    }
-
-    public Expression getCallee() {
-        return callee;
-    }
-
-    public List<Argument> getArguments() {
-        return arguments;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitCallExpr(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(indent).append("CallExpr (line ").append(getLine()).append(")");
-        sb.append("\n").append(indent).append("  Callee");
-        sb.append("\n").append(callee.prettyPrint(indent + "    "));
-        sb.append("\n").append(indent).append("  Arguments");
-        if (arguments.isEmpty()) {
-            sb.append(" []");
-        } else {
-            for (Argument arg : arguments) {
-                sb.append("\n").append(arg.prettyPrint(indent + "    "));
-            }
-        }
-        return sb.toString();
-    }
-
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\Decorator.java 
- 
-package compiler.ast.python;
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.AbstractAstNode;
+import compiler.ast.common.Argument;
+import compiler.ast.common.Expression;
 
 import java.util.List;
 import java.util.Objects;
@@ -1706,9 +2636,13 @@ public final class Decorator extends AbstractAstNode {
     }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\DictEntry.java 
+### ?? File: DictEntry.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.AbstractAstNode;
+import compiler.ast.common.Expression;
 
 import java.util.Objects;
 
@@ -1756,9 +2690,12 @@ public final class DictEntry extends AbstractAstNode {
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\DictExpr.java 
+### ?? File: DictExpr.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.LiteralExpression;
 
 import java.util.List;
 import java.util.Objects;
@@ -1812,15 +2749,17 @@ public final class DictExpr extends LiteralExpression {
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\ElifClause.java 
+### ?? File: ElifClause.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
 
 import java.util.List;
 import java.util.Objects;
 
-public final class ElifClause
-        extends AbstractAstNode {
+public final class ElifClause extends AbstractStatement {
 
     private final Expression condition;
 
@@ -1853,21 +2792,74 @@ public final class ElifClause
         return visitor.visitElifClause(this);
     }
 
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("ElifClause (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Condition");
+        sb.append("\n").append(condition.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  Body");
+        for (Statement stmt : body) {
+            sb.append("\n").append(stmt.prettyPrint(indent + "    "));
+        }
+        return sb.toString();
+    }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\Expression.java 
+### ?? File: ElseClause.java 
  
 package compiler.ast.python;
 
+import compiler.ast.common.AstVisitor;
+
+import java.util.List;
+import java.util.Objects;
+
 /**
- * Marker interface for expressions.
+ * Else clause for if statements.
  */
-public interface Expression extends AstNode {
-} 
+public final class ElseClause extends AbstractStatement {
+
+    private final List<Statement> body;
+
+    public ElseClause(
+            int line,
+            List<Statement> body) {
+
+        super("ElseClause", line);
+
+        this.body = List.copyOf(
+                Objects.requireNonNull(body));
+    }
+
+    public List<Statement> getBody() {
+        return body;
+    }
+
+    @Override
+    public <T> T accept(AstVisitor<T> visitor) {
+        return visitor.visitElseClause(this);
+    }
+
+    @Override
+    public String prettyPrint(String indent) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(indent).append("ElseClause (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Body");
+        for (Statement stmt : body) {
+            sb.append("\n").append(stmt.prettyPrint(indent + "    "));
+        }
+        return sb.toString();
+    }
+}
+ 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\ExprStmt.java 
+### ?? File: ExprStmt.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
 
 import java.util.Objects;
 
@@ -1918,51 +2910,13 @@ public final class ExprStmt extends AbstractStatement {
     }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\FloatLiteral.java 
+### ?? File: ForStmt.java 
  
 package compiler.ast.python;
 
-/**
- * Floating-point literal.
- */
-public final class FloatLiteral
-        extends LiteralExpression {
-
-    private final double value;
-
-    public FloatLiteral(int line, double value) {
-
-        super("FloatLiteral", line);
-
-        this.value = value;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitFloatLiteral(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-
-        return indent +
-                getNodeName() +
-                " (" +
-                value +
-                ") [line " +
-                getLine() +
-                "]";
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\ForStmt.java 
- 
-package compiler.ast.python;
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+import compiler.ast.common.Identifier;
 
 import java.util.List;
 import java.util.Objects;
@@ -1970,7 +2924,7 @@ import java.util.Objects;
 public final class ForStmt
         extends AbstractStatement {
 
-    private final String variable;
+    private final Identifier variable;
 
     private final Expression iterable;
 
@@ -1978,7 +2932,7 @@ public final class ForStmt
 
     public ForStmt(
             int line,
-            String variable,
+            Identifier variable,
             Expression iterable,
             List<Statement> body) {
 
@@ -1994,7 +2948,7 @@ public final class ForStmt
                 List.copyOf(body);
     }
 
-    public String getVariable() {
+    public Identifier getVariable() {
         return variable;
     }
 
@@ -2016,7 +2970,8 @@ public final class ForStmt
     public String prettyPrint(String indent) {
         StringBuilder sb = new StringBuilder();
         sb.append(indent).append("ForStmt (line ").append(getLine()).append(")");
-        sb.append("\n").append(indent).append("  Variable: ").append(variable);
+        sb.append("\n").append(indent).append("  Variable");
+        sb.append("\n").append(variable.prettyPrint(indent + "    "));
         sb.append("\n").append(indent).append("  Iterable");
         sb.append("\n").append(iterable.prettyPrint(indent + "    "));
         sb.append("\n").append(indent).append("  Body");
@@ -2028,9 +2983,11 @@ public final class ForStmt
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\FunctionDef.java 
+### ?? File: FunctionDef.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
 
 import java.util.List;
 import java.util.Objects;
@@ -2136,9 +3093,12 @@ public final class FunctionDef extends AbstractStatement {
     }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\FunctionParameter.java 
+### ?? File: FunctionParameter.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.AbstractAstNode;
 
 import java.util.Objects;
 
@@ -2177,52 +3137,12 @@ public final class FunctionParameter extends AbstractAstNode {
     }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\Identifier.java 
+### ?? File: IfStmt.java 
  
 package compiler.ast.python;
 
-import java.util.Objects;
-
-/**
- * Identifier expression.
- */
-public final class Identifier extends AbstractExpression {
-
-    private final String name;
-
-    public Identifier(int line, String name) {
-
-        super("Identifier", line);
-
-        this.name = Objects.requireNonNull(name);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitIdentifier(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-
-        return indent +
-                getNodeName() +
-                " (" +
-                name +
-                ") [line " +
-                getLine() +
-                "]";
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\IfStmt.java 
- 
-package compiler.ast.python;
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
 
 import java.util.List;
 import java.util.Objects;
@@ -2235,14 +3155,14 @@ public final class IfStmt extends AbstractStatement {
 
     private final List<ElifClause> elifClauses;
 
-    private final List<Statement> elseBody;
+    private final ElseClause elseClause;
 
     public IfStmt(
             int line,
             Expression condition,
             List<Statement> thenBody,
             List<ElifClause> elifClauses,
-            List<Statement> elseBody) {
+            ElseClause elseClause) {
 
         super("IfStmt", line);
 
@@ -2251,8 +3171,7 @@ public final class IfStmt extends AbstractStatement {
                 Objects.requireNonNull(thenBody));
         this.elifClauses = List.copyOf(
                 Objects.requireNonNull(elifClauses));
-        this.elseBody = List.copyOf(
-                Objects.requireNonNull(elseBody));
+        this.elseClause = elseClause; // Can be null
     }
 
     public Expression getCondition() {
@@ -2267,148 +3186,42 @@ public final class IfStmt extends AbstractStatement {
         return elifClauses;
     }
 
-    public List<Statement> getElseBody() {
-        return elseBody;
+    public ElseClause getElseClause() {
+        return elseClause;
     }
 
     @Override
     public <T> T accept(AstVisitor<T> visitor) {
         return visitor.visitIfStmt(this);
     }
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\IndexAccess.java 
- 
-package compiler.ast.python;
-
-import java.util.Objects;
-
-/**
- * target[index]
- */
-public final class IndexAccess extends AbstractExpression {
-
-    private final Expression target;
-
-    private final Expression index;
-
-    public IndexAccess(
-            int line,
-            Expression target,
-            Expression index) {
-
-        super("IndexAccess", line);
-
-        this.target = Objects.requireNonNull(target);
-        this.index = Objects.requireNonNull(index);
-    }
-
-    public Expression getTarget() {
-        return target;
-    }
-
-    public Expression getIndex() {
-        return index;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitIndexAccess(this);
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\IntegerLiteral.java 
- 
-package compiler.ast.python;
-
-/**
- * Integer literal.
- */
-public final class IntegerLiteral
-        extends LiteralExpression {
-
-    private final long value;
-
-    public IntegerLiteral(int line, long value) {
-
-        super("IntegerLiteral", line);
-
-        this.value = value;
-    }
-
-    public long getValue() {
-        return value;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitIntegerLiteral(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-
-        return indent +
-                getNodeName() +
-                " (" +
-                value +
-                ") [line " +
-                getLine() +
-                "]";
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\KeywordArgument.java 
- 
-package compiler.ast.python;
-
-import java.util.Objects;
-
-public final class KeywordArgument extends AbstractAstNode implements Argument {
-
-    private final String name;
-
-    private final Expression value;
-
-    public KeywordArgument(
-            int line,
-            String name,
-            Expression value) {
-
-        super("KeywordArgument", line);
-
-        this.name = Objects.requireNonNull(name);
-        this.value = Objects.requireNonNull(value);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Expression getValue() {
-        return value;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitKeywordArgument(this);
-    }
 
     @Override
     public String prettyPrint(String indent) {
         StringBuilder sb = new StringBuilder();
-        sb.append(indent).append("KeywordArgument (").append(name).append(") [line ").append(getLine()).append("]");
-        sb.append("\n").append(value.prettyPrint(indent + "  "));
+        sb.append(indent).append("IfStmt (line ").append(getLine()).append(")");
+        sb.append("\n").append(indent).append("  Condition");
+        sb.append("\n").append(condition.prettyPrint(indent + "    "));
+        sb.append("\n").append(indent).append("  ThenBody");
+        for (Statement stmt : thenBody) {
+            sb.append("\n").append(stmt.prettyPrint(indent + "    "));
+        }
+        for (ElifClause elif : elifClauses) {
+            sb.append("\n").append(elif.prettyPrint(indent + "  "));
+        }
+        if (elseClause != null) {
+            sb.append("\n").append(elseClause.prettyPrint(indent + "  "));
+        }
         return sb.toString();
     }
-
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\ListExpr.java 
+### ?? File: ListExpr.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
+import compiler.ast.common.LiteralExpression;
 
 import java.util.List;
 import java.util.Objects;
@@ -2462,118 +3275,13 @@ public final class ListExpr extends LiteralExpression {
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\LiteralExpression.java 
+### ?? File: Program.java 
  
 package compiler.ast.python;
 
-/**
- * Base class for all literal expressions.
- *
- * Examples:
- * - Integer
- * - Float
- * - String
- * - Boolean
- * - None
- * - List
- * - Dictionary
- */
-public abstract class LiteralExpression
-        extends AbstractExpression {
-
-    protected LiteralExpression(
-            String nodeName,
-            int line) {
-
-        super(nodeName, line);
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\NoneLiteral.java 
- 
-package compiler.ast.python;
-
-/**
- * Python None literal.
- */
-public final class NoneLiteral
-        extends LiteralExpression {
-
-    public NoneLiteral(int line) {
-        super("NoneLiteral", line);
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitNoneLiteral(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-
-        return indent +
-                getNodeName() +
-                " [line " +
-                getLine() +
-                "]";
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\PositionalArgument.java 
- 
-package compiler.ast.python;
-
-import java.util.Objects;
-
-public final class PositionalArgument extends AbstractAstNode implements Argument {
-
-    private final Expression value;
-
-    public PositionalArgument(int line, Expression value) {
-
-        super("PositionalArgument", line);
-
-        this.value = Objects.requireNonNull(value);
-    }
-
-    public Expression getValue() {
-        return value;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitPositionalArgument(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(indent).append("PositionalArgument (line ").append(getLine()).append(")");
-        sb.append("\n").append(value.prettyPrint(indent + "  "));
-        return sb.toString();
-    }
-
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\PrettyPrintable.java 
- 
-package compiler.ast.python;
-
-/**
- * Represents an AST node that can print itself in a readable tree format.
- */
-public interface PrettyPrintable {
-
-    String prettyPrint(String indent);
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\Program.java 
- 
-package compiler.ast.python;
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.AbstractAstNode;
+import compiler.ast.common.Expression;
 
 import java.util.List;
 import java.util.Objects;
@@ -2623,9 +3331,12 @@ public final class Program extends AbstractAstNode {
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\ReturnStmt.java 
+### ?? File: ReturnStmt.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
 
 import java.util.Optional;
 
@@ -2667,9 +3378,11 @@ public final class ReturnStmt
 
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\Statement.java 
+### ?? File: Statement.java 
  
 package compiler.ast.python;
+
+import compiler.ast.common.AstNode;
 
 /**
  * Marker interface for statements.
@@ -2677,89 +3390,12 @@ package compiler.ast.python;
 public interface Statement extends AstNode {
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\StringLiteral.java 
+### ?? File: WhileStmt.java 
  
 package compiler.ast.python;
 
-import java.util.Objects;
-
-/**
- * String literal.
- */
-public final class StringLiteral
-        extends LiteralExpression {
-
-    private final String value;
-
-    public StringLiteral(int line, String value) {
-
-        super("StringLiteral", line);
-
-        this.value = Objects.requireNonNull(value);
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return visitor.visitStringLiteral(this);
-    }
-
-    @Override
-    public String prettyPrint(String indent) {
-
-        return indent +
-                getNodeName() +
-                " (\"" +
-                value +
-                "\") [line " +
-                getLine() +
-                "]";
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\UnaryExpr.java 
- 
-package compiler.ast.python;
-
-
-public class UnaryExpr extends AbstractExpression  {
-
-    private  final UnaryOperator operator;
-    private final Expression expr;
-    public UnaryExpr(
-            int line,
-            UnaryOperator operator,
-            Expression expr
-    ){
-
-        super("UnaryExpr", line);
-        this.operator = operator;
-        this.expr = expr;
-    }
-
-    @Override
-    public <T> T accept(AstVisitor<T> visitor) {
-        return null;
-    }
-}
- 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\UnaryOperator.java 
- 
-package compiler.ast.python;
-public enum UnaryOperator {
-    PLUS,
-    MINUS,
-    NOT
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\ast\python\WhileStmt.java 
- 
-package compiler.ast.python;
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.Expression;
 
 import java.util.List;
 import java.util.Objects;
@@ -2810,7 +3446,7 @@ public final class WhileStmt
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\exception\LexicalException.java 
+### ?? File: LexicalException.java 
  
 package compiler.exception;
 
@@ -2821,11 +3457,403 @@ public class LexicalException extends RuntimeException {
     }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\frontend\python\AstBuilder.java 
+### ?? File: AstBuilder.java 
+ 
+package compiler.frontend.jinja;
+
+import compiler.ast.jinja.*;
+import compiler.ast.common.*;
+import compiler.generated.jinja.JinjaParser;
+import compiler.generated.jinja.JinjaParserBaseVisitor;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+/**
+ * AstBuilder: converts ANTLR parse tree (compiler.generated.jinja.JinjaParser)
+ * into the project's Jinja AST nodes (compiler.ast.jinja.*), reusing the
+ * shared expression nodes from compiler.ast.common.* wherever possible
+ * (Identifier, literals, BinaryExpr, UnaryExpr, CallExpr, AttributeAccess,
+ * IndexAccess, PositionalArgument) so that the Python and Jinja trees stay
+ * interoperable.
+ *
+ * Mirrors compiler.frontend.python.AstBuilder in style and structure.
+ */
+public final class AstBuilder extends JinjaParserBaseVisitor<Object> {
+
+    /* -------------------------
+       Public entry point
+       ------------------------- */
+
+    public Template build(JinjaParser.TemplateContext ctx) {
+        List<TemplateElement> elements = ctx.templateBody().element().stream()
+                .map(this::toElement)
+                .collect(Collectors.toList());
+        return new Template(lineOf(ctx), elements);
+    }
+
+    /* -------------------------
+       Helpers
+       ------------------------- */
+
+    private int lineOf(org.antlr.v4.runtime.ParserRuleContext ctx) {
+        return ctx == null ? -1 : ctx.getStart().getLine();
+    }
+
+    private int lineOf(TerminalNode node) {
+        return node == null ? -1 : node.getSymbol().getLine();
+    }
+
+    private int lineOf(org.antlr.v4.runtime.Token token) {
+        return token == null ? -1 : token.getLine();
+    }
+
+    private TemplateElement toElement(JinjaParser.ElementContext ctx) {
+        Object o = visit(ctx);
+        if (o == null) return null;
+        if (!(o instanceof TemplateElement)) {
+            throw new IllegalStateException("Expected TemplateElement but got " + o.getClass().getSimpleName()
+                    + " at line " + lineOf(ctx));
+        }
+        return (TemplateElement) o;
+    }
+
+    private List<TemplateElement> toElementList(JinjaParser.TemplateBodyContext ctx) {
+        if (ctx == null) return Collections.emptyList();
+        return ctx.element().stream()
+                .map(this::toElement)
+                .collect(Collectors.toList());
+    }
+
+    private Expression toExpression(JinjaParser.ExprContext ctx) {
+        Object o = visit(ctx);
+        if (o == null) return null;
+        if (!(o instanceof Expression)) {
+            throw new IllegalStateException("Expected Expression but got " + o.getClass().getSimpleName()
+                    + " at line " + lineOf(ctx));
+        }
+        return (Expression) o;
+    }
+
+    private List<Argument> toArgumentList(JinjaParser.ArgListContext ctx) {
+        if (ctx == null) return Collections.emptyList();
+        return ctx.expr().stream()
+                .map(e -> (Argument) new PositionalArgument(lineOf(e), toExpression(e)))
+                .collect(Collectors.toList());
+    }
+
+    private String unquote(String s) {
+        if (s == null || s.length() < 2) return "";
+        String inner = s.substring(1, s.length() - 1);
+        return inner.replace("\\\"", "\"").replace("\\'", "'").replace("\\n", "\n").replace("\\t", "\t");
+    }
+
+    private BinaryOperator mapComparisonOperator(String op) {
+        switch (op) {
+            case "==": return BinaryOperator.EQ;
+            case "!=": return BinaryOperator.NE;
+            case "<":  return BinaryOperator.LT;
+            case "<=": return BinaryOperator.LE;
+            case ">":  return BinaryOperator.GT;
+            case ">=": return BinaryOperator.GE;
+            default: throw new IllegalArgumentException("Unknown comparison operator: " + op);
+        }
+    }
+
+    /* -------------------------
+       Template root / elements
+       ------------------------- */
+
+    @Override
+    public Object visitTemplate(JinjaParser.TemplateContext ctx) {
+        return build(ctx);
+    }
+
+    @Override
+    public Object visitHtmlElement(JinjaParser.HtmlElementContext ctx) {
+        return new HtmlText(lineOf(ctx), ctx.HTML_TEXT().getText());
+    }
+
+    @Override
+    public Object visitExpressionElement(JinjaParser.ExpressionElementContext ctx) {
+        return visit(ctx.expressionOutput());
+    }
+
+    @Override
+    public Object visitIfElement(JinjaParser.IfElementContext ctx) {
+        return visit(ctx.ifStatement());
+    }
+
+    @Override
+    public Object visitForElement(JinjaParser.ForElementContext ctx) {
+        return visit(ctx.forStatement());
+    }
+
+    @Override
+    public Object visitExpressionOutput(JinjaParser.ExpressionOutputContext ctx) {
+        // JINJA_EXPR_START expression=expr JINJA_EXPR_END
+        Expression expr = toExpression(ctx.expression);
+        return new ExpressionOutput(lineOf(ctx), expr);
+    }
+
+    @Override
+    public Object visitIfStatement(JinjaParser.IfStatementContext ctx) {
+        // JINJA_STMT_START IF condition=expr JINJA_STMT_END
+        //   thenBody=templateBody
+        //   elifClause*
+        //   elseClause?
+        // JINJA_STMT_START ENDIF JINJA_STMT_END
+        Expression cond = toExpression(ctx.condition);
+        List<TemplateElement> thenBody = toElementList(ctx.thenBody);
+
+        List<JinjaElifClause> elifs = ctx.elifClause().stream()
+                .map(e -> (JinjaElifClause) visit(e))
+                .collect(Collectors.toList());
+
+        JinjaElseClause elseClause = ctx.elseClause() == null
+                ? null
+                : (JinjaElseClause) visit(ctx.elseClause());
+
+        return new JinjaIfStmt(lineOf(ctx), cond, thenBody, elifs, elseClause);
+    }
+
+    @Override
+    public Object visitElifClause(JinjaParser.ElifClauseContext ctx) {
+        // JINJA_STMT_START ELIF condition=expr JINJA_STMT_END body=templateBody
+        Expression cond = toExpression(ctx.condition);
+        List<TemplateElement> body = toElementList(ctx.body);
+        return new JinjaElifClause(lineOf(ctx), cond, body);
+    }
+
+    @Override
+    public Object visitElseClause(JinjaParser.ElseClauseContext ctx) {
+        // JINJA_STMT_START ELSE JINJA_STMT_END body=templateBody
+        List<TemplateElement> body = toElementList(ctx.body);
+        return new JinjaElseClause(lineOf(ctx), body);
+    }
+
+    @Override
+    public Object visitForStatement(JinjaParser.ForStatementContext ctx) {
+        // JINJA_STMT_START FOR variable=IDENTIFIER IN iterable=expr JINJA_STMT_END
+        //   body=templateBody
+        // JINJA_STMT_START ENDFOR JINJA_STMT_END
+        Identifier var = new Identifier(lineOf(ctx.variable), ctx.variable.getText());
+        Expression iterable = toExpression(ctx.iterable);
+        List<TemplateElement> body = toElementList(ctx.body);
+        return new JinjaForStmt(lineOf(ctx), var, iterable, body);
+    }
+
+    /* -------------------------
+       Expression visitors (labels) - operator precedence chain
+       ------------------------- */
+
+    @Override
+    public Object visitExpr(JinjaParser.ExprContext ctx) {
+        return visit(ctx.logicalOr());
+    }
+
+    @Override
+    public Object visitOrExpr(JinjaParser.OrExprContext ctx) {
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
+        return new BinaryExpr(lineOf(ctx), left, BinaryOperator.OR, right);
+    }
+
+    @Override
+    public Object visitLogicalAndExpr(JinjaParser.LogicalAndExprContext ctx) {
+        // Pass-through: logicalOr -> logicalAnd
+        return visit(ctx.logicalAnd());
+    }
+
+    @Override
+    public Object visitAndExpr(JinjaParser.AndExprContext ctx) {
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
+        return new BinaryExpr(lineOf(ctx), left, BinaryOperator.AND, right);
+    }
+
+    @Override
+    public Object visitComparisonExpr(JinjaParser.ComparisonExprContext ctx) {
+        // Pass-through: logicalAnd -> comparison
+        return visit(ctx.comparison());
+    }
+
+    @Override
+    public Object visitComparisonOpExpr(JinjaParser.ComparisonOpExprContext ctx) {
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
+        BinaryOperator op = mapComparisonOperator(ctx.op.getText());
+        return new BinaryExpr(lineOf(ctx), left, op, right);
+    }
+
+    @Override
+    public Object visitAdditiveExpr(JinjaParser.AdditiveExprContext ctx) {
+        // Pass-through: comparison -> additive
+        return visit(ctx.additive());
+    }
+
+    @Override
+    public Object visitAddExpr(JinjaParser.AddExprContext ctx) {
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
+        BinaryOperator op = ctx.op.getText().equals("+") ? BinaryOperator.ADD : BinaryOperator.SUBTRACT;
+        return new BinaryExpr(lineOf(ctx), left, op, right);
+    }
+
+    @Override
+    public Object visitMultiplicativeExpr(JinjaParser.MultiplicativeExprContext ctx) {
+        // Pass-through: additive -> multiplicative
+        return visit(ctx.multiplicative());
+    }
+
+    @Override
+    public Object visitMulExpr(JinjaParser.MulExprContext ctx) {
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
+        BinaryOperator op;
+        String opText = ctx.op.getText();
+        if (opText.equals("*")) op = BinaryOperator.MULTIPLY;
+        else if (opText.equals("/")) op = BinaryOperator.DIVIDE;
+        else op = BinaryOperator.MODULO;
+        return new BinaryExpr(lineOf(ctx), left, op, right);
+    }
+
+    @Override
+    public Object visitUnaryExpr(JinjaParser.UnaryExprContext ctx) {
+        // Pass-through: multiplicative -> unary
+        return visit(ctx.unary());
+    }
+
+    @Override
+    public Object visitNotExpr(JinjaParser.NotExprContext ctx) {
+        Expression operand = (Expression) visit(ctx.operand);
+        return new UnaryExpr(lineOf(ctx), UnaryOperator.NOT, operand);
+    }
+
+    @Override
+    public Object visitUnaryMinus(JinjaParser.UnaryMinusContext ctx) {
+        Expression operand = (Expression) visit(ctx.operand);
+        return new UnaryExpr(lineOf(ctx), UnaryOperator.MINUS, operand);
+    }
+
+    @Override
+    public Object visitPrimaryExpr(JinjaParser.PrimaryExprContext ctx) {
+        // Pass-through: unary -> primary
+        return visit(ctx.primary());
+    }
+
+    /* -------------------------
+       Primary / literal visitors
+       ------------------------- */
+
+    @Override
+    public Object visitParenExpr(JinjaParser.ParenExprContext ctx) {
+        return toExpression(ctx.expression);
+    }
+
+    @Override
+    public Object visitLiteralExpr(JinjaParser.LiteralExprContext ctx) {
+        // Pass-through: primary -> literal
+        return visit(ctx.literal());
+    }
+
+    @Override
+    public Object visitIdentifierExpr(JinjaParser.IdentifierExprContext ctx) {
+        // identifier=IDENTIFIER trailers+=trailer*
+        Expression base = new Identifier(lineOf(ctx), ctx.identifier.getText());
+        for (JinjaParser.TrailerContext t : ctx.trailer()) {
+            base = applyTrailer(base, t);
+        }
+        return base;
+    }
+
+    @Override
+    public Object visitStringLiteral(JinjaParser.StringLiteralContext ctx) {
+        return new StringLiteral(lineOf(ctx), unquote(ctx.STRING().getText()));
+    }
+
+    @Override
+    public Object visitIntLiteral(JinjaParser.IntLiteralContext ctx) {
+        long v = Long.parseLong(ctx.INT().getText());
+        return new IntegerLiteral(lineOf(ctx), v);
+    }
+
+    @Override
+    public Object visitFloatLiteral(JinjaParser.FloatLiteralContext ctx) {
+        double v = Double.parseDouble(ctx.FLOAT().getText());
+        return new FloatLiteral(lineOf(ctx), v);
+    }
+
+    @Override
+    public Object visitTrueLiteral(JinjaParser.TrueLiteralContext ctx) {
+        return new BooleanLiteral(lineOf(ctx), true);
+    }
+
+    @Override
+    public Object visitFalseLiteral(JinjaParser.FalseLiteralContext ctx) {
+        return new BooleanLiteral(lineOf(ctx), false);
+    }
+
+    @Override
+    public Object visitNoneLiteral(JinjaParser.NoneLiteralContext ctx) {
+        return new NoneLiteral(lineOf(ctx));
+    }
+
+    /* -------------------------
+       Trailer helpers (mirrors Python's applyTrailer)
+       ------------------------- */
+
+    private Expression applyTrailer(Expression base, JinjaParser.TrailerContext t) {
+
+        // trailer alternatives (labeled):
+        //   DOT attribute=IDENTIFIER            #attributeAccess
+        //   | LBRACK index=expr RBRACK          #indexAccess
+        //   | LPAREN arguments=argList? RPAREN  #callTrailer
+
+        if (t instanceof JinjaParser.AttributeAccessContext) {
+            JinjaParser.AttributeAccessContext ac = (JinjaParser.AttributeAccessContext) t;
+            String attr = ac.attribute.getText();
+            return new AttributeAccess(lineOf(ac), base, attr);
+        }
+
+        if (t instanceof JinjaParser.IndexAccessContext) {
+            JinjaParser.IndexAccessContext ic = (JinjaParser.IndexAccessContext) t;
+            Expression idx = toExpression(ic.index);
+            return new IndexAccess(lineOf(ic), base, idx);
+        }
+
+        if (t instanceof JinjaParser.CallTrailerContext) {
+            JinjaParser.CallTrailerContext cc = (JinjaParser.CallTrailerContext) t;
+            List<Argument> args = toArgumentList(cc.arguments);
+            return new CallExpr(lineOf(cc), base, args);
+        }
+
+        throw new IllegalStateException("Unknown trailer alternative at line " + lineOf(t));
+    }
+
+    /* -------------------------
+       Fallbacks
+       ------------------------- */
+
+    @Override
+    public Object visitChildren(org.antlr.v4.runtime.tree.RuleNode node) {
+        return super.visitChildren(node);
+    }
+
+    @Override
+    protected Object defaultResult() {
+        return null;
+    }
+}
+ 
+.
+### ?? File: AstBuilder.java 
  
 package compiler.frontend.python;
 
 import compiler.ast.python.*;
+import compiler.ast.common.*;
 import compiler.generated.python.PythonParser;
 import compiler.generated.python.PythonParserBaseVisitor;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -2986,19 +4014,20 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
             elifs.add(new ElifClause(lineOf(ctx), elifCond, elifBody));
         }
 
-        List<Statement> elseBody = Collections.emptyList();
+        ElseClause elseClause = null;
         if (ctx.ELSE() != null) {
             PythonParser.SuiteContext elseSuite = ctx.suite(ctx.suite().size() - 1);
-            elseBody = visitSuiteAsStatements(elseSuite);
+            List<Statement> elseBody = visitSuiteAsStatements(elseSuite);
+            elseClause = new ElseClause(lineOf(ctx), elseBody);
         }
 
-        return new IfStmt(lineOf(ctx), cond, thenBody, elifs, elseBody);
+        return new IfStmt(lineOf(ctx), cond, thenBody, elifs, elseClause);
     }
 
     @Override
     public Object visitForStatement(PythonParser.ForStatementContext ctx) {
         // FOR IDENTIFIER IN expr COLON suite
-        String var = ctx.IDENTIFIER().getText();
+        Identifier var = new Identifier(lineOf(ctx.IDENTIFIER()), ctx.IDENTIFIER().getText());
         Expression iterable = toExpression(ctx.expr());
         List<Statement> body = visitSuiteAsStatements(ctx.suite());
         return new ForStmt(lineOf(ctx), var, iterable, body);
@@ -3309,49 +4338,7 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\frontend\python\OperatorMapper.java 
- 
-package compiler.frontend.python;
-
-import compiler.ast.python.BinaryOperator;
-import compiler.generated.python.BasePythonLexer;
-import org.antlr.v4.runtime.Token;
-
-public final class OperatorMapper {
-
-    private OperatorMapper() {
-    }
-
-    public static BinaryOperator map(Token token) {
-
-        return switch (token.getType()) {
-
-            case BasePythonLexer.OR -> BinaryOperator.OR;
-            case BasePythonLexer.AND -> BinaryOperator.AND;
-
-            case BasePythonLexer.EQ -> BinaryOperator.EQ;
-            case BasePythonLexer.NE -> BinaryOperator.NE;
-            case BasePythonLexer.LT -> BinaryOperator.LT;
-            case BasePythonLexer.LE -> BinaryOperator.LE;
-            case BasePythonLexer.GT -> BinaryOperator.GT;
-            case BasePythonLexer.GE -> BinaryOperator.GE;
-
-            case BasePythonLexer.PLUS -> BinaryOperator.ADD;
-            case BasePythonLexer.MINUS -> BinaryOperator.SUBTRACT;
-
-            case BasePythonLexer.STAR -> BinaryOperator.MULTIPLY;
-            case BasePythonLexer.SLASH -> BinaryOperator.DIVIDE;
-            case BasePythonLexer.MOD -> BinaryOperator.MODULO;
-
-            default ->
-                    throw new IllegalArgumentException(
-                            "Unsupported operator: " + token.getText());
-        };
-    }
-
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\jinja\JinjaLexer.java 
+### ?? File: JinjaLexer.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaLexer.g4 by ANTLR 4.13.2
 package compiler.generated.jinja;
@@ -3372,53 +4359,51 @@ public class JinjaLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		HTML_TEXT=1, JINJA_EXPR_START=2, JINJA_STMT_START=3, JINJA_COMMENT_START=4, 
-		JINJA_EXPR_END=5, JINJA_STMT_END=6, IF=7, ELIF=8, ELSE=9, ENDIF=10, FOR=11, 
-		IN=12, ENDFOR=13, AND=14, OR=15, NOT=16, TRUE=17, FALSE=18, NONE=19, EQ=20, 
-		NE=21, LT=22, GT=23, LE=24, GE=25, PLUS=26, MINUS=27, STAR=28, SLASH=29, 
-		MOD=30, DOT=31, LPAREN=32, RPAREN=33, LBRACK=34, RBRACK=35, COMMA=36, 
-		STRING=37, INT=38, FLOAT=39, IDENTIFIER=40, WS=41, JINJA_COMMENT_END=42, 
-		COMMENT_TEXT=43;
+		JINJA_EXPR_START=1, JINJA_STMT_START=2, HTML_TEXT=3, JINJA_EXPR_END=4, 
+		JINJA_STMT_END=5, IF=6, ELIF=7, ELSE=8, ENDIF=9, FOR=10, IN=11, ENDFOR=12, 
+		AND=13, OR=14, NOT=15, TRUE=16, FALSE=17, NONE=18, EQ=19, NE=20, LT=21, 
+		GT=22, LE=23, GE=24, PLUS=25, MINUS=26, STAR=27, SLASH=28, MOD=29, DOT=30, 
+		LPAREN=31, RPAREN=32, LBRACK=33, RBRACK=34, COMMA=35, STRING=36, INT=37, 
+		FLOAT=38, IDENTIFIER=39, WS=40;
 	public static final int
-		JINJA_MODE=1, COMMENT_MODE=2;
+		JINJA_MODE=1;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
 
 	public static String[] modeNames = {
-		"DEFAULT_MODE", "JINJA_MODE", "COMMENT_MODE"
+		"DEFAULT_MODE", "JINJA_MODE"
 	};
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"HTML_TEXT", "JINJA_EXPR_START", "JINJA_STMT_START", "JINJA_COMMENT_START", 
-			"JINJA_EXPR_END", "JINJA_STMT_END", "IF", "ELIF", "ELSE", "ENDIF", "FOR", 
-			"IN", "ENDFOR", "AND", "OR", "NOT", "TRUE", "FALSE", "NONE", "EQ", "NE", 
-			"LT", "GT", "LE", "GE", "PLUS", "MINUS", "STAR", "SLASH", "MOD", "DOT", 
-			"LPAREN", "RPAREN", "LBRACK", "RBRACK", "COMMA", "STRING", "INT", "FLOAT", 
-			"IDENTIFIER", "WS", "JINJA_COMMENT_END", "COMMENT_TEXT"
+			"JINJA_EXPR_START", "JINJA_STMT_START", "HTML_TEXT", "JINJA_EXPR_END", 
+			"JINJA_STMT_END", "IF", "ELIF", "ELSE", "ENDIF", "FOR", "IN", "ENDFOR", 
+			"AND", "OR", "NOT", "TRUE", "FALSE", "NONE", "EQ", "NE", "LT", "GT", 
+			"LE", "GE", "PLUS", "MINUS", "STAR", "SLASH", "MOD", "DOT", "LPAREN", 
+			"RPAREN", "LBRACK", "RBRACK", "COMMA", "STRING", "INT", "FLOAT", "IDENTIFIER", 
+			"WS"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, "'{{'", "'{%'", "'{#'", "'}}'", "'%}'", "'if'", "'elif'", 
-			"'else'", "'endif'", "'for'", "'in'", "'endfor'", "'and'", "'or'", "'not'", 
-			"'true'", "'false'", "'none'", "'=='", "'!='", "'<'", "'>'", "'<='", 
-			"'>='", "'+'", "'-'", "'*'", "'/'", "'%'", "'.'", "'('", "')'", "'['", 
-			"']'", "','", null, null, null, null, null, "'#}'"
+			null, "'{{'", "'{%'", null, "'}}'", "'%}'", "'if'", "'elif'", "'else'", 
+			"'endif'", "'for'", "'in'", "'endfor'", "'and'", "'or'", "'not'", "'true'", 
+			"'false'", "'none'", "'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "'+'", 
+			"'-'", "'*'", "'/'", "'%'", "'.'", "'('", "')'", "'['", "']'", "','"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "HTML_TEXT", "JINJA_EXPR_START", "JINJA_STMT_START", "JINJA_COMMENT_START", 
-			"JINJA_EXPR_END", "JINJA_STMT_END", "IF", "ELIF", "ELSE", "ENDIF", "FOR", 
-			"IN", "ENDFOR", "AND", "OR", "NOT", "TRUE", "FALSE", "NONE", "EQ", "NE", 
-			"LT", "GT", "LE", "GE", "PLUS", "MINUS", "STAR", "SLASH", "MOD", "DOT", 
-			"LPAREN", "RPAREN", "LBRACK", "RBRACK", "COMMA", "STRING", "INT", "FLOAT", 
-			"IDENTIFIER", "WS", "JINJA_COMMENT_END", "COMMENT_TEXT"
+			null, "JINJA_EXPR_START", "JINJA_STMT_START", "HTML_TEXT", "JINJA_EXPR_END", 
+			"JINJA_STMT_END", "IF", "ELIF", "ELSE", "ENDIF", "FOR", "IN", "ENDFOR", 
+			"AND", "OR", "NOT", "TRUE", "FALSE", "NONE", "EQ", "NE", "LT", "GT", 
+			"LE", "GE", "PLUS", "MINUS", "STAR", "SLASH", "MOD", "DOT", "LPAREN", 
+			"RPAREN", "LBRACK", "RBRACK", "COMMA", "STRING", "INT", "FLOAT", "IDENTIFIER", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -3480,174 +4465,160 @@ public class JinjaLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\u0004\u0000+\u010e\u0006\uffff\uffff\u0006\uffff\uffff\u0006\uffff\uffff"+
-		"\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002\u0002\u0007\u0002"+
-		"\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002\u0005\u0007\u0005"+
-		"\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002\b\u0007\b\u0002"+
-		"\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002\f\u0007\f\u0002"+
-		"\r\u0007\r\u0002\u000e\u0007\u000e\u0002\u000f\u0007\u000f\u0002\u0010"+
-		"\u0007\u0010\u0002\u0011\u0007\u0011\u0002\u0012\u0007\u0012\u0002\u0013"+
-		"\u0007\u0013\u0002\u0014\u0007\u0014\u0002\u0015\u0007\u0015\u0002\u0016"+
-		"\u0007\u0016\u0002\u0017\u0007\u0017\u0002\u0018\u0007\u0018\u0002\u0019"+
-		"\u0007\u0019\u0002\u001a\u0007\u001a\u0002\u001b\u0007\u001b\u0002\u001c"+
-		"\u0007\u001c\u0002\u001d\u0007\u001d\u0002\u001e\u0007\u001e\u0002\u001f"+
-		"\u0007\u001f\u0002 \u0007 \u0002!\u0007!\u0002\"\u0007\"\u0002#\u0007"+
-		"#\u0002$\u0007$\u0002%\u0007%\u0002&\u0007&\u0002\'\u0007\'\u0002(\u0007"+
-		"(\u0002)\u0007)\u0002*\u0007*\u0001\u0000\u0001\u0000\u0001\u0000\u0004"+
-		"\u0000]\b\u0000\u000b\u0000\f\u0000^\u0001\u0001\u0001\u0001\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
-		"\u0001\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
-		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0005"+
-		"\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0006\u0001\u0006"+
-		"\u0001\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
-		"\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\t\u0001\t\u0001\t\u0001"+
-		"\t\u0001\t\u0001\t\u0001\n\u0001\n\u0001\n\u0001\n\u0001\u000b\u0001\u000b"+
-		"\u0001\u000b\u0001\f\u0001\f\u0001\f\u0001\f\u0001\f\u0001\f\u0001\f\u0001"+
-		"\r\u0001\r\u0001\r\u0001\r\u0001\u000e\u0001\u000e\u0001\u000e\u0001\u000f"+
-		"\u0001\u000f\u0001\u000f\u0001\u000f\u0001\u0010\u0001\u0010\u0001\u0010"+
-		"\u0001\u0010\u0001\u0010\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0011"+
-		"\u0001\u0011\u0001\u0011\u0001\u0012\u0001\u0012\u0001\u0012\u0001\u0012"+
-		"\u0001\u0012\u0001\u0013\u0001\u0013\u0001\u0013\u0001\u0014\u0001\u0014"+
-		"\u0001\u0014\u0001\u0015\u0001\u0015\u0001\u0016\u0001\u0016\u0001\u0017"+
-		"\u0001\u0017\u0001\u0017\u0001\u0018\u0001\u0018\u0001\u0018\u0001\u0019"+
-		"\u0001\u0019\u0001\u001a\u0001\u001a\u0001\u001b\u0001\u001b\u0001\u001c"+
-		"\u0001\u001c\u0001\u001d\u0001\u001d\u0001\u001e\u0001\u001e\u0001\u001f"+
-		"\u0001\u001f\u0001 \u0001 \u0001!\u0001!\u0001\"\u0001\"\u0001#\u0001"+
-		"#\u0001$\u0001$\u0001$\u0001$\u0005$\u00e0\b$\n$\f$\u00e3\t$\u0001$\u0001"+
-		"$\u0001%\u0004%\u00e8\b%\u000b%\f%\u00e9\u0001&\u0004&\u00ed\b&\u000b"+
-		"&\f&\u00ee\u0001&\u0001&\u0004&\u00f3\b&\u000b&\f&\u00f4\u0001\'\u0001"+
-		"\'\u0005\'\u00f9\b\'\n\'\f\'\u00fc\t\'\u0001(\u0004(\u00ff\b(\u000b(\f"+
-		"(\u0100\u0001(\u0001(\u0001)\u0001)\u0001)\u0001)\u0001)\u0001*\u0004"+
-		"*\u010b\b*\u000b*\f*\u010c\u0000\u0000+\u0003\u0001\u0005\u0002\u0007"+
-		"\u0003\t\u0004\u000b\u0005\r\u0006\u000f\u0007\u0011\b\u0013\t\u0015\n"+
-		"\u0017\u000b\u0019\f\u001b\r\u001d\u000e\u001f\u000f!\u0010#\u0011%\u0012"+
-		"\'\u0013)\u0014+\u0015-\u0016/\u00171\u00183\u00195\u001a7\u001b9\u001c"+
-		";\u001d=\u001e?\u001fA C!E\"G#I$K%M&O\'Q(S)U*W+\u0003\u0000\u0001\u0002"+
-		"\b\u0001\u0000{{\u0004\u0000##%%\'\'{{\u0002\u0000\"\"\\\\\u0001\u0000"+
-		"09\u0003\u0000AZ__az\u0004\u000009AZ__az\u0003\u0000\t\n\r\r  \u0001\u0000"+
-		"##\u0115\u0000\u0003\u0001\u0000\u0000\u0000\u0000\u0005\u0001\u0000\u0000"+
-		"\u0000\u0000\u0007\u0001\u0000\u0000\u0000\u0000\t\u0001\u0000\u0000\u0000"+
-		"\u0001\u000b\u0001\u0000\u0000\u0000\u0001\r\u0001\u0000\u0000\u0000\u0001"+
-		"\u000f\u0001\u0000\u0000\u0000\u0001\u0011\u0001\u0000\u0000\u0000\u0001"+
-		"\u0013\u0001\u0000\u0000\u0000\u0001\u0015\u0001\u0000\u0000\u0000\u0001"+
-		"\u0017\u0001\u0000\u0000\u0000\u0001\u0019\u0001\u0000\u0000\u0000\u0001"+
-		"\u001b\u0001\u0000\u0000\u0000\u0001\u001d\u0001\u0000\u0000\u0000\u0001"+
-		"\u001f\u0001\u0000\u0000\u0000\u0001!\u0001\u0000\u0000\u0000\u0001#\u0001"+
-		"\u0000\u0000\u0000\u0001%\u0001\u0000\u0000\u0000\u0001\'\u0001\u0000"+
-		"\u0000\u0000\u0001)\u0001\u0000\u0000\u0000\u0001+\u0001\u0000\u0000\u0000"+
-		"\u0001-\u0001\u0000\u0000\u0000\u0001/\u0001\u0000\u0000\u0000\u00011"+
-		"\u0001\u0000\u0000\u0000\u00013\u0001\u0000\u0000\u0000\u00015\u0001\u0000"+
-		"\u0000\u0000\u00017\u0001\u0000\u0000\u0000\u00019\u0001\u0000\u0000\u0000"+
-		"\u0001;\u0001\u0000\u0000\u0000\u0001=\u0001\u0000\u0000\u0000\u0001?"+
-		"\u0001\u0000\u0000\u0000\u0001A\u0001\u0000\u0000\u0000\u0001C\u0001\u0000"+
-		"\u0000\u0000\u0001E\u0001\u0000\u0000\u0000\u0001G\u0001\u0000\u0000\u0000"+
-		"\u0001I\u0001\u0000\u0000\u0000\u0001K\u0001\u0000\u0000\u0000\u0001M"+
-		"\u0001\u0000\u0000\u0000\u0001O\u0001\u0000\u0000\u0000\u0001Q\u0001\u0000"+
-		"\u0000\u0000\u0001S\u0001\u0000\u0000\u0000\u0002U\u0001\u0000\u0000\u0000"+
-		"\u0002W\u0001\u0000\u0000\u0000\u0003\\\u0001\u0000\u0000\u0000\u0005"+
-		"`\u0001\u0000\u0000\u0000\u0007e\u0001\u0000\u0000\u0000\tj\u0001\u0000"+
-		"\u0000\u0000\u000bo\u0001\u0000\u0000\u0000\rt\u0001\u0000\u0000\u0000"+
-		"\u000fy\u0001\u0000\u0000\u0000\u0011|\u0001\u0000\u0000\u0000\u0013\u0081"+
-		"\u0001\u0000\u0000\u0000\u0015\u0086\u0001\u0000\u0000\u0000\u0017\u008c"+
-		"\u0001\u0000\u0000\u0000\u0019\u0090\u0001\u0000\u0000\u0000\u001b\u0093"+
-		"\u0001\u0000\u0000\u0000\u001d\u009a\u0001\u0000\u0000\u0000\u001f\u009e"+
-		"\u0001\u0000\u0000\u0000!\u00a1\u0001\u0000\u0000\u0000#\u00a5\u0001\u0000"+
-		"\u0000\u0000%\u00aa\u0001\u0000\u0000\u0000\'\u00b0\u0001\u0000\u0000"+
-		"\u0000)\u00b5\u0001\u0000\u0000\u0000+\u00b8\u0001\u0000\u0000\u0000-"+
-		"\u00bb\u0001\u0000\u0000\u0000/\u00bd\u0001\u0000\u0000\u00001\u00bf\u0001"+
-		"\u0000\u0000\u00003\u00c2\u0001\u0000\u0000\u00005\u00c5\u0001\u0000\u0000"+
-		"\u00007\u00c7\u0001\u0000\u0000\u00009\u00c9\u0001\u0000\u0000\u0000;"+
-		"\u00cb\u0001\u0000\u0000\u0000=\u00cd\u0001\u0000\u0000\u0000?\u00cf\u0001"+
-		"\u0000\u0000\u0000A\u00d1\u0001\u0000\u0000\u0000C\u00d3\u0001\u0000\u0000"+
-		"\u0000E\u00d5\u0001\u0000\u0000\u0000G\u00d7\u0001\u0000\u0000\u0000I"+
-		"\u00d9\u0001\u0000\u0000\u0000K\u00db\u0001\u0000\u0000\u0000M\u00e7\u0001"+
-		"\u0000\u0000\u0000O\u00ec\u0001\u0000\u0000\u0000Q\u00f6\u0001\u0000\u0000"+
-		"\u0000S\u00fe\u0001\u0000\u0000\u0000U\u0104\u0001\u0000\u0000\u0000W"+
-		"\u010a\u0001\u0000\u0000\u0000Y]\b\u0000\u0000\u0000Z[\u0005{\u0000\u0000"+
-		"[]\b\u0001\u0000\u0000\\Y\u0001\u0000\u0000\u0000\\Z\u0001\u0000\u0000"+
-		"\u0000]^\u0001\u0000\u0000\u0000^\\\u0001\u0000\u0000\u0000^_\u0001\u0000"+
-		"\u0000\u0000_\u0004\u0001\u0000\u0000\u0000`a\u0005{\u0000\u0000ab\u0005"+
-		"{\u0000\u0000bc\u0001\u0000\u0000\u0000cd\u0006\u0001\u0000\u0000d\u0006"+
-		"\u0001\u0000\u0000\u0000ef\u0005{\u0000\u0000fg\u0005%\u0000\u0000gh\u0001"+
-		"\u0000\u0000\u0000hi\u0006\u0002\u0000\u0000i\b\u0001\u0000\u0000\u0000"+
-		"jk\u0005{\u0000\u0000kl\u0005#\u0000\u0000lm\u0001\u0000\u0000\u0000m"+
-		"n\u0006\u0003\u0001\u0000n\n\u0001\u0000\u0000\u0000op\u0005}\u0000\u0000"+
-		"pq\u0005}\u0000\u0000qr\u0001\u0000\u0000\u0000rs\u0006\u0004\u0002\u0000"+
-		"s\f\u0001\u0000\u0000\u0000tu\u0005%\u0000\u0000uv\u0005}\u0000\u0000"+
-		"vw\u0001\u0000\u0000\u0000wx\u0006\u0005\u0002\u0000x\u000e\u0001\u0000"+
-		"\u0000\u0000yz\u0005i\u0000\u0000z{\u0005f\u0000\u0000{\u0010\u0001\u0000"+
-		"\u0000\u0000|}\u0005e\u0000\u0000}~\u0005l\u0000\u0000~\u007f\u0005i\u0000"+
-		"\u0000\u007f\u0080\u0005f\u0000\u0000\u0080\u0012\u0001\u0000\u0000\u0000"+
-		"\u0081\u0082\u0005e\u0000\u0000\u0082\u0083\u0005l\u0000\u0000\u0083\u0084"+
-		"\u0005s\u0000\u0000\u0084\u0085\u0005e\u0000\u0000\u0085\u0014\u0001\u0000"+
-		"\u0000\u0000\u0086\u0087\u0005e\u0000\u0000\u0087\u0088\u0005n\u0000\u0000"+
-		"\u0088\u0089\u0005d\u0000\u0000\u0089\u008a\u0005i\u0000\u0000\u008a\u008b"+
-		"\u0005f\u0000\u0000\u008b\u0016\u0001\u0000\u0000\u0000\u008c\u008d\u0005"+
-		"f\u0000\u0000\u008d\u008e\u0005o\u0000\u0000\u008e\u008f\u0005r\u0000"+
-		"\u0000\u008f\u0018\u0001\u0000\u0000\u0000\u0090\u0091\u0005i\u0000\u0000"+
-		"\u0091\u0092\u0005n\u0000\u0000\u0092\u001a\u0001\u0000\u0000\u0000\u0093"+
-		"\u0094\u0005e\u0000\u0000\u0094\u0095\u0005n\u0000\u0000\u0095\u0096\u0005"+
-		"d\u0000\u0000\u0096\u0097\u0005f\u0000\u0000\u0097\u0098\u0005o\u0000"+
-		"\u0000\u0098\u0099\u0005r\u0000\u0000\u0099\u001c\u0001\u0000\u0000\u0000"+
-		"\u009a\u009b\u0005a\u0000\u0000\u009b\u009c\u0005n\u0000\u0000\u009c\u009d"+
-		"\u0005d\u0000\u0000\u009d\u001e\u0001\u0000\u0000\u0000\u009e\u009f\u0005"+
-		"o\u0000\u0000\u009f\u00a0\u0005r\u0000\u0000\u00a0 \u0001\u0000\u0000"+
-		"\u0000\u00a1\u00a2\u0005n\u0000\u0000\u00a2\u00a3\u0005o\u0000\u0000\u00a3"+
-		"\u00a4\u0005t\u0000\u0000\u00a4\"\u0001\u0000\u0000\u0000\u00a5\u00a6"+
-		"\u0005t\u0000\u0000\u00a6\u00a7\u0005r\u0000\u0000\u00a7\u00a8\u0005u"+
-		"\u0000\u0000\u00a8\u00a9\u0005e\u0000\u0000\u00a9$\u0001\u0000\u0000\u0000"+
-		"\u00aa\u00ab\u0005f\u0000\u0000\u00ab\u00ac\u0005a\u0000\u0000\u00ac\u00ad"+
-		"\u0005l\u0000\u0000\u00ad\u00ae\u0005s\u0000\u0000\u00ae\u00af\u0005e"+
-		"\u0000\u0000\u00af&\u0001\u0000\u0000\u0000\u00b0\u00b1\u0005n\u0000\u0000"+
-		"\u00b1\u00b2\u0005o\u0000\u0000\u00b2\u00b3\u0005n\u0000\u0000\u00b3\u00b4"+
-		"\u0005e\u0000\u0000\u00b4(\u0001\u0000\u0000\u0000\u00b5\u00b6\u0005="+
-		"\u0000\u0000\u00b6\u00b7\u0005=\u0000\u0000\u00b7*\u0001\u0000\u0000\u0000"+
-		"\u00b8\u00b9\u0005!\u0000\u0000\u00b9\u00ba\u0005=\u0000\u0000\u00ba,"+
-		"\u0001\u0000\u0000\u0000\u00bb\u00bc\u0005<\u0000\u0000\u00bc.\u0001\u0000"+
-		"\u0000\u0000\u00bd\u00be\u0005>\u0000\u0000\u00be0\u0001\u0000\u0000\u0000"+
-		"\u00bf\u00c0\u0005<\u0000\u0000\u00c0\u00c1\u0005=\u0000\u0000\u00c12"+
-		"\u0001\u0000\u0000\u0000\u00c2\u00c3\u0005>\u0000\u0000\u00c3\u00c4\u0005"+
-		"=\u0000\u0000\u00c44\u0001\u0000\u0000\u0000\u00c5\u00c6\u0005+\u0000"+
-		"\u0000\u00c66\u0001\u0000\u0000\u0000\u00c7\u00c8\u0005-\u0000\u0000\u00c8"+
-		"8\u0001\u0000\u0000\u0000\u00c9\u00ca\u0005*\u0000\u0000\u00ca:\u0001"+
-		"\u0000\u0000\u0000\u00cb\u00cc\u0005/\u0000\u0000\u00cc<\u0001\u0000\u0000"+
-		"\u0000\u00cd\u00ce\u0005%\u0000\u0000\u00ce>\u0001\u0000\u0000\u0000\u00cf"+
-		"\u00d0\u0005.\u0000\u0000\u00d0@\u0001\u0000\u0000\u0000\u00d1\u00d2\u0005"+
-		"(\u0000\u0000\u00d2B\u0001\u0000\u0000\u0000\u00d3\u00d4\u0005)\u0000"+
-		"\u0000\u00d4D\u0001\u0000\u0000\u0000\u00d5\u00d6\u0005[\u0000\u0000\u00d6"+
-		"F\u0001\u0000\u0000\u0000\u00d7\u00d8\u0005]\u0000\u0000\u00d8H\u0001"+
-		"\u0000\u0000\u0000\u00d9\u00da\u0005,\u0000\u0000\u00daJ\u0001\u0000\u0000"+
-		"\u0000\u00db\u00e1\u0005\"\u0000\u0000\u00dc\u00e0\b\u0002\u0000\u0000"+
-		"\u00dd\u00de\u0005\\\u0000\u0000\u00de\u00e0\t\u0000\u0000\u0000\u00df"+
-		"\u00dc\u0001\u0000\u0000\u0000\u00df\u00dd\u0001\u0000\u0000\u0000\u00e0"+
-		"\u00e3\u0001\u0000\u0000\u0000\u00e1\u00df\u0001\u0000\u0000\u0000\u00e1"+
-		"\u00e2\u0001\u0000\u0000\u0000\u00e2\u00e4\u0001\u0000\u0000\u0000\u00e3"+
-		"\u00e1\u0001\u0000\u0000\u0000\u00e4\u00e5\u0005\"\u0000\u0000\u00e5L"+
-		"\u0001\u0000\u0000\u0000\u00e6\u00e8\u0007\u0003\u0000\u0000\u00e7\u00e6"+
-		"\u0001\u0000\u0000\u0000\u00e8\u00e9\u0001\u0000\u0000\u0000\u00e9\u00e7"+
-		"\u0001\u0000\u0000\u0000\u00e9\u00ea\u0001\u0000\u0000\u0000\u00eaN\u0001"+
-		"\u0000\u0000\u0000\u00eb\u00ed\u0007\u0003\u0000\u0000\u00ec\u00eb\u0001"+
-		"\u0000\u0000\u0000\u00ed\u00ee\u0001\u0000\u0000\u0000\u00ee\u00ec\u0001"+
-		"\u0000\u0000\u0000\u00ee\u00ef\u0001\u0000\u0000\u0000\u00ef\u00f0\u0001"+
-		"\u0000\u0000\u0000\u00f0\u00f2\u0005.\u0000\u0000\u00f1\u00f3\u0007\u0003"+
-		"\u0000\u0000\u00f2\u00f1\u0001\u0000\u0000\u0000\u00f3\u00f4\u0001\u0000"+
-		"\u0000\u0000\u00f4\u00f2\u0001\u0000\u0000\u0000\u00f4\u00f5\u0001\u0000"+
-		"\u0000\u0000\u00f5P\u0001\u0000\u0000\u0000\u00f6\u00fa\u0007\u0004\u0000"+
-		"\u0000\u00f7\u00f9\u0007\u0005\u0000\u0000\u00f8\u00f7\u0001\u0000\u0000"+
-		"\u0000\u00f9\u00fc\u0001\u0000\u0000\u0000\u00fa\u00f8\u0001\u0000\u0000"+
-		"\u0000\u00fa\u00fb\u0001\u0000\u0000\u0000\u00fbR\u0001\u0000\u0000\u0000"+
-		"\u00fc\u00fa\u0001\u0000\u0000\u0000\u00fd\u00ff\u0007\u0006\u0000\u0000"+
-		"\u00fe\u00fd\u0001\u0000\u0000\u0000\u00ff\u0100\u0001\u0000\u0000\u0000"+
-		"\u0100\u00fe\u0001\u0000\u0000\u0000\u0100\u0101\u0001\u0000\u0000\u0000"+
-		"\u0101\u0102\u0001\u0000\u0000\u0000\u0102\u0103\u0006(\u0003\u0000\u0103"+
-		"T\u0001\u0000\u0000\u0000\u0104\u0105\u0005#\u0000\u0000\u0105\u0106\u0005"+
-		"}\u0000\u0000\u0106\u0107\u0001\u0000\u0000\u0000\u0107\u0108\u0006)\u0002"+
-		"\u0000\u0108V\u0001\u0000\u0000\u0000\u0109\u010b\b\u0007\u0000\u0000"+
-		"\u010a\u0109\u0001\u0000\u0000\u0000\u010b\u010c\u0001\u0000\u0000\u0000"+
-		"\u010c\u010a\u0001\u0000\u0000\u0000\u010c\u010d\u0001\u0000\u0000\u0000"+
-		"\u010dX\u0001\u0000\u0000\u0000\r\u0000\u0001\u0002\\^\u00df\u00e1\u00e9"+
-		"\u00ee\u00f4\u00fa\u0100\u010c\u0004\u0005\u0001\u0000\u0005\u0002\u0000"+
-		"\u0004\u0000\u0000\u0006\u0000\u0000";
+		"\u0004\u0000(\u00f8\u0006\uffff\uffff\u0006\uffff\uffff\u0002\u0000\u0007"+
+		"\u0000\u0002\u0001\u0007\u0001\u0002\u0002\u0007\u0002\u0002\u0003\u0007"+
+		"\u0003\u0002\u0004\u0007\u0004\u0002\u0005\u0007\u0005\u0002\u0006\u0007"+
+		"\u0006\u0002\u0007\u0007\u0007\u0002\b\u0007\b\u0002\t\u0007\t\u0002\n"+
+		"\u0007\n\u0002\u000b\u0007\u000b\u0002\f\u0007\f\u0002\r\u0007\r\u0002"+
+		"\u000e\u0007\u000e\u0002\u000f\u0007\u000f\u0002\u0010\u0007\u0010\u0002"+
+		"\u0011\u0007\u0011\u0002\u0012\u0007\u0012\u0002\u0013\u0007\u0013\u0002"+
+		"\u0014\u0007\u0014\u0002\u0015\u0007\u0015\u0002\u0016\u0007\u0016\u0002"+
+		"\u0017\u0007\u0017\u0002\u0018\u0007\u0018\u0002\u0019\u0007\u0019\u0002"+
+		"\u001a\u0007\u001a\u0002\u001b\u0007\u001b\u0002\u001c\u0007\u001c\u0002"+
+		"\u001d\u0007\u001d\u0002\u001e\u0007\u001e\u0002\u001f\u0007\u001f\u0002"+
+		" \u0007 \u0002!\u0007!\u0002\"\u0007\"\u0002#\u0007#\u0002$\u0007$\u0002"+
+		"%\u0007%\u0002&\u0007&\u0002\'\u0007\'\u0001\u0000\u0001\u0000\u0001\u0000"+
+		"\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0004\u0002`\b\u0002"+
+		"\u000b\u0002\f\u0002a\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
+		"\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
+		"\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0006\u0001\u0006\u0001\u0006"+
+		"\u0001\u0006\u0001\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007"+
+		"\u0001\u0007\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\t\u0001"+
+		"\t\u0001\t\u0001\t\u0001\n\u0001\n\u0001\n\u0001\u000b\u0001\u000b\u0001"+
+		"\u000b\u0001\u000b\u0001\u000b\u0001\u000b\u0001\u000b\u0001\f\u0001\f"+
+		"\u0001\f\u0001\f\u0001\r\u0001\r\u0001\r\u0001\u000e\u0001\u000e\u0001"+
+		"\u000e\u0001\u000e\u0001\u000f\u0001\u000f\u0001\u000f\u0001\u000f\u0001"+
+		"\u000f\u0001\u0010\u0001\u0010\u0001\u0010\u0001\u0010\u0001\u0010\u0001"+
+		"\u0010\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0001"+
+		"\u0012\u0001\u0012\u0001\u0012\u0001\u0013\u0001\u0013\u0001\u0013\u0001"+
+		"\u0014\u0001\u0014\u0001\u0015\u0001\u0015\u0001\u0016\u0001\u0016\u0001"+
+		"\u0016\u0001\u0017\u0001\u0017\u0001\u0017\u0001\u0018\u0001\u0018\u0001"+
+		"\u0019\u0001\u0019\u0001\u001a\u0001\u001a\u0001\u001b\u0001\u001b\u0001"+
+		"\u001c\u0001\u001c\u0001\u001d\u0001\u001d\u0001\u001e\u0001\u001e\u0001"+
+		"\u001f\u0001\u001f\u0001 \u0001 \u0001!\u0001!\u0001\"\u0001\"\u0001#"+
+		"\u0001#\u0001#\u0001#\u0005#\u00d4\b#\n#\f#\u00d7\t#\u0001#\u0001#\u0001"+
+		"$\u0004$\u00dc\b$\u000b$\f$\u00dd\u0001%\u0004%\u00e1\b%\u000b%\f%\u00e2"+
+		"\u0001%\u0001%\u0004%\u00e7\b%\u000b%\f%\u00e8\u0001&\u0001&\u0005&\u00ed"+
+		"\b&\n&\f&\u00f0\t&\u0001\'\u0004\'\u00f3\b\'\u000b\'\f\'\u00f4\u0001\'"+
+		"\u0001\'\u0000\u0000(\u0002\u0001\u0004\u0002\u0006\u0003\b\u0004\n\u0005"+
+		"\f\u0006\u000e\u0007\u0010\b\u0012\t\u0014\n\u0016\u000b\u0018\f\u001a"+
+		"\r\u001c\u000e\u001e\u000f \u0010\"\u0011$\u0012&\u0013(\u0014*\u0015"+
+		",\u0016.\u00170\u00182\u00194\u001a6\u001b8\u001c:\u001d<\u001e>\u001f"+
+		"@ B!D\"F#H$J%L&N\'P(\u0002\u0000\u0001\u0007\u0001\u0000{{\u0003\u0000"+
+		"##%%{{\u0002\u0000\"\"\\\\\u0001\u000009\u0003\u0000AZ__az\u0004\u0000"+
+		"09AZ__az\u0003\u0000\t\n\r\r  \u00ff\u0000\u0002\u0001\u0000\u0000\u0000"+
+		"\u0000\u0004\u0001\u0000\u0000\u0000\u0000\u0006\u0001\u0000\u0000\u0000"+
+		"\u0001\b\u0001\u0000\u0000\u0000\u0001\n\u0001\u0000\u0000\u0000\u0001"+
+		"\f\u0001\u0000\u0000\u0000\u0001\u000e\u0001\u0000\u0000\u0000\u0001\u0010"+
+		"\u0001\u0000\u0000\u0000\u0001\u0012\u0001\u0000\u0000\u0000\u0001\u0014"+
+		"\u0001\u0000\u0000\u0000\u0001\u0016\u0001\u0000\u0000\u0000\u0001\u0018"+
+		"\u0001\u0000\u0000\u0000\u0001\u001a\u0001\u0000\u0000\u0000\u0001\u001c"+
+		"\u0001\u0000\u0000\u0000\u0001\u001e\u0001\u0000\u0000\u0000\u0001 \u0001"+
+		"\u0000\u0000\u0000\u0001\"\u0001\u0000\u0000\u0000\u0001$\u0001\u0000"+
+		"\u0000\u0000\u0001&\u0001\u0000\u0000\u0000\u0001(\u0001\u0000\u0000\u0000"+
+		"\u0001*\u0001\u0000\u0000\u0000\u0001,\u0001\u0000\u0000\u0000\u0001."+
+		"\u0001\u0000\u0000\u0000\u00010\u0001\u0000\u0000\u0000\u00012\u0001\u0000"+
+		"\u0000\u0000\u00014\u0001\u0000\u0000\u0000\u00016\u0001\u0000\u0000\u0000"+
+		"\u00018\u0001\u0000\u0000\u0000\u0001:\u0001\u0000\u0000\u0000\u0001<"+
+		"\u0001\u0000\u0000\u0000\u0001>\u0001\u0000\u0000\u0000\u0001@\u0001\u0000"+
+		"\u0000\u0000\u0001B\u0001\u0000\u0000\u0000\u0001D\u0001\u0000\u0000\u0000"+
+		"\u0001F\u0001\u0000\u0000\u0000\u0001H\u0001\u0000\u0000\u0000\u0001J"+
+		"\u0001\u0000\u0000\u0000\u0001L\u0001\u0000\u0000\u0000\u0001N\u0001\u0000"+
+		"\u0000\u0000\u0001P\u0001\u0000\u0000\u0000\u0002R\u0001\u0000\u0000\u0000"+
+		"\u0004W\u0001\u0000\u0000\u0000\u0006_\u0001\u0000\u0000\u0000\bc\u0001"+
+		"\u0000\u0000\u0000\nh\u0001\u0000\u0000\u0000\fm\u0001\u0000\u0000\u0000"+
+		"\u000ep\u0001\u0000\u0000\u0000\u0010u\u0001\u0000\u0000\u0000\u0012z"+
+		"\u0001\u0000\u0000\u0000\u0014\u0080\u0001\u0000\u0000\u0000\u0016\u0084"+
+		"\u0001\u0000\u0000\u0000\u0018\u0087\u0001\u0000\u0000\u0000\u001a\u008e"+
+		"\u0001\u0000\u0000\u0000\u001c\u0092\u0001\u0000\u0000\u0000\u001e\u0095"+
+		"\u0001\u0000\u0000\u0000 \u0099\u0001\u0000\u0000\u0000\"\u009e\u0001"+
+		"\u0000\u0000\u0000$\u00a4\u0001\u0000\u0000\u0000&\u00a9\u0001\u0000\u0000"+
+		"\u0000(\u00ac\u0001\u0000\u0000\u0000*\u00af\u0001\u0000\u0000\u0000,"+
+		"\u00b1\u0001\u0000\u0000\u0000.\u00b3\u0001\u0000\u0000\u00000\u00b6\u0001"+
+		"\u0000\u0000\u00002\u00b9\u0001\u0000\u0000\u00004\u00bb\u0001\u0000\u0000"+
+		"\u00006\u00bd\u0001\u0000\u0000\u00008\u00bf\u0001\u0000\u0000\u0000:"+
+		"\u00c1\u0001\u0000\u0000\u0000<\u00c3\u0001\u0000\u0000\u0000>\u00c5\u0001"+
+		"\u0000\u0000\u0000@\u00c7\u0001\u0000\u0000\u0000B\u00c9\u0001\u0000\u0000"+
+		"\u0000D\u00cb\u0001\u0000\u0000\u0000F\u00cd\u0001\u0000\u0000\u0000H"+
+		"\u00cf\u0001\u0000\u0000\u0000J\u00db\u0001\u0000\u0000\u0000L\u00e0\u0001"+
+		"\u0000\u0000\u0000N\u00ea\u0001\u0000\u0000\u0000P\u00f2\u0001\u0000\u0000"+
+		"\u0000RS\u0005{\u0000\u0000ST\u0005{\u0000\u0000TU\u0001\u0000\u0000\u0000"+
+		"UV\u0006\u0000\u0000\u0000V\u0003\u0001\u0000\u0000\u0000WX\u0005{\u0000"+
+		"\u0000XY\u0005%\u0000\u0000YZ\u0001\u0000\u0000\u0000Z[\u0006\u0001\u0000"+
+		"\u0000[\u0005\u0001\u0000\u0000\u0000\\`\b\u0000\u0000\u0000]^\u0005{"+
+		"\u0000\u0000^`\b\u0001\u0000\u0000_\\\u0001\u0000\u0000\u0000_]\u0001"+
+		"\u0000\u0000\u0000`a\u0001\u0000\u0000\u0000a_\u0001\u0000\u0000\u0000"+
+		"ab\u0001\u0000\u0000\u0000b\u0007\u0001\u0000\u0000\u0000cd\u0005}\u0000"+
+		"\u0000de\u0005}\u0000\u0000ef\u0001\u0000\u0000\u0000fg\u0006\u0003\u0001"+
+		"\u0000g\t\u0001\u0000\u0000\u0000hi\u0005%\u0000\u0000ij\u0005}\u0000"+
+		"\u0000jk\u0001\u0000\u0000\u0000kl\u0006\u0004\u0001\u0000l\u000b\u0001"+
+		"\u0000\u0000\u0000mn\u0005i\u0000\u0000no\u0005f\u0000\u0000o\r\u0001"+
+		"\u0000\u0000\u0000pq\u0005e\u0000\u0000qr\u0005l\u0000\u0000rs\u0005i"+
+		"\u0000\u0000st\u0005f\u0000\u0000t\u000f\u0001\u0000\u0000\u0000uv\u0005"+
+		"e\u0000\u0000vw\u0005l\u0000\u0000wx\u0005s\u0000\u0000xy\u0005e\u0000"+
+		"\u0000y\u0011\u0001\u0000\u0000\u0000z{\u0005e\u0000\u0000{|\u0005n\u0000"+
+		"\u0000|}\u0005d\u0000\u0000}~\u0005i\u0000\u0000~\u007f\u0005f\u0000\u0000"+
+		"\u007f\u0013\u0001\u0000\u0000\u0000\u0080\u0081\u0005f\u0000\u0000\u0081"+
+		"\u0082\u0005o\u0000\u0000\u0082\u0083\u0005r\u0000\u0000\u0083\u0015\u0001"+
+		"\u0000\u0000\u0000\u0084\u0085\u0005i\u0000\u0000\u0085\u0086\u0005n\u0000"+
+		"\u0000\u0086\u0017\u0001\u0000\u0000\u0000\u0087\u0088\u0005e\u0000\u0000"+
+		"\u0088\u0089\u0005n\u0000\u0000\u0089\u008a\u0005d\u0000\u0000\u008a\u008b"+
+		"\u0005f\u0000\u0000\u008b\u008c\u0005o\u0000\u0000\u008c\u008d\u0005r"+
+		"\u0000\u0000\u008d\u0019\u0001\u0000\u0000\u0000\u008e\u008f\u0005a\u0000"+
+		"\u0000\u008f\u0090\u0005n\u0000\u0000\u0090\u0091\u0005d\u0000\u0000\u0091"+
+		"\u001b\u0001\u0000\u0000\u0000\u0092\u0093\u0005o\u0000\u0000\u0093\u0094"+
+		"\u0005r\u0000\u0000\u0094\u001d\u0001\u0000\u0000\u0000\u0095\u0096\u0005"+
+		"n\u0000\u0000\u0096\u0097\u0005o\u0000\u0000\u0097\u0098\u0005t\u0000"+
+		"\u0000\u0098\u001f\u0001\u0000\u0000\u0000\u0099\u009a\u0005t\u0000\u0000"+
+		"\u009a\u009b\u0005r\u0000\u0000\u009b\u009c\u0005u\u0000\u0000\u009c\u009d"+
+		"\u0005e\u0000\u0000\u009d!\u0001\u0000\u0000\u0000\u009e\u009f\u0005f"+
+		"\u0000\u0000\u009f\u00a0\u0005a\u0000\u0000\u00a0\u00a1\u0005l\u0000\u0000"+
+		"\u00a1\u00a2\u0005s\u0000\u0000\u00a2\u00a3\u0005e\u0000\u0000\u00a3#"+
+		"\u0001\u0000\u0000\u0000\u00a4\u00a5\u0005n\u0000\u0000\u00a5\u00a6\u0005"+
+		"o\u0000\u0000\u00a6\u00a7\u0005n\u0000\u0000\u00a7\u00a8\u0005e\u0000"+
+		"\u0000\u00a8%\u0001\u0000\u0000\u0000\u00a9\u00aa\u0005=\u0000\u0000\u00aa"+
+		"\u00ab\u0005=\u0000\u0000\u00ab\'\u0001\u0000\u0000\u0000\u00ac\u00ad"+
+		"\u0005!\u0000\u0000\u00ad\u00ae\u0005=\u0000\u0000\u00ae)\u0001\u0000"+
+		"\u0000\u0000\u00af\u00b0\u0005<\u0000\u0000\u00b0+\u0001\u0000\u0000\u0000"+
+		"\u00b1\u00b2\u0005>\u0000\u0000\u00b2-\u0001\u0000\u0000\u0000\u00b3\u00b4"+
+		"\u0005<\u0000\u0000\u00b4\u00b5\u0005=\u0000\u0000\u00b5/\u0001\u0000"+
+		"\u0000\u0000\u00b6\u00b7\u0005>\u0000\u0000\u00b7\u00b8\u0005=\u0000\u0000"+
+		"\u00b81\u0001\u0000\u0000\u0000\u00b9\u00ba\u0005+\u0000\u0000\u00ba3"+
+		"\u0001\u0000\u0000\u0000\u00bb\u00bc\u0005-\u0000\u0000\u00bc5\u0001\u0000"+
+		"\u0000\u0000\u00bd\u00be\u0005*\u0000\u0000\u00be7\u0001\u0000\u0000\u0000"+
+		"\u00bf\u00c0\u0005/\u0000\u0000\u00c09\u0001\u0000\u0000\u0000\u00c1\u00c2"+
+		"\u0005%\u0000\u0000\u00c2;\u0001\u0000\u0000\u0000\u00c3\u00c4\u0005."+
+		"\u0000\u0000\u00c4=\u0001\u0000\u0000\u0000\u00c5\u00c6\u0005(\u0000\u0000"+
+		"\u00c6?\u0001\u0000\u0000\u0000\u00c7\u00c8\u0005)\u0000\u0000\u00c8A"+
+		"\u0001\u0000\u0000\u0000\u00c9\u00ca\u0005[\u0000\u0000\u00caC\u0001\u0000"+
+		"\u0000\u0000\u00cb\u00cc\u0005]\u0000\u0000\u00ccE\u0001\u0000\u0000\u0000"+
+		"\u00cd\u00ce\u0005,\u0000\u0000\u00ceG\u0001\u0000\u0000\u0000\u00cf\u00d5"+
+		"\u0005\"\u0000\u0000\u00d0\u00d4\b\u0002\u0000\u0000\u00d1\u00d2\u0005"+
+		"\\\u0000\u0000\u00d2\u00d4\t\u0000\u0000\u0000\u00d3\u00d0\u0001\u0000"+
+		"\u0000\u0000\u00d3\u00d1\u0001\u0000\u0000\u0000\u00d4\u00d7\u0001\u0000"+
+		"\u0000\u0000\u00d5\u00d3\u0001\u0000\u0000\u0000\u00d5\u00d6\u0001\u0000"+
+		"\u0000\u0000\u00d6\u00d8\u0001\u0000\u0000\u0000\u00d7\u00d5\u0001\u0000"+
+		"\u0000\u0000\u00d8\u00d9\u0005\"\u0000\u0000\u00d9I\u0001\u0000\u0000"+
+		"\u0000\u00da\u00dc\u0007\u0003\u0000\u0000\u00db\u00da\u0001\u0000\u0000"+
+		"\u0000\u00dc\u00dd\u0001\u0000\u0000\u0000\u00dd\u00db\u0001\u0000\u0000"+
+		"\u0000\u00dd\u00de\u0001\u0000\u0000\u0000\u00deK\u0001\u0000\u0000\u0000"+
+		"\u00df\u00e1\u0007\u0003\u0000\u0000\u00e0\u00df\u0001\u0000\u0000\u0000"+
+		"\u00e1\u00e2\u0001\u0000\u0000\u0000\u00e2\u00e0\u0001\u0000\u0000\u0000"+
+		"\u00e2\u00e3\u0001\u0000\u0000\u0000\u00e3\u00e4\u0001\u0000\u0000\u0000"+
+		"\u00e4\u00e6\u0005.\u0000\u0000\u00e5\u00e7\u0007\u0003\u0000\u0000\u00e6"+
+		"\u00e5\u0001\u0000\u0000\u0000\u00e7\u00e8\u0001\u0000\u0000\u0000\u00e8"+
+		"\u00e6\u0001\u0000\u0000\u0000\u00e8\u00e9\u0001\u0000\u0000\u0000\u00e9"+
+		"M\u0001\u0000\u0000\u0000\u00ea\u00ee\u0007\u0004\u0000\u0000\u00eb\u00ed"+
+		"\u0007\u0005\u0000\u0000\u00ec\u00eb\u0001\u0000\u0000\u0000\u00ed\u00f0"+
+		"\u0001\u0000\u0000\u0000\u00ee\u00ec\u0001\u0000\u0000\u0000\u00ee\u00ef"+
+		"\u0001\u0000\u0000\u0000\u00efO\u0001\u0000\u0000\u0000\u00f0\u00ee\u0001"+
+		"\u0000\u0000\u0000\u00f1\u00f3\u0007\u0006\u0000\u0000\u00f2\u00f1\u0001"+
+		"\u0000\u0000\u0000\u00f3\u00f4\u0001\u0000\u0000\u0000\u00f4\u00f2\u0001"+
+		"\u0000\u0000\u0000\u00f4\u00f5\u0001\u0000\u0000\u0000\u00f5\u00f6\u0001"+
+		"\u0000\u0000\u0000\u00f6\u00f7\u0006\'\u0002\u0000\u00f7Q\u0001\u0000"+
+		"\u0000\u0000\u000b\u0000\u0001_a\u00d3\u00d5\u00dd\u00e2\u00e8\u00ee\u00f4"+
+		"\u0003\u0005\u0001\u0000\u0004\u0000\u0000\u0006\u0000\u0000";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
@@ -3658,7 +4629,7 @@ public class JinjaLexer extends Lexer {
 	}
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\jinja\JinjaParser.java 
+### ?? File: JinjaParser.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
 package compiler.generated.jinja;
@@ -3679,13 +4650,12 @@ public class JinjaParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		HTML_TEXT=1, JINJA_EXPR_START=2, JINJA_STMT_START=3, JINJA_COMMENT_START=4, 
-		JINJA_EXPR_END=5, JINJA_STMT_END=6, IF=7, ELIF=8, ELSE=9, ENDIF=10, FOR=11, 
-		IN=12, ENDFOR=13, AND=14, OR=15, NOT=16, TRUE=17, FALSE=18, NONE=19, EQ=20, 
-		NE=21, LT=22, GT=23, LE=24, GE=25, PLUS=26, MINUS=27, STAR=28, SLASH=29, 
-		MOD=30, DOT=31, LPAREN=32, RPAREN=33, LBRACK=34, RBRACK=35, COMMA=36, 
-		STRING=37, INT=38, FLOAT=39, IDENTIFIER=40, WS=41, JINJA_COMMENT_END=42, 
-		COMMENT_TEXT=43;
+		JINJA_EXPR_START=1, JINJA_STMT_START=2, HTML_TEXT=3, JINJA_EXPR_END=4, 
+		JINJA_STMT_END=5, IF=6, ELIF=7, ELSE=8, ENDIF=9, FOR=10, IN=11, ENDFOR=12, 
+		AND=13, OR=14, NOT=15, TRUE=16, FALSE=17, NONE=18, EQ=19, NE=20, LT=21, 
+		GT=22, LE=23, GE=24, PLUS=25, MINUS=26, STAR=27, SLASH=28, MOD=29, DOT=30, 
+		LPAREN=31, RPAREN=32, LBRACK=33, RBRACK=34, COMMA=35, STRING=36, INT=37, 
+		FLOAT=38, IDENTIFIER=39, WS=40;
 	public static final int
 		RULE_template = 0, RULE_templateBody = 1, RULE_element = 2, RULE_expressionOutput = 3, 
 		RULE_ifStatement = 4, RULE_elifClause = 5, RULE_elseClause = 6, RULE_forStatement = 7, 
@@ -3704,22 +4674,21 @@ public class JinjaParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, null, "'{{'", "'{%'", "'{#'", "'}}'", "'%}'", "'if'", "'elif'", 
-			"'else'", "'endif'", "'for'", "'in'", "'endfor'", "'and'", "'or'", "'not'", 
-			"'true'", "'false'", "'none'", "'=='", "'!='", "'<'", "'>'", "'<='", 
-			"'>='", "'+'", "'-'", "'*'", "'/'", "'%'", "'.'", "'('", "')'", "'['", 
-			"']'", "','", null, null, null, null, null, "'#}'"
+			null, "'{{'", "'{%'", null, "'}}'", "'%}'", "'if'", "'elif'", "'else'", 
+			"'endif'", "'for'", "'in'", "'endfor'", "'and'", "'or'", "'not'", "'true'", 
+			"'false'", "'none'", "'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "'+'", 
+			"'-'", "'*'", "'/'", "'%'", "'.'", "'('", "')'", "'['", "']'", "','"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "HTML_TEXT", "JINJA_EXPR_START", "JINJA_STMT_START", "JINJA_COMMENT_START", 
-			"JINJA_EXPR_END", "JINJA_STMT_END", "IF", "ELIF", "ELSE", "ENDIF", "FOR", 
-			"IN", "ENDFOR", "AND", "OR", "NOT", "TRUE", "FALSE", "NONE", "EQ", "NE", 
-			"LT", "GT", "LE", "GE", "PLUS", "MINUS", "STAR", "SLASH", "MOD", "DOT", 
-			"LPAREN", "RPAREN", "LBRACK", "RBRACK", "COMMA", "STRING", "INT", "FLOAT", 
-			"IDENTIFIER", "WS", "JINJA_COMMENT_END", "COMMENT_TEXT"
+			null, "JINJA_EXPR_START", "JINJA_STMT_START", "HTML_TEXT", "JINJA_EXPR_END", 
+			"JINJA_STMT_END", "IF", "ELIF", "ELSE", "ENDIF", "FOR", "IN", "ENDFOR", 
+			"AND", "OR", "NOT", "TRUE", "FALSE", "NONE", "EQ", "NE", "LT", "GT", 
+			"LE", "GE", "PLUS", "MINUS", "STAR", "SLASH", "MOD", "DOT", "LPAREN", 
+			"RPAREN", "LBRACK", "RBRACK", "COMMA", "STRING", "INT", "FLOAT", "IDENTIFIER", 
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -4783,7 +5752,7 @@ public class JinjaParser extends Parser {
 					setState(125);
 					((ComparisonOpExprContext)_localctx).op = _input.LT(1);
 					_la = _input.LA(1);
-					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 66060288L) != 0)) ) {
+					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 33030144L) != 0)) ) {
 						((ComparisonOpExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 					}
 					else {
@@ -5050,7 +6019,7 @@ public class JinjaParser extends Parser {
 					setState(147);
 					((MulExprContext)_localctx).op = _input.LT(1);
 					_la = _input.LA(1);
-					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1879048192L) != 0)) ) {
+					if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 939524096L) != 0)) ) {
 						((MulExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 					}
 					else {
@@ -5681,7 +6650,7 @@ public class JinjaParser extends Parser {
 				setState(191);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 2066014470144L) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 1033007235072L) != 0)) {
 					{
 					setState(190);
 					((CallTrailerContext)_localctx).arguments = argList();
@@ -5841,7 +6810,7 @@ public class JinjaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001+\u00d0\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001(\u00d0\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
@@ -5874,7 +6843,7 @@ public class JinjaParser extends Parser {
 		"\t\u0012\u0001\u0012\u0003\u0012\u00ce\b\u0012\u0001\u0012\u0000\u0005"+
 		"\u0012\u0014\u0016\u0018\u001a\u0013\u0000\u0002\u0004\u0006\b\n\f\u000e"+
 		"\u0010\u0012\u0014\u0016\u0018\u001a\u001c\u001e \"$\u0000\u0003\u0001"+
-		"\u0000\u0014\u0019\u0001\u0000\u001a\u001b\u0001\u0000\u001c\u001e\u00d6"+
+		"\u0000\u0013\u0018\u0001\u0000\u0019\u001a\u0001\u0000\u001b\u001d\u00d6"+
 		"\u0000&\u0001\u0000\u0000\u0000\u0002,\u0001\u0000\u0000\u0000\u00043"+
 		"\u0001\u0000\u0000\u0000\u00065\u0001\u0000\u0000\u0000\b9\u0001\u0000"+
 		"\u0000\u0000\nK\u0001\u0000\u0000\u0000\fQ\u0001\u0000\u0000\u0000\u000e"+
@@ -5887,86 +6856,86 @@ public class JinjaParser extends Parser {
 		"\u0000\u0001(\u0001\u0001\u0000\u0000\u0000)+\u0003\u0004\u0002\u0000"+
 		"*)\u0001\u0000\u0000\u0000+.\u0001\u0000\u0000\u0000,*\u0001\u0000\u0000"+
 		"\u0000,-\u0001\u0000\u0000\u0000-\u0003\u0001\u0000\u0000\u0000.,\u0001"+
-		"\u0000\u0000\u0000/4\u0005\u0001\u0000\u000004\u0003\u0006\u0003\u0000"+
+		"\u0000\u0000\u0000/4\u0005\u0003\u0000\u000004\u0003\u0006\u0003\u0000"+
 		"14\u0003\b\u0004\u000024\u0003\u000e\u0007\u00003/\u0001\u0000\u0000\u0000"+
 		"30\u0001\u0000\u0000\u000031\u0001\u0000\u0000\u000032\u0001\u0000\u0000"+
-		"\u00004\u0005\u0001\u0000\u0000\u000056\u0005\u0002\u0000\u000067\u0003"+
-		"\u0010\b\u000078\u0005\u0005\u0000\u00008\u0007\u0001\u0000\u0000\u0000"+
-		"9:\u0005\u0003\u0000\u0000:;\u0005\u0007\u0000\u0000;<\u0003\u0010\b\u0000"+
-		"<=\u0005\u0006\u0000\u0000=A\u0003\u0002\u0001\u0000>@\u0003\n\u0005\u0000"+
+		"\u00004\u0005\u0001\u0000\u0000\u000056\u0005\u0001\u0000\u000067\u0003"+
+		"\u0010\b\u000078\u0005\u0004\u0000\u00008\u0007\u0001\u0000\u0000\u0000"+
+		"9:\u0005\u0002\u0000\u0000:;\u0005\u0006\u0000\u0000;<\u0003\u0010\b\u0000"+
+		"<=\u0005\u0005\u0000\u0000=A\u0003\u0002\u0001\u0000>@\u0003\n\u0005\u0000"+
 		"?>\u0001\u0000\u0000\u0000@C\u0001\u0000\u0000\u0000A?\u0001\u0000\u0000"+
 		"\u0000AB\u0001\u0000\u0000\u0000BE\u0001\u0000\u0000\u0000CA\u0001\u0000"+
 		"\u0000\u0000DF\u0003\f\u0006\u0000ED\u0001\u0000\u0000\u0000EF\u0001\u0000"+
-		"\u0000\u0000FG\u0001\u0000\u0000\u0000GH\u0005\u0003\u0000\u0000HI\u0005"+
-		"\n\u0000\u0000IJ\u0005\u0006\u0000\u0000J\t\u0001\u0000\u0000\u0000KL"+
-		"\u0005\u0003\u0000\u0000LM\u0005\b\u0000\u0000MN\u0003\u0010\b\u0000N"+
-		"O\u0005\u0006\u0000\u0000OP\u0003\u0002\u0001\u0000P\u000b\u0001\u0000"+
-		"\u0000\u0000QR\u0005\u0003\u0000\u0000RS\u0005\t\u0000\u0000ST\u0005\u0006"+
+		"\u0000\u0000FG\u0001\u0000\u0000\u0000GH\u0005\u0002\u0000\u0000HI\u0005"+
+		"\t\u0000\u0000IJ\u0005\u0005\u0000\u0000J\t\u0001\u0000\u0000\u0000KL"+
+		"\u0005\u0002\u0000\u0000LM\u0005\u0007\u0000\u0000MN\u0003\u0010\b\u0000"+
+		"NO\u0005\u0005\u0000\u0000OP\u0003\u0002\u0001\u0000P\u000b\u0001\u0000"+
+		"\u0000\u0000QR\u0005\u0002\u0000\u0000RS\u0005\b\u0000\u0000ST\u0005\u0005"+
 		"\u0000\u0000TU\u0003\u0002\u0001\u0000U\r\u0001\u0000\u0000\u0000VW\u0005"+
-		"\u0003\u0000\u0000WX\u0005\u000b\u0000\u0000XY\u0005(\u0000\u0000YZ\u0005"+
-		"\f\u0000\u0000Z[\u0003\u0010\b\u0000[\\\u0005\u0006\u0000\u0000\\]\u0003"+
-		"\u0002\u0001\u0000]^\u0005\u0003\u0000\u0000^_\u0005\r\u0000\u0000_`\u0005"+
-		"\u0006\u0000\u0000`\u000f\u0001\u0000\u0000\u0000ab\u0003\u0012\t\u0000"+
-		"b\u0011\u0001\u0000\u0000\u0000cd\u0006\t\uffff\uffff\u0000de\u0003\u0014"+
-		"\n\u0000ek\u0001\u0000\u0000\u0000fg\n\u0002\u0000\u0000gh\u0005\u000f"+
-		"\u0000\u0000hj\u0003\u0014\n\u0000if\u0001\u0000\u0000\u0000jm\u0001\u0000"+
-		"\u0000\u0000ki\u0001\u0000\u0000\u0000kl\u0001\u0000\u0000\u0000l\u0013"+
-		"\u0001\u0000\u0000\u0000mk\u0001\u0000\u0000\u0000no\u0006\n\uffff\uffff"+
-		"\u0000op\u0003\u0016\u000b\u0000pv\u0001\u0000\u0000\u0000qr\n\u0002\u0000"+
-		"\u0000rs\u0005\u000e\u0000\u0000su\u0003\u0016\u000b\u0000tq\u0001\u0000"+
-		"\u0000\u0000ux\u0001\u0000\u0000\u0000vt\u0001\u0000\u0000\u0000vw\u0001"+
-		"\u0000\u0000\u0000w\u0015\u0001\u0000\u0000\u0000xv\u0001\u0000\u0000"+
-		"\u0000yz\u0006\u000b\uffff\uffff\u0000z{\u0003\u0018\f\u0000{\u0081\u0001"+
-		"\u0000\u0000\u0000|}\n\u0002\u0000\u0000}~\u0007\u0000\u0000\u0000~\u0080"+
-		"\u0003\u0018\f\u0000\u007f|\u0001\u0000\u0000\u0000\u0080\u0083\u0001"+
-		"\u0000\u0000\u0000\u0081\u007f\u0001\u0000\u0000\u0000\u0081\u0082\u0001"+
-		"\u0000\u0000\u0000\u0082\u0017\u0001\u0000\u0000\u0000\u0083\u0081\u0001"+
-		"\u0000\u0000\u0000\u0084\u0085\u0006\f\uffff\uffff\u0000\u0085\u0086\u0003"+
-		"\u001a\r\u0000\u0086\u008c\u0001\u0000\u0000\u0000\u0087\u0088\n\u0002"+
-		"\u0000\u0000\u0088\u0089\u0007\u0001\u0000\u0000\u0089\u008b\u0003\u001a"+
-		"\r\u0000\u008a\u0087\u0001\u0000\u0000\u0000\u008b\u008e\u0001\u0000\u0000"+
-		"\u0000\u008c\u008a\u0001\u0000\u0000\u0000\u008c\u008d\u0001\u0000\u0000"+
-		"\u0000\u008d\u0019\u0001\u0000\u0000\u0000\u008e\u008c\u0001\u0000\u0000"+
-		"\u0000\u008f\u0090\u0006\r\uffff\uffff\u0000\u0090\u0091\u0003\u001c\u000e"+
-		"\u0000\u0091\u0097\u0001\u0000\u0000\u0000\u0092\u0093\n\u0002\u0000\u0000"+
-		"\u0093\u0094\u0007\u0002\u0000\u0000\u0094\u0096\u0003\u001c\u000e\u0000"+
-		"\u0095\u0092\u0001\u0000\u0000\u0000\u0096\u0099\u0001\u0000\u0000\u0000"+
-		"\u0097\u0095\u0001\u0000\u0000\u0000\u0097\u0098\u0001\u0000\u0000\u0000"+
-		"\u0098\u001b\u0001\u0000\u0000\u0000\u0099\u0097\u0001\u0000\u0000\u0000"+
-		"\u009a\u009b\u0005\u0010\u0000\u0000\u009b\u00a0\u0003\u001c\u000e\u0000"+
-		"\u009c\u009d\u0005\u001b\u0000\u0000\u009d\u00a0\u0003\u001c\u000e\u0000"+
-		"\u009e\u00a0\u0003\u001e\u000f\u0000\u009f\u009a\u0001\u0000\u0000\u0000"+
-		"\u009f\u009c\u0001\u0000\u0000\u0000\u009f\u009e\u0001\u0000\u0000\u0000"+
-		"\u00a0\u001d\u0001\u0000\u0000\u0000\u00a1\u00a2\u0005 \u0000\u0000\u00a2"+
-		"\u00a3\u0003\u0010\b\u0000\u00a3\u00a4\u0005!\u0000\u0000\u00a4\u00ae"+
-		"\u0001\u0000\u0000\u0000\u00a5\u00ae\u0003 \u0010\u0000\u00a6\u00aa\u0005"+
-		"(\u0000\u0000\u00a7\u00a9\u0003\"\u0011\u0000\u00a8\u00a7\u0001\u0000"+
-		"\u0000\u0000\u00a9\u00ac\u0001\u0000\u0000\u0000\u00aa\u00a8\u0001\u0000"+
-		"\u0000\u0000\u00aa\u00ab\u0001\u0000\u0000\u0000\u00ab\u00ae\u0001\u0000"+
-		"\u0000\u0000\u00ac\u00aa\u0001\u0000\u0000\u0000\u00ad\u00a1\u0001\u0000"+
-		"\u0000\u0000\u00ad\u00a5\u0001\u0000\u0000\u0000\u00ad\u00a6\u0001\u0000"+
-		"\u0000\u0000\u00ae\u001f\u0001\u0000\u0000\u0000\u00af\u00b6\u0005%\u0000"+
-		"\u0000\u00b0\u00b6\u0005&\u0000\u0000\u00b1\u00b6\u0005\'\u0000\u0000"+
-		"\u00b2\u00b6\u0005\u0011\u0000\u0000\u00b3\u00b6\u0005\u0012\u0000\u0000"+
-		"\u00b4\u00b6\u0005\u0013\u0000\u0000\u00b5\u00af\u0001\u0000\u0000\u0000"+
-		"\u00b5\u00b0\u0001\u0000\u0000\u0000\u00b5\u00b1\u0001\u0000\u0000\u0000"+
-		"\u00b5\u00b2\u0001\u0000\u0000\u0000\u00b5\u00b3\u0001\u0000\u0000\u0000"+
-		"\u00b5\u00b4\u0001\u0000\u0000\u0000\u00b6!\u0001\u0000\u0000\u0000\u00b7"+
-		"\u00b8\u0005\u001f\u0000\u0000\u00b8\u00c3\u0005(\u0000\u0000\u00b9\u00ba"+
-		"\u0005\"\u0000\u0000\u00ba\u00bb\u0003\u0010\b\u0000\u00bb\u00bc\u0005"+
-		"#\u0000\u0000\u00bc\u00c3\u0001\u0000\u0000\u0000\u00bd\u00bf\u0005 \u0000"+
-		"\u0000\u00be\u00c0\u0003$\u0012\u0000\u00bf\u00be\u0001\u0000\u0000\u0000"+
-		"\u00bf\u00c0\u0001\u0000\u0000\u0000\u00c0\u00c1\u0001\u0000\u0000\u0000"+
-		"\u00c1\u00c3\u0005!\u0000\u0000\u00c2\u00b7\u0001\u0000\u0000\u0000\u00c2"+
-		"\u00b9\u0001\u0000\u0000\u0000\u00c2\u00bd\u0001\u0000\u0000\u0000\u00c3"+
-		"#\u0001\u0000\u0000\u0000\u00c4\u00c9\u0003\u0010\b\u0000\u00c5\u00c6"+
-		"\u0005$\u0000\u0000\u00c6\u00c8\u0003\u0010\b\u0000\u00c7\u00c5\u0001"+
-		"\u0000\u0000\u0000\u00c8\u00cb\u0001\u0000\u0000\u0000\u00c9\u00c7\u0001"+
-		"\u0000\u0000\u0000\u00c9\u00ca\u0001\u0000\u0000\u0000\u00ca\u00cd\u0001"+
-		"\u0000\u0000\u0000\u00cb\u00c9\u0001\u0000\u0000\u0000\u00cc\u00ce\u0005"+
-		"$\u0000\u0000\u00cd\u00cc\u0001\u0000\u0000\u0000\u00cd\u00ce\u0001\u0000"+
-		"\u0000\u0000\u00ce%\u0001\u0000\u0000\u0000\u0011,3AEkv\u0081\u008c\u0097"+
-		"\u009f\u00aa\u00ad\u00b5\u00bf\u00c2\u00c9\u00cd";
+		"\u0002\u0000\u0000WX\u0005\n\u0000\u0000XY\u0005\'\u0000\u0000YZ\u0005"+
+		"\u000b\u0000\u0000Z[\u0003\u0010\b\u0000[\\\u0005\u0005\u0000\u0000\\"+
+		"]\u0003\u0002\u0001\u0000]^\u0005\u0002\u0000\u0000^_\u0005\f\u0000\u0000"+
+		"_`\u0005\u0005\u0000\u0000`\u000f\u0001\u0000\u0000\u0000ab\u0003\u0012"+
+		"\t\u0000b\u0011\u0001\u0000\u0000\u0000cd\u0006\t\uffff\uffff\u0000de"+
+		"\u0003\u0014\n\u0000ek\u0001\u0000\u0000\u0000fg\n\u0002\u0000\u0000g"+
+		"h\u0005\u000e\u0000\u0000hj\u0003\u0014\n\u0000if\u0001\u0000\u0000\u0000"+
+		"jm\u0001\u0000\u0000\u0000ki\u0001\u0000\u0000\u0000kl\u0001\u0000\u0000"+
+		"\u0000l\u0013\u0001\u0000\u0000\u0000mk\u0001\u0000\u0000\u0000no\u0006"+
+		"\n\uffff\uffff\u0000op\u0003\u0016\u000b\u0000pv\u0001\u0000\u0000\u0000"+
+		"qr\n\u0002\u0000\u0000rs\u0005\r\u0000\u0000su\u0003\u0016\u000b\u0000"+
+		"tq\u0001\u0000\u0000\u0000ux\u0001\u0000\u0000\u0000vt\u0001\u0000\u0000"+
+		"\u0000vw\u0001\u0000\u0000\u0000w\u0015\u0001\u0000\u0000\u0000xv\u0001"+
+		"\u0000\u0000\u0000yz\u0006\u000b\uffff\uffff\u0000z{\u0003\u0018\f\u0000"+
+		"{\u0081\u0001\u0000\u0000\u0000|}\n\u0002\u0000\u0000}~\u0007\u0000\u0000"+
+		"\u0000~\u0080\u0003\u0018\f\u0000\u007f|\u0001\u0000\u0000\u0000\u0080"+
+		"\u0083\u0001\u0000\u0000\u0000\u0081\u007f\u0001\u0000\u0000\u0000\u0081"+
+		"\u0082\u0001\u0000\u0000\u0000\u0082\u0017\u0001\u0000\u0000\u0000\u0083"+
+		"\u0081\u0001\u0000\u0000\u0000\u0084\u0085\u0006\f\uffff\uffff\u0000\u0085"+
+		"\u0086\u0003\u001a\r\u0000\u0086\u008c\u0001\u0000\u0000\u0000\u0087\u0088"+
+		"\n\u0002\u0000\u0000\u0088\u0089\u0007\u0001\u0000\u0000\u0089\u008b\u0003"+
+		"\u001a\r\u0000\u008a\u0087\u0001\u0000\u0000\u0000\u008b\u008e\u0001\u0000"+
+		"\u0000\u0000\u008c\u008a\u0001\u0000\u0000\u0000\u008c\u008d\u0001\u0000"+
+		"\u0000\u0000\u008d\u0019\u0001\u0000\u0000\u0000\u008e\u008c\u0001\u0000"+
+		"\u0000\u0000\u008f\u0090\u0006\r\uffff\uffff\u0000\u0090\u0091\u0003\u001c"+
+		"\u000e\u0000\u0091\u0097\u0001\u0000\u0000\u0000\u0092\u0093\n\u0002\u0000"+
+		"\u0000\u0093\u0094\u0007\u0002\u0000\u0000\u0094\u0096\u0003\u001c\u000e"+
+		"\u0000\u0095\u0092\u0001\u0000\u0000\u0000\u0096\u0099\u0001\u0000\u0000"+
+		"\u0000\u0097\u0095\u0001\u0000\u0000\u0000\u0097\u0098\u0001\u0000\u0000"+
+		"\u0000\u0098\u001b\u0001\u0000\u0000\u0000\u0099\u0097\u0001\u0000\u0000"+
+		"\u0000\u009a\u009b\u0005\u000f\u0000\u0000\u009b\u00a0\u0003\u001c\u000e"+
+		"\u0000\u009c\u009d\u0005\u001a\u0000\u0000\u009d\u00a0\u0003\u001c\u000e"+
+		"\u0000\u009e\u00a0\u0003\u001e\u000f\u0000\u009f\u009a\u0001\u0000\u0000"+
+		"\u0000\u009f\u009c\u0001\u0000\u0000\u0000\u009f\u009e\u0001\u0000\u0000"+
+		"\u0000\u00a0\u001d\u0001\u0000\u0000\u0000\u00a1\u00a2\u0005\u001f\u0000"+
+		"\u0000\u00a2\u00a3\u0003\u0010\b\u0000\u00a3\u00a4\u0005 \u0000\u0000"+
+		"\u00a4\u00ae\u0001\u0000\u0000\u0000\u00a5\u00ae\u0003 \u0010\u0000\u00a6"+
+		"\u00aa\u0005\'\u0000\u0000\u00a7\u00a9\u0003\"\u0011\u0000\u00a8\u00a7"+
+		"\u0001\u0000\u0000\u0000\u00a9\u00ac\u0001\u0000\u0000\u0000\u00aa\u00a8"+
+		"\u0001\u0000\u0000\u0000\u00aa\u00ab\u0001\u0000\u0000\u0000\u00ab\u00ae"+
+		"\u0001\u0000\u0000\u0000\u00ac\u00aa\u0001\u0000\u0000\u0000\u00ad\u00a1"+
+		"\u0001\u0000\u0000\u0000\u00ad\u00a5\u0001\u0000\u0000\u0000\u00ad\u00a6"+
+		"\u0001\u0000\u0000\u0000\u00ae\u001f\u0001\u0000\u0000\u0000\u00af\u00b6"+
+		"\u0005$\u0000\u0000\u00b0\u00b6\u0005%\u0000\u0000\u00b1\u00b6\u0005&"+
+		"\u0000\u0000\u00b2\u00b6\u0005\u0010\u0000\u0000\u00b3\u00b6\u0005\u0011"+
+		"\u0000\u0000\u00b4\u00b6\u0005\u0012\u0000\u0000\u00b5\u00af\u0001\u0000"+
+		"\u0000\u0000\u00b5\u00b0\u0001\u0000\u0000\u0000\u00b5\u00b1\u0001\u0000"+
+		"\u0000\u0000\u00b5\u00b2\u0001\u0000\u0000\u0000\u00b5\u00b3\u0001\u0000"+
+		"\u0000\u0000\u00b5\u00b4\u0001\u0000\u0000\u0000\u00b6!\u0001\u0000\u0000"+
+		"\u0000\u00b7\u00b8\u0005\u001e\u0000\u0000\u00b8\u00c3\u0005\'\u0000\u0000"+
+		"\u00b9\u00ba\u0005!\u0000\u0000\u00ba\u00bb\u0003\u0010\b\u0000\u00bb"+
+		"\u00bc\u0005\"\u0000\u0000\u00bc\u00c3\u0001\u0000\u0000\u0000\u00bd\u00bf"+
+		"\u0005\u001f\u0000\u0000\u00be\u00c0\u0003$\u0012\u0000\u00bf\u00be\u0001"+
+		"\u0000\u0000\u0000\u00bf\u00c0\u0001\u0000\u0000\u0000\u00c0\u00c1\u0001"+
+		"\u0000\u0000\u0000\u00c1\u00c3\u0005 \u0000\u0000\u00c2\u00b7\u0001\u0000"+
+		"\u0000\u0000\u00c2\u00b9\u0001\u0000\u0000\u0000\u00c2\u00bd\u0001\u0000"+
+		"\u0000\u0000\u00c3#\u0001\u0000\u0000\u0000\u00c4\u00c9\u0003\u0010\b"+
+		"\u0000\u00c5\u00c6\u0005#\u0000\u0000\u00c6\u00c8\u0003\u0010\b\u0000"+
+		"\u00c7\u00c5\u0001\u0000\u0000\u0000\u00c8\u00cb\u0001\u0000\u0000\u0000"+
+		"\u00c9\u00c7\u0001\u0000\u0000\u0000\u00c9\u00ca\u0001\u0000\u0000\u0000"+
+		"\u00ca\u00cd\u0001\u0000\u0000\u0000\u00cb\u00c9\u0001\u0000\u0000\u0000"+
+		"\u00cc\u00ce\u0005#\u0000\u0000\u00cd\u00cc\u0001\u0000\u0000\u0000\u00cd"+
+		"\u00ce\u0001\u0000\u0000\u0000\u00ce%\u0001\u0000\u0000\u0000\u0011,3"+
+		"AEkv\u0081\u008c\u0097\u009f\u00aa\u00ad\u00b5\u00bf\u00c2\u00c9\u00cd";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
@@ -5977,7 +6946,7 @@ public class JinjaParser extends Parser {
 	}
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\jinja\JinjaParserBaseListener.java 
+### ?? File: JinjaParserBaseListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
 package compiler.generated.jinja;
@@ -6476,7 +7445,7 @@ public class JinjaParserBaseListener implements JinjaParserListener {
 	@Override public void visitErrorNode(ErrorNode node) { }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\jinja\JinjaParserBaseVisitor.java 
+### ?? File: JinjaParserBaseVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
 package compiler.generated.jinja;
@@ -6760,7 +7729,7 @@ public class JinjaParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	@Override public T visitArgList(JinjaParser.ArgListContext ctx) { return visitChildren(ctx); }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\jinja\JinjaParserListener.java 
+### ?? File: JinjaParserListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
 package compiler.generated.jinja;
@@ -7211,7 +8180,7 @@ public interface JinjaParserListener extends ParseTreeListener {
 	void exitArgList(JinjaParser.ArgListContext ctx);
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\jinja\JinjaParserVisitor.java 
+### ?? File: JinjaParserVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
 package compiler.generated.jinja;
@@ -7484,7 +8453,7 @@ public interface JinjaParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitArgList(JinjaParser.ArgListContext ctx);
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\python\BasePythonLexer.java 
+### ?? File: BasePythonLexer.java 
  
 package compiler.generated.python;
 
@@ -7673,7 +8642,7 @@ public class BasePythonLexer extends PythonLexer {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\python\PythonLexer.java 
+### ?? File: PythonLexer.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonLexer.g4 by ANTLR 4.13.2
 package compiler.generated.python;
@@ -7979,7 +8948,7 @@ public class PythonLexer extends Lexer {
 	}
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\python\PythonParser.java 
+### ?? File: PythonParser.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
 package compiler.generated.python;
@@ -10464,7 +11433,7 @@ public class PythonParser extends Parser {
 	}
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\python\PythonParserBaseListener.java 
+### ?? File: PythonParserBaseListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
 package compiler.generated.python;
@@ -10975,7 +11944,7 @@ public class PythonParserBaseListener implements PythonParserListener {
 	@Override public void visitErrorNode(ErrorNode node) { }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\python\PythonParserBaseVisitor.java 
+### ?? File: PythonParserBaseVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
 package compiler.generated.python;
@@ -11266,7 +12235,7 @@ public class PythonParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> impl
 	@Override public T visitDictItem(PythonParser.DictItemContext ctx) { return visitChildren(ctx); }
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\python\PythonParserListener.java 
+### ?? File: PythonParserListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
 package compiler.generated.python;
@@ -11731,7 +12700,7 @@ public interface PythonParserListener extends ParseTreeListener {
 	void exitDictItem(PythonParser.DictItemContext ctx);
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\generated\python\PythonParserVisitor.java 
+### ?? File: PythonParserVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
 package compiler.generated.python;
@@ -12012,11 +12981,11 @@ public interface PythonParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitDictItem(PythonParser.DictItemContext ctx);
 } 
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\printer\ASTPrinter.java 
+### ?? File: ASTPrinter.java 
  
 package compiler.printer;
 
-import compiler.ast.python.AstNode;
+import compiler.ast.common.AstNode;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12561,7 +13530,7 @@ public class ASTPrinter {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\printer\ParseTreePrinter.java 
+### ?? File: ParseTreePrinter.java 
  
 package compiler.printer;
 
@@ -12952,7 +13921,7 @@ public class ParseTreePrinter {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\printer\TokenPrinter.java 
+### ?? File: TokenPrinter.java 
  
 package compiler.printer;
 
@@ -13058,7 +14027,7 @@ public class TokenPrinter {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\printer\TreeVisualizer.java 
+### ?? File: TreeVisualizer.java 
  
 package compiler.printer;
 
@@ -13233,7 +14202,7 @@ public class TreeVisualizer {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\semantic\python\Scope.java 
+### ?? File: Scope.java 
  
 package compiler.semantic.python;
 
@@ -13327,11 +14296,13 @@ public class Scope {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\semantic\python\SemanticAnalyzer.java 
+### ?? File: SemanticAnalyzer.java 
  
 package compiler.semantic.python;
 
 import compiler.ast.python.*;
+import compiler.ast.common.AstVisitor;
+import compiler.ast.common.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13343,26 +14314,26 @@ import java.util.Map;
  * Performs symbol table construction and semantic checks.
  */
 public class SemanticAnalyzer implements AstVisitor<Void> {
-    
+
     private final SymbolTable symbolTable;
     private final List<SemanticError> errors;
     private final Map<String, Integer> functionParameterCounts;
-    
+
     public SemanticAnalyzer() {
         this.symbolTable = new SymbolTable();
         this.errors = new ArrayList<>();
         this.functionParameterCounts = new HashMap<>();
     }
-    
+
     public List<SemanticError> analyze(Program program) {
         program.accept(this);
         return new ArrayList<>(errors);
     }
-    
+
     public SymbolTable getSymbolTable() {
         return symbolTable;
     }
-    
+
     @Override
     public Void visitProgram(Program node) {
         for (Statement stmt : node.getStatements()) {
@@ -13370,81 +14341,81 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
         }
         return null;
     }
-    
+
     @Override
     public Void visitFunctionDef(FunctionDef node) {
         // Check for duplicate function definition
         Symbol existing = symbolTable.lookup(node.getName());
         if (existing != null && existing.getKind() == Symbol.Kind.FUNCTION) {
             errors.add(new SemanticError(
-                node.getLine(),
-                SemanticError.ErrorType.DUPLICATE_FUNCTION_DEFINITION,
-                "Duplicate function definition '" + node.getName() + "'"
+                    node.getLine(),
+                    SemanticError.ErrorType.DUPLICATE_FUNCTION_DEFINITION,
+                    "Duplicate function definition '" + node.getName() + "'"
             ));
         } else {
             Symbol functionSymbol = new Symbol(
-                node.getName(),
-                Symbol.Kind.FUNCTION,
-                node.getLine()
+                    node.getName(),
+                    Symbol.Kind.FUNCTION,
+                    node.getLine()
             );
             functionSymbol.setInferredType(Type.FUNCTION);
             symbolTable.addSymbol(functionSymbol);
         }
-        
+
         // Store parameter count for call checking
         functionParameterCounts.put(node.getName(), node.getParameters().size());
-        
+
         // Check for duplicate parameter names
         for (int i = 0; i < node.getParameters().size(); i++) {
             FunctionParameter param = node.getParameters().get(i);
             for (int j = i + 1; j < node.getParameters().size(); j++) {
                 if (param.getName().equals(node.getParameters().get(j).getName())) {
                     errors.add(new SemanticError(
-                        node.getLine(),
-                        SemanticError.ErrorType.DUPLICATE_PARAMETER,
-                        "Duplicate parameter name '" + param.getName() + "' in function '" + node.getName() + "'"
+                            node.getLine(),
+                            SemanticError.ErrorType.DUPLICATE_PARAMETER,
+                            "Duplicate parameter name '" + param.getName() + "' in function '" + node.getName() + "'"
                     ));
                 }
             }
         }
-        
+
         // Enter function scope
         symbolTable.enterScope(Scope.ScopeKind.FUNCTION);
-        
+
         // Add parameters to scope
         for (FunctionParameter param : node.getParameters()) {
             Symbol paramSymbol = new Symbol(
-                param.getName(),
-                Symbol.Kind.PARAMETER,
-                param.getLine()
+                    param.getName(),
+                    Symbol.Kind.PARAMETER,
+                    param.getLine()
             );
             symbolTable.addSymbol(paramSymbol);
         }
-        
+
         // Visit decorators
         for (Decorator decorator : node.getDecorators()) {
             decorator.accept(this);
         }
-        
+
         // Visit body
         for (Statement stmt : node.getBody()) {
             stmt.accept(this);
         }
-        
+
         // Exit function scope
         symbolTable.exitScope();
-        
+
         return null;
     }
-    
+
     @Override
     public Void visitAssign(Assign node) {
         // First, visit the value expression (this triggers type checking in visitBinaryExpr)
         node.getValue().accept(this);
-        
+
         // Then, infer its type for symbol table
         Type valueType = inferType(node.getValue());
-        
+
         // Then, add targets to symbol table
         for (Expression target : node.getTargets()) {
             if (target instanceof Identifier) {
@@ -13452,9 +14423,9 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
                 Symbol existing = symbolTable.getCurrentScope().lookupLocal(ident.getName());
                 if (existing == null) {
                     Symbol varSymbol = new Symbol(
-                        ident.getName(),
-                        Symbol.Kind.VARIABLE,
-                        ident.getLine()
+                            ident.getName(),
+                            Symbol.Kind.VARIABLE,
+                            ident.getLine()
                     );
                     varSymbol.setInferredType(valueType);
                     symbolTable.addSymbol(varSymbol);
@@ -13466,74 +14437,74 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
             // For more complex targets (attributes, indices), we'd need more handling
             target.accept(this);
         }
-        
+
         return null;
     }
-    
+
     @Override
     public Void visitIdentifier(Identifier node) {
         // Check if identifier is defined
         Symbol symbol = symbolTable.lookup(node.getName());
         if (symbol == null) {
             errors.add(new SemanticError(
-                node.getLine(),
-                SemanticError.ErrorType.UNDEFINED_VARIABLE,
-                "Undefined variable '" + node.getName() + "'"
+                    node.getLine(),
+                    SemanticError.ErrorType.UNDEFINED_VARIABLE,
+                    "Undefined variable '" + node.getName() + "'"
             ));
         }
         return null;
     }
-    
+
     @Override
     public Void visitForStmt(ForStmt node) {
         // Check if iterable is actually iterable
         Type iterableType = inferType(node.getIterable());
-        if (iterableType != Type.UNKNOWN && 
-            iterableType != Type.LIST && 
-            iterableType != Type.STRING) {
+        if (iterableType != Type.UNKNOWN &&
+                iterableType != Type.LIST &&
+                iterableType != Type.STRING) {
             errors.add(new SemanticError(
-                node.getLine(),
-                SemanticError.ErrorType.NON_ITERABLE_IN_FOR,
-                "Non-iterable type '" + iterableType + "' used in for loop"
+                    node.getLine(),
+                    SemanticError.ErrorType.NON_ITERABLE_IN_FOR,
+                    "Non-iterable type '" + iterableType + "' used in for loop"
             ));
         }
-        
+
         // Add loop variable to scope
         Symbol loopVar = new Symbol(
-            node.getVariable(),
-            Symbol.Kind.VARIABLE,
-            node.getLine()
+                node.getVariable().getName(),
+                Symbol.Kind.VARIABLE,
+                node.getLine()
         );
         symbolTable.addSymbol(loopVar);
-        
+
         // Visit iterable expression
         node.getIterable().accept(this);
-        
+
         // Visit body
         for (Statement stmt : node.getBody()) {
             stmt.accept(this);
         }
-        
+
         return null;
     }
-    
+
     @Override
     public Void visitCallExpr(CallExpr node) {
         // Resolve callee
         String functionName = null;
         Symbol calleeSymbol = null;
-        
+
         if (node.getCallee() instanceof Identifier) {
             functionName = ((Identifier) node.getCallee()).getName();
             calleeSymbol = symbolTable.lookup(functionName);
         }
-        
+
         // Check if callee exists
         if (calleeSymbol == null && functionName != null) {
             errors.add(new SemanticError(
-                node.getLine(),
-                SemanticError.ErrorType.UNDEFINED_FUNCTION,
-                "Undefined function '" + functionName + "'"
+                    node.getLine(),
+                    SemanticError.ErrorType.UNDEFINED_FUNCTION,
+                    "Undefined function '" + functionName + "'"
             ));
             // Continue analysis - visit arguments but don't check argument count
             for (Argument arg : node.getArguments()) {
@@ -13541,13 +14512,13 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
             }
             return null;
         }
-        
+
         // Check if callee is callable (must be a function)
         if (calleeSymbol != null && calleeSymbol.getKind() != Symbol.Kind.FUNCTION) {
             errors.add(new SemanticError(
-                node.getLine(),
-                SemanticError.ErrorType.NOT_CALLABLE,
-                "Variable '" + functionName + "' is not callable"
+                    node.getLine(),
+                    SemanticError.ErrorType.NOT_CALLABLE,
+                    "Variable '" + functionName + "' is not callable"
             ));
             // Continue analysis - visit arguments but don't check argument count
             for (Argument arg : node.getArguments()) {
@@ -13555,149 +14526,162 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
             }
             return null;
         }
-        
+
         // Check argument count (only if function exists and is actually a function)
         if (functionName != null && functionParameterCounts.containsKey(functionName)) {
             int expectedParams = functionParameterCounts.get(functionName);
             int actualArgs = node.getArguments().size();
-            
+
             if (expectedParams != actualArgs) {
                 errors.add(new SemanticError(
-                    node.getLine(),
-                    SemanticError.ErrorType.WRONG_ARGUMENT_COUNT,
-                    "Wrong number of arguments for function '" + functionName + 
-                    "': expected " + expectedParams + ", got " + actualArgs
+                        node.getLine(),
+                        SemanticError.ErrorType.WRONG_ARGUMENT_COUNT,
+                        "Wrong number of arguments for function '" + functionName +
+                                "': expected " + expectedParams + ", got " + actualArgs
                 ));
             }
         }
-        
+
         // Visit arguments
         for (Argument arg : node.getArguments()) {
             arg.accept(this);
         }
-        
+
         return null;
     }
-    
+
     @Override
     public Void visitBinaryExpr(BinaryExpr node) {
         // Visit both sides
         node.getLeft().accept(this);
         node.getRight().accept(this);
-        
+
         // Infer types
         Type leftType = inferType(node.getLeft());
         Type rightType = inferType(node.getRight());
-        
+
         // Check for type mismatch in operators
         if (leftType != Type.UNKNOWN && rightType != Type.UNKNOWN && leftType != rightType) {
             // Only allow certain numeric combinations (int + float)
             boolean isNumericMix = (leftType == Type.INTEGER && rightType == Type.FLOAT) ||
-                                   (leftType == Type.FLOAT && rightType == Type.INTEGER);
-            
+                    (leftType == Type.FLOAT && rightType == Type.INTEGER);
+
             if (!isNumericMix) {
                 errors.add(new SemanticError(
-                    node.getLine(),
-                    SemanticError.ErrorType.TYPE_MISMATCH,
-                    "Type mismatch in binary expression: '" + leftType + 
-                    "' " + node.getOperator() + " '" + rightType + "'"
+                        node.getLine(),
+                        SemanticError.ErrorType.TYPE_MISMATCH,
+                        "Type mismatch in binary expression: '" + leftType +
+                                "' " + node.getOperator() + " '" + rightType + "'"
                 ));
             }
         }
-        
+
         return null;
     }
-    
+
+    @Override
+    public Void visitUnaryExpr(UnaryExpr node) {
+        node.getExpr().accept(this);
+        return null;
+    }
+
     @Override
     public Void visitIfStmt(IfStmt node) {
         node.getCondition().accept(this);
-        
+
         symbolTable.enterScope(Scope.ScopeKind.BLOCK);
         for (Statement stmt : node.getThenBody()) {
             stmt.accept(this);
         }
         symbolTable.exitScope();
-        
+
         for (ElifClause elif : node.getElifClauses()) {
             elif.accept(this);
         }
-        
-        if (!node.getElseBody().isEmpty()) {
-            symbolTable.enterScope(Scope.ScopeKind.BLOCK);
-            for (Statement stmt : node.getElseBody()) {
-                stmt.accept(this);
-            }
-            symbolTable.exitScope();
+
+        if (node.getElseClause() != null) {
+            node.getElseClause().accept(this);
         }
-        
+
         return null;
     }
-    
+
+    @Override
+    public Void visitElseClause(ElseClause node) {
+        symbolTable.enterScope(Scope.ScopeKind.BLOCK);
+        for (Statement stmt : node.getBody()) {
+            stmt.accept(this);
+        }
+        symbolTable.exitScope();
+
+        return null;
+    }
+
     @Override
     public Void visitElifClause(ElifClause node) {
         node.getCondition().accept(this);
-        
+
         symbolTable.enterScope(Scope.ScopeKind.BLOCK);
         for (Statement stmt : node.getBody()) {
             stmt.accept(this);
         }
         symbolTable.exitScope();
-        
+
         return null;
     }
-    
+
     @Override
     public Void visitWhileStmt(WhileStmt node) {
         node.getCondition().accept(this);
-        
+
         symbolTable.enterScope(Scope.ScopeKind.BLOCK);
         for (Statement stmt : node.getBody()) {
             stmt.accept(this);
         }
         symbolTable.exitScope();
-        
+
         return null;
     }
-    
+
     @Override
     public Void visitExprStmt(ExprStmt node) {
         node.getExpression().accept(this);
         return null;
     }
-    
+
     @Override
     public Void visitReturnStmt(ReturnStmt node) {
         node.getValue().ifPresent(value -> value.accept(this));
         return null;
     }
-    
+
     // Expression visitors - mostly for type inference
-    
+
     @Override
     public Void visitIntegerLiteral(IntegerLiteral node) {
         return null;
     }
-    
+
     @Override
     public Void visitFloatLiteral(FloatLiteral node) {
         return null;
     }
-    
+
     @Override
     public Void visitStringLiteral(StringLiteral node) {
         return null;
     }
-    
+
     @Override
     public Void visitBooleanLiteral(BooleanLiteral node) {
         return null;
     }
-    
+
     @Override
     public Void visitNoneLiteral(NoneLiteral node) {
         return null;
     }
-    
+
     @Override
     public Void visitListExpr(ListExpr node) {
         for (Expression elem : node.getElements()) {
@@ -13705,7 +14689,7 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
         }
         return null;
     }
-    
+
     @Override
     public Void visitDictExpr(DictExpr node) {
         for (DictEntry entry : node.getEntries()) {
@@ -13713,44 +14697,44 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
         }
         return null;
     }
-    
+
     @Override
     public Void visitDictEntry(DictEntry node) {
         node.getKey().accept(this);
         node.getValue().accept(this);
         return null;
     }
-    
+
     @Override
     public Void visitAttributeAccess(AttributeAccess node) {
         node.getTarget().accept(this);
         return null;
     }
-    
+
     @Override
     public Void visitIndexAccess(IndexAccess node) {
         node.getTarget().accept(this);
         node.getIndex().accept(this);
         return null;
     }
-    
+
     @Override
     public Void visitPositionalArgument(PositionalArgument node) {
         node.getValue().accept(this);
         return null;
     }
-    
+
     @Override
     public Void visitKeywordArgument(KeywordArgument node) {
         node.getValue().accept(this);
         return null;
     }
-    
+
     @Override
     public Void visitFunctionParameter(FunctionParameter node) {
         return null;
     }
-    
+
     @Override
     public Void visitDecorator(Decorator node) {
         node.getTarget().accept(this);
@@ -13759,7 +14743,7 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
         }
         return null;
     }
-    
+
     /**
      * Infer the type of an expression for type checking.
      */
@@ -13796,10 +14780,55 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
         }
         return Type.UNKNOWN;
     }
+    /* -------------------------
+       Jinja-tree nodes
+       -------------------------
+       These are part of the shared AstVisitor<T> interface because the
+       Python AST and Jinja AST both flow through the same visitor
+       contract (see AstVisitor.java). This analyzer only ever walks a
+       Python Program, so it will never actually be handed a Jinja node
+       -- a dedicated JinjaSemanticAnalyzer (implementing this same
+       interface) is responsible for those. These overrides exist purely
+       to satisfy the interface and are unreachable in practice. */
+
+    @Override
+    public Void visitTemplate(compiler.ast.jinja.Template node) {
+        return null;
+    }
+
+    @Override
+    public Void visitHtmlText(compiler.ast.jinja.HtmlText node) {
+        return null;
+    }
+
+    @Override
+    public Void visitExpressionOutput(compiler.ast.jinja.ExpressionOutput node) {
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaIfStmt(compiler.ast.jinja.JinjaIfStmt node) {
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaElifClause(compiler.ast.jinja.JinjaElifClause node) {
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaElseClause(compiler.ast.jinja.JinjaElseClause node) {
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaForStmt(compiler.ast.jinja.JinjaForStmt node) {
+        return null;
+    }
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\semantic\python\SemanticError.java 
+### ?? File: SemanticError.java 
  
 package compiler.semantic.python;
 
@@ -13848,7 +14877,7 @@ public class SemanticError {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\semantic\python\Symbol.java 
+### ?? File: Symbol.java 
  
 package compiler.semantic.python;
 
@@ -13903,7 +14932,7 @@ public class Symbol {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\semantic\python\SymbolTable.java 
+### ?? File: SymbolTable.java 
  
 package compiler.semantic.python;
 
@@ -13971,7 +15000,7 @@ public class SymbolTable {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\compiler\semantic\python\Type.java 
+### ?? File: Type.java 
  
 package compiler.semantic.python;
 
@@ -13991,16 +15020,16 @@ public enum Type {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\grammar\jinja\JinjaLexer.g4 
+### ?? File: JinjaLexer.g4 
  
 lexer grammar JinjaLexer;
 
-// Default mode - outside Jinja tags
-HTML_TEXT : (~[{] | '{' ~['{%#])+ ;
-
+// Jinja delimiters must come before HTML_TEXT to ensure they're matched first
 JINJA_EXPR_START : '{{' -> pushMode(JINJA_MODE);
 JINJA_STMT_START : '{%' -> pushMode(JINJA_MODE);
-JINJA_COMMENT_START : '{#' -> pushMode(COMMENT_MODE);
+
+// Default mode - outside Jinja tags
+HTML_TEXT : ( ~'{' | '{' ~[{%#] )+ ;
 
 // Jinja mode - inside {{ }} or {% %}
 mode JINJA_MODE;
@@ -14051,13 +15080,10 @@ IDENTIFIER : [_a-zA-Z] [_a-zA-Z0-9]*;
 
 WS : [ \t\r\n]+ -> skip;
 
-// Comment mode - inside {# }
-mode COMMENT_MODE;
-JINJA_COMMENT_END : '#}' -> popMode;
-COMMENT_TEXT : ~[#]+ ;
+
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\grammar\jinja\JinjaParser.g4 
+### ?? File: JinjaParser.g4 
  
 parser grammar JinjaParser;
 
@@ -14090,6 +15116,8 @@ element
 // ===============================
 // {{ expression }}
 // ===============================
+
+
 expressionOutput
     : JINJA_EXPR_START expression=expr JINJA_EXPR_END
     ;
@@ -14200,7 +15228,7 @@ argList
     ;
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\grammar\python\PythonLexer.g4 
+### ?? File: PythonLexer.g4 
  
 lexer grammar PythonLexer;
 
@@ -14277,7 +15305,7 @@ fragment DIGIT : [0-9];
 fragment ESC_SEQ : '\\' . ;
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\grammar\python\PythonParser.g4 
+### ?? File: PythonParser.g4 
  
 parser grammar PythonParser;
 
@@ -14367,7 +15395,7 @@ dictItem
     ;
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\grammar\python\test.g4 
+### ?? File: test.g4 
  
 parser grammar PythonParser;
 
@@ -14655,7 +15683,231 @@ comparisonExpression
 
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\test\AstBuilderTest.java 
+### ?? File: CompilerTest.java 
+ 
+package test;
+
+public interface CompilerTest {
+    public  void test(String filePath) throws Exception;
+}
+ 
+.
+### ?? File: JinjaAstBuilderTest.java 
+ 
+package test;
+
+import compiler.frontend.jinja.AstBuilder;
+import compiler.ast.jinja.Template;
+import compiler.generated.jinja.JinjaLexer;
+import compiler.generated.jinja.JinjaParser;
+import org.antlr.v4.runtime.*;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+/**
+ * Simple non-JUnit test harness that parses a Jinja file, builds the AST using
+ * AstBuilder and prints the parse tree and pretty-printed AST to stdout.
+ *
+ * Usage:
+ *   test.JinjaAstBuilderTest.Test("input/jinja/example.jinja");
+ */
+public final class JinjaAstBuilderTest implements CompilerTest {
+
+    @Override
+    public void test(String file) throws Exception {
+        Path path = Paths.get(file);
+        CharStream input = CharStreams.fromPath(path);
+
+        // Lexer / parser
+        JinjaLexer lexer = new JinjaLexer(input);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JinjaParser parser = new JinjaParser(tokens);
+
+        // Optional: attach a simple error listener to surface syntax errors
+        lexer.removeErrorListeners();
+        parser.removeErrorListeners();
+        VerboseErrorListener err = new VerboseErrorListener();
+        lexer.addErrorListener(err);
+        parser.addErrorListener(err);
+
+        // Parse
+        JinjaParser.TemplateContext templateCtx = parser.template();
+
+        // Print parse tree (text form)
+        System.out.println("=== Parse tree (toStringTree) ===");
+        System.out.println(templateCtx.toStringTree(parser));
+        System.out.println("=== End parse tree ===\n");
+
+        // Build AST
+        AstBuilder builder = new AstBuilder();
+        Template template = builder.build(templateCtx);
+
+        // Print pretty-printed AST
+        System.out.println("=== AST prettyPrint ===");
+        System.out.println(template.prettyPrint(""));
+        System.out.println("=== End AST prettyPrint ===");
+    }
+
+    // Simple verbose error listener to surface syntax errors
+    private static final class VerboseErrorListener extends BaseErrorListener {
+        @Override
+        public void syntaxError(Recognizer<?, ?> recognizer,
+                                Object offendingSymbol,
+                                int line, int charPositionInLine,
+                                String msg, RecognitionException e) {
+            System.err.printf("SYNTAX ERROR at %d:%d - %s%n", line, charPositionInLine, msg);
+        }
+    }
+}
+ 
+.
+### ?? File: JinjaLexerTest.java 
+ 
+package test;
+
+import compiler.generated.jinja.*;
+import compiler.printer.TokenPrinter;
+import org.antlr.v4.runtime.*;
+
+import java.io.IOException;
+
+public class JinjaLexerTest implements CompilerTest{
+
+    @Override
+    public void test(String file) throws IOException {
+        CharStream input = CharStreams.fromFileName(file);
+        JinjaLexer lexer = new JinjaLexer(input);
+
+        TokenPrinter.printText(lexer);
+    }
+}
+ 
+.
+### ?? File: JinjaParserTest.java 
+ 
+package test;
+
+import compiler.generated.jinja.*;
+import compiler.printer.ParseTreePrinter;
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class JinjaParserTest implements CompilerTest {
+    @Override
+    public  void test(String filePath) throws IOException {
+        CharStream input = CharStreams.fromFileName(filePath);
+
+        JinjaLexer lexer = new JinjaLexer(input);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JinjaParser parser = new JinjaParser(tokens);
+
+
+        ParseTree tree = parser.template();
+
+        ParseTreePrinter.printText(tree,parser);
+    }
+
+    private static void printTree(ParseTree tree, int level) {
+        if (tree == null) return;
+
+        String indent = "  ".repeat(level);
+        System.out.println(indent + tree.getClass().getSimpleName() + ": " + tree.getText());
+
+        for (int i = 0; i < tree.getChildCount(); i++) {
+            printTree(tree.getChild(i), level + 1);
+        }
+    }
+}
+ 
+.
+### ?? File: PythonAnalyzerTest.java 
+ 
+package test;
+
+import compiler.ast.python.Program;
+import compiler.frontend.python.AstBuilder;
+import compiler.generated.python.BasePythonLexer;
+import compiler.generated.python.PythonParser;
+import compiler.semantic.python.PythonSemanticAnalyzer;
+import compiler.semantic.common.SemanticError;
+
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.ParseTree;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+public final class PythonAnalyzerTest implements CompilerTest {
+
+    public PythonAnalyzerTest() {
+    }
+
+    @Override
+    public void test(String fileName) throws IOException {
+
+        String source = Files.readString(Path.of(fileName));
+
+        CharStream input = CharStreams.fromString(source);
+
+        BasePythonLexer lexer = new BasePythonLexer(input);
+
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+        PythonParser parser = new PythonParser(tokens);
+
+        ParseTree tree = parser.program();
+
+        AstBuilder builder = new AstBuilder();
+
+        Program program = (Program) builder.visit(tree);
+
+
+
+//        System.out.println("======================================");
+//        System.out.println("AST");
+//        System.out.println("======================================");
+//        System.out.println(program.prettyPrint(""));
+
+        SemanticAnalyzer analyzer = new SemanticAnalyzer();
+
+        List<SemanticError> errors = analyzer.analyze(program);
+
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("Semantic Analysis");
+        System.out.println("======================================");
+
+        if (errors.isEmpty()) {
+
+            System.out.println("No semantic errors.");
+
+        } else {
+
+            for (SemanticError error : errors) {
+                System.out.println(error);
+            }
+
+            System.out.println();
+            System.out.println(errors.size() + " semantic error(s).");
+        }
+
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("Symbol Table");
+        System.out.println("======================================");
+
+        analyzer.getSymbolTable().prettyPrint();
+    }
+} 
+.
+### ?? File: PythonAstBuilderTest.java 
  
 package test;
 
@@ -14675,9 +15927,10 @@ import java.nio.file.Paths;
  * Usage:
  *   test.AstBuilderTest.Test("input/python/exercise_supported_syntax_fixed.py");
  */
-public final class AstBuilderTest {
+public final class PythonAstBuilderTest implements CompilerTest {
 
-    public static void Test(String file) throws Exception {
+    @Override
+    public void test(String file) throws Exception {
         Path path = Paths.get(file);
         CharStream input = CharStreams.fromPath(path);
 
@@ -14724,160 +15977,7 @@ public final class AstBuilderTest {
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\test\CompilerTest.java 
- 
-package test;
-
-public interface CompilerTest {
-    public  void test(String filePath) throws Exception;
-}
- 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\test\JinjaLexerTest.java 
- 
-package test;
-
-import compiler.generated.jinja.JinjaLexer;
-import compiler.printer.TokenPrinter;
-import org.antlr.v4.runtime.*;
-
-import java.io.IOException;
-
-public class JinjaLexerTest implements CompilerTest{
-
-    @Override
-    public void test(String file) throws IOException {
-        CharStream input = CharStreams.fromFileName(file);
-        JinjaLexer lexer = new JinjaLexer(input);
-
-        TokenPrinter.printText(lexer);
-    }
-}
- 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\test\JinjaParserTest.java 
- 
-package test;
-
-import compiler.generated.jinja.*;
-import compiler.printer.ParseTreePrinter;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class JinjaParserTest implements CompilerTest {
-    @Override
-    public  void test(String filePath) throws IOException {
-        CharStream input = CharStreams.fromFileName(filePath);
-
-        JinjaLexer lexer = new JinjaLexer(input);
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JinjaParser parser = new JinjaParser(tokens);
-
-
-        ParseTree tree = parser.template();
-
-        ParseTreePrinter.printText(tree,parser);
-    }
-
-    private static void printTree(ParseTree tree, int level) {
-        if (tree == null) return;
-
-        String indent = "  ".repeat(level);
-        System.out.println(indent + tree.getClass().getSimpleName() + ": " + tree.getText());
-
-        for (int i = 0; i < tree.getChildCount(); i++) {
-            printTree(tree.getChild(i), level + 1);
-        }
-    }
-}
- 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\test\PythonAnalyzerTest.java 
- 
-package test;
-
-import compiler.ast.python.Program;
-import compiler.frontend.python.AstBuilder;
-import compiler.generated.python.BasePythonLexer;
-import compiler.generated.python.PythonParser;
-import compiler.semantic.python.SemanticAnalyzer;
-import compiler.semantic.python.SemanticError;
-
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.ParseTree;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
-
-public final class PythonAnalyzerTest {
-
-    private PythonAnalyzerTest() {
-    }
-
-    public static void analyze(String fileName) throws IOException {
-
-        String source = Files.readString(Path.of(fileName));
-
-        CharStream input = CharStreams.fromString(source);
-
-        BasePythonLexer lexer = new BasePythonLexer(input);
-
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-
-        PythonParser parser = new PythonParser(tokens);
-
-        ParseTree tree = parser.program();
-
-        AstBuilder builder = new AstBuilder();
-
-        Program program = (Program) builder.visit(tree);
-
-
-
-        System.out.println("======================================");
-        System.out.println("AST");
-        System.out.println("======================================");
-        System.out.println(program.prettyPrint(""));
-
-        SemanticAnalyzer analyzer = new SemanticAnalyzer();
-
-        List<SemanticError> errors = analyzer.analyze(program);
-
-        System.out.println();
-        System.out.println("======================================");
-        System.out.println("Semantic Analysis");
-        System.out.println("======================================");
-
-        if (errors.isEmpty()) {
-
-            System.out.println("No semantic errors.");
-
-        } else {
-
-            for (SemanticError error : errors) {
-                System.out.println(error);
-            }
-
-            System.out.println();
-            System.out.println(errors.size() + " semantic error(s).");
-        }
-
-        System.out.println();
-        System.out.println("======================================");
-        System.out.println("Symbol Table");
-        System.out.println("======================================");
-
-        analyzer.getSymbolTable().prettyPrint();
-    }
-} 
-.
-### ?? File: \Compiler\PyJinjaCompiler\src\test\PythonLexerTest.java 
+### ?? File: PythonLexerTest.java 
  
 package test;
 
@@ -14895,12 +15995,12 @@ public class PythonLexerTest implements CompilerTest {
         CharStream input = CharStreams.fromFileName(file);
         BasePythonLexer lexer = new BasePythonLexer(input);
 
-        TokenPrinter.showGuiList(lexer);
+        TokenPrinter.printText(lexer);
     }
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\test\PythonParserTest.java 
+### ?? File: PythonParserTest.java 
  
 package test;
 
@@ -14921,12 +16021,12 @@ public class PythonParserTest implements CompilerTest{
         PythonParser parser = new PythonParser(tokens);
 
         ParseTree tree = parser.program();
-        ParseTreePrinter.showGuiTree(tree, parser);
+        ParseTreePrinter.printText(tree, parser);
     }
 }
  
 .
-### ?? File: \Compiler\PyJinjaCompiler\src\test\Tester.java 
+### ?? File: Tester.java 
  
 package test;
 
