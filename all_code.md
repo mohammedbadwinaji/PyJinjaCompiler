@@ -1,3 +1,49 @@
+### ?? File: jinja.html 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ site_title }}</title>
+</head>
+<body>
+
+{% if user_logged_in %}
+<h1>Welcome Back!</h1>
+{% endif %}
+
+<p>Current User: {{ user_name }}</p>
+
+
+<p>Bonus Point Calculation: {{ site_title + 10 }}</p>
+
+
+<ul>
+    {% for score in user_score %}
+    <li>Score point: {{ score }}</li>
+    {% endfor %}
+</ul>
+
+
+<h3>Compiler Pipeline Status:</h3>
+<ul>
+    {% for element in items_list %}
+    <li>{{ element }}</li>
+    {% endfor %}
+</ul>
+{{ site_title }}
+{{ 5 + "Hello" }}
+</body>
+</html>
+ 
+
+### ?? File: python.py 
+ 
+site_title = "PyJinja Compiler Engine"
+user_logged_in = True
+user_score= 95
+items_list= ["Lexer", "Parser", "AST", "Semantic Analyzer"]
+ 
+
 ### ?? File: arithmetic.html 
  
 <p>{{ 1 + 2 }}</p>
@@ -8,7 +54,7 @@
 <p>{{ 1 + 2 * 3 }}</p>
 <p>{{ (1 + 2) * 3 }}</p>
  
-
+.
 ### ?? File: attribute_access.html 
  
 <p>{{ user.name }}</p>
@@ -16,7 +62,7 @@
 <p>{{ product.price }}</p>
 <p>{{ config.settings.theme }}</p>
  
-
+.
 ### ?? File: boolean_expressions.html 
  
 <p>{{ true }}</p>
@@ -27,7 +73,7 @@
 <p>{{ not false }}</p>
 <p>{{ true and true or false }}</p>
  
-
+.
 ### ?? File: comments.html 
  
 {# This is a comment #}
@@ -37,7 +83,7 @@
 {# Multi-line comment}
    spanning multiple lines #}
  
-
+.
 ### ?? File: comparisons.html 
  
 <p>{{ 1 == 1 }}</p>
@@ -47,7 +93,7 @@
 <p>{{ 1 <= 2 }}</p>
 <p>{{ 2 >= 1 }}</p>
  
-
+.
 ### ?? File: complex_template.html 
  
 <!DOCTYPE html>
@@ -112,7 +158,7 @@
 </body>
 </html>
  
-
+.
 ### ?? File: floats.html 
  
 <p>{{ 3.14 }}</p>
@@ -121,7 +167,7 @@
 <p>{{ 100.0 }}</p>
 <p>{{ 1.5 + 2.5 }}</p>
  
-
+. 
 ### ?? File: for_loop.html 
  
 <ul>
@@ -134,7 +180,7 @@
 <div>{{ user.name }}</div>
 {% endfor %}
  
-
+. 
 ### ?? File: function_calls.html 
  
 <p>{{ add(1, 2) }}</p>
@@ -142,7 +188,7 @@
 <p>{{ calculate(10, 20, 30) }}</p>
 <p>{{ func() }}</p>
  
-
+. 
 ### ?? File: html_only.html 
  
 <!DOCTYPE html>
@@ -159,7 +205,7 @@
 </body>
 </html>
  
-
+. 
 ### ?? File: if_elif_else.html 
  
 {% if score >= 90 %}
@@ -172,7 +218,7 @@
 <p>Grade: F</p>
 {% endif %}
  
-
+. 
 ### ?? File: if_statement.html 
  
 {% if logged_in %}
@@ -183,7 +229,7 @@
 <p>Admin panel</p>
 {% endif %}
  
-
+. 
 ### ?? File: index_access.html 
  
 <p>{{ items[0] }}</p>
@@ -191,7 +237,7 @@
 <p>{{ user.posts[0] }}</p>
 <p>{{ list[5] }}</p>
  
-
+. 
 ### ?? File: mixed_attribute_index.html 
  
 <p>{{ foo()[0].name }}</p>
@@ -199,7 +245,7 @@
 <p{{ obj.get().items[1].value }}</p>
 <p>{{ data.list[0].name }}</p>
  
-
+. 
 ### ?? File: mixed_html_jinja.html 
  
 <!DOCTYPE html>
@@ -225,34 +271,34 @@
 </body>
 </html>
  
-
+. 
 ### ?? File: nested_attributes.html 
  
 <p>{{ user.address.city }}</p>
 <p>{{ user.profile.settings.theme }}</p>
 <p>{{ app.config.database.host }}</p>
  
-
+. 
 ### ?? File: nested_calls.html 
  
 <p>{{ obj.get().name }}</p>
 <p>{{ outer(inner(1)).value }}</p>
 <p>{{ func1(func2(x)) }}</p>
  
-
+. 
 ### ?? File: nested_indexing.html 
  
 <p>{{ matrix[0][1] }}</p>
 <p>{{ data[1][2][3] }}</p>
 <p>{{ grid[x][y] }}</p>
  
-
+. 
 ### ?? File: none.html 
  
 <p>{{ none }}</p>
 <p>{{ value or none }}</p>
  
-
+. 
 ### ?? File: parentheses.html 
  
 <p>{{ (1 + 2) * 3 }}</p>
@@ -260,7 +306,7 @@
 <p>{{ (a + b) * (c - d) }}</p>
 <p>{{ ((1 + 2) * 3) - 4 }}</p>
  
-
+. 
 ### ?? File: test01.html 
  
 <h1>{{ title }}</h1>
@@ -277,7 +323,7 @@
 <p>No items available.</p>
 {% endif %}
  
-
+. 
 ### ?? File: variables.html 
  
 <h1>{{ name }}</h1>
@@ -285,10 +331,10 @@
 <div>{{ title }}</div>
 <span>{{ description }}</span>
  
-
+. 
 ### ?? File: allErrors.py 
  
-def add(x, x,x):
+def add(x, x):
     return x
 
 
@@ -307,17 +353,17 @@ for i in number:
 
 text = "abc"
 
-result = text + 5
+result = 6.6 * 5
 
 
 value = add(1) 
-.
+. 
 ### ?? File: callVariable.py 
  
 x = 5
 x()
  
-.
+. 
 ### ?? File: correctProgram.py 
  
 def add(a, b):
@@ -330,7 +376,7 @@ sum = add(10, 20)
 
 for n in numbers:
     x = n 
-.
+. 
 ### ?? File: duplicateFunction.py 
  
 def printValue():
@@ -339,12 +385,12 @@ def printValue():
 
 def printValue():
     return 20 
-.
+. 
 ### ?? File: duplicateParameter.py 
  
 def add(value, value):
     return value 
-.
+. 
 ### ?? File: nonIterable.py 
  
 number = 5
@@ -352,7 +398,7 @@ number = 5
 for i in number:
     x = i
  
-.
+. 
 ### ?? File: test.py 
  
 if a:
@@ -361,7 +407,7 @@ elif b:
     x = 2
 else:
     x = 3 
-.
+. 
 ### ?? File: test01.py 
  
 
@@ -387,7 +433,7 @@ def index():
     )
     return summary
  
-.
+. 
 ### ?? File: test02.py 
  
 # exercise_supported_syntax_fixed.py
@@ -461,24 +507,24 @@ def call_examples():
 top_list = [1, 2, 3]
 top_dict = {"a": 1, b: 2}
  
-.
+. 
 ### ?? File: typeMismatch.py 
  
 name = "John"
 
 value = name + 5 
-.
+. 
 ### ?? File: undefinedFunction.py 
  
 foo()
  
-.
+. 
 ### ?? File: undefinedVariable.py 
  
 x = y
 
 print(x) 
-.
+. 
 ### ?? File: userFunction.py 
  
 def hello():
@@ -486,7 +532,7 @@ def hello():
 
 hello()
  
-.
+. 
 ### ?? File: wrongArguments.py 
  
 def add(a, b):
@@ -494,7 +540,7 @@ def add(a, b):
 
 
 x = add(10) 
-.
+. 
 ### ?? File: JinjaLexer.g4 
  
 lexer grammar JinjaLexer;
@@ -502,7 +548,6 @@ lexer grammar JinjaLexer;
 // Jinja delimiters must come before HTML_TEXT to ensure they're matched first
 JINJA_EXPR_START : '{{' -> pushMode(JINJA_MODE);
 JINJA_STMT_START : '{%' -> pushMode(JINJA_MODE);
-JINJA_COMMENT_START : '{#' -> pushMode(COMMENT_MODE);
 
 // Default mode - outside Jinja tags
 HTML_TEXT : ( ~'{' | '{' ~[{%#] )+ ;
@@ -556,12 +601,9 @@ IDENTIFIER : [_a-zA-Z] [_a-zA-Z0-9]*;
 
 WS : [ \t\r\n]+ -> skip;
 
-// Comment mode - inside {# }
-mode COMMENT_MODE;
-JINJA_COMMENT_END : '#}' -> popMode;
-COMMENT_TEXT : (~[#] | '#' ~[}]) ;
+
  
-.
+. 
 ### ?? File: JinjaParser.g4 
  
 parser grammar JinjaParser;
@@ -706,7 +748,7 @@ argList
     : expr (COMMA expr)* (COMMA)?
     ;
  
-.
+. 
 ### ?? File: PythonLexer.g4 
  
 lexer grammar PythonLexer;
@@ -783,7 +825,7 @@ WS
 fragment DIGIT : [0-9];
 fragment ESC_SEQ : '\\' . ;
  
-.
+. 
 ### ?? File: PythonParser.g4 
  
 parser grammar PythonParser;
@@ -873,7 +915,7 @@ dictItem
     : (STRING_LITERAL | IDENTIFIER) COLON expr
     ;
  
-.
+. 
 ### ?? File: test.g4 
  
 parser grammar PythonParser;
@@ -1161,9 +1203,10 @@ comparisonExpression
     ;
 
  
-.
+. 
 ### ?? File: Main.java 
  
+import compiler.semantic.jinja.JinjaSemanticAnalyzer;
 import test.*;
 
 public class Main {
@@ -1174,10 +1217,15 @@ public class Main {
 //        Tester.testFolder("input/python","py",new PythonAstBuilderTest());
 //        Tester.testFolder("input/jinja",".html",new JinjaLexerTest());
 //        Tester.testFolder("input/jinja",".html",new JinjaParserTest());
-        Tester.testFile("input/jinja/complex_template.html",new JinjaAstBuilderTest());
+//        Tester.testFile("input/jinja/complex_template.html",new JinjaAstBuilderTest());
+
+        JinjaSemanticAnalyzerTest test  = new JinjaSemanticAnalyzerTest();
+        test.test("input/case01/python.py","input/case01/jinja.html");
+
+
     }
 } 
-.
+. 
 ### ?? File: AbstractAstNode.java 
  
 package compiler.ast.common;
@@ -1211,7 +1259,7 @@ public abstract class AbstractAstNode implements AstNode {
     }
 }
  
-.
+. 
 ### ?? File: AbstractExpression.java 
  
 package compiler.ast.common;
@@ -1226,7 +1274,7 @@ public abstract class AbstractExpression extends AbstractAstNode implements Expr
     }
 }
  
-.
+. 
 ### ?? File: Argument.java 
  
 package compiler.ast.common;
@@ -1237,7 +1285,7 @@ package compiler.ast.common;
 public interface Argument extends AstNode {
 }
  
-.
+. 
 ### ?? File: AstNode.java 
  
 package compiler.ast.common;
@@ -1264,7 +1312,7 @@ public interface AstNode extends PrettyPrintable {
 
 }
  
-.
+. 
 ### ?? File: AstVisitor.java 
  
 package compiler.ast.common;
@@ -1353,7 +1401,7 @@ public interface AstVisitor<T> {
     T visitJinjaForStmt(JinjaForStmt node);
 }
  
-.
+. 
 ### ?? File: AttributeAccess.java 
  
 package compiler.ast.common;
@@ -1395,7 +1443,7 @@ public final class AttributeAccess extends AbstractExpression {
 
 }
  
-.
+. 
 ### ?? File: BinaryExpr.java 
  
 package compiler.ast.common;
@@ -1455,7 +1503,7 @@ public final class BinaryExpr extends AbstractExpression {
 
 }
  
-.
+. 
 ### ?? File: BinaryOperator.java 
  
 package compiler.ast.common;
@@ -1485,7 +1533,7 @@ public enum BinaryOperator {
 
 }
  
-.
+. 
 ### ?? File: BooleanLiteral.java 
  
 package compiler.ast.common;
@@ -1528,7 +1576,7 @@ public final class BooleanLiteral
 
 }
  
-.
+. 
 ### ?? File: CallExpr.java 
  
 package compiler.ast.common;
@@ -1586,7 +1634,7 @@ public final class CallExpr extends AbstractExpression {
 
 }
  
-.
+. 
 ### ?? File: Expression.java 
  
 package compiler.ast.common;
@@ -1597,7 +1645,7 @@ package compiler.ast.common;
 public interface Expression extends AstNode {
 }
  
-.
+. 
 ### ?? File: FloatLiteral.java 
  
 package compiler.ast.common;
@@ -1640,7 +1688,7 @@ public final class FloatLiteral
 
 }
  
-.
+. 
 ### ?? File: Identifier.java 
  
 package compiler.ast.common;
@@ -1684,7 +1732,7 @@ public final class Identifier extends AbstractExpression {
 
 }
  
-.
+. 
 ### ?? File: IndexAccess.java 
  
 package compiler.ast.common;
@@ -1726,7 +1774,7 @@ public final class IndexAccess extends AbstractExpression {
 
 }
  
-.
+. 
 ### ?? File: IntegerLiteral.java 
  
 package compiler.ast.common;
@@ -1769,7 +1817,7 @@ public final class IntegerLiteral
 
 }
  
-.
+. 
 ### ?? File: KeywordArgument.java 
  
 package compiler.ast.common;
@@ -1816,7 +1864,7 @@ public final class KeywordArgument extends AbstractAstNode implements Argument {
 
 }
  
-.
+. 
 ### ?? File: LiteralExpression.java 
  
 package compiler.ast.common;
@@ -1845,7 +1893,7 @@ public abstract class LiteralExpression
 
 }
  
-.
+. 
 ### ?? File: NoneLiteral.java 
  
 package compiler.ast.common;
@@ -1877,7 +1925,7 @@ public final class NoneLiteral
 
 }
  
-.
+. 
 ### ?? File: PositionalArgument.java 
  
 package compiler.ast.common;
@@ -1915,7 +1963,7 @@ public final class PositionalArgument extends AbstractAstNode implements Argumen
 
 }
  
-.
+. 
 ### ?? File: PrettyPrintable.java 
  
 package compiler.ast.common;
@@ -1929,7 +1977,7 @@ public interface PrettyPrintable {
 
 }
  
-.
+. 
 ### ?? File: StringLiteral.java 
  
 package compiler.ast.common;
@@ -1974,7 +2022,7 @@ public final class StringLiteral
 
 }
  
-.
+. 
 ### ?? File: UnaryExpr.java 
  
 package compiler.ast.common;
@@ -2010,7 +2058,7 @@ public class UnaryExpr extends AbstractExpression  {
 
 }
  
-.
+. 
 ### ?? File: UnaryOperator.java 
  
 package compiler.ast.common;
@@ -2021,7 +2069,7 @@ public enum UnaryOperator {
     NOT
 }
  
-.
+. 
 ### ?? File: AbstractTemplateElement.java 
  
 package compiler.ast.jinja;
@@ -2042,7 +2090,7 @@ public abstract class AbstractTemplateElement
 
 }
  
-.
+. 
 ### ?? File: ExpressionOutput.java 
  
 package compiler.ast.jinja;
@@ -2086,7 +2134,7 @@ public final class ExpressionOutput extends AbstractTemplateElement {
 
 }
  
-.
+. 
 ### ?? File: HtmlText.java 
  
 package compiler.ast.jinja;
@@ -2138,7 +2186,7 @@ public final class HtmlText extends AbstractTemplateElement {
 
 }
  
-.
+. 
 ### ?? File: JinjaElifClause.java 
  
 package compiler.ast.jinja;
@@ -2199,7 +2247,7 @@ public final class JinjaElifClause extends AbstractTemplateElement {
     }
 }
  
-.
+. 
 ### ?? File: JinjaElseClause.java 
  
 package compiler.ast.jinja;
@@ -2247,7 +2295,7 @@ public final class JinjaElseClause extends AbstractTemplateElement {
     }
 }
  
-.
+. 
 ### ?? File: JinjaForStmt.java 
  
 package compiler.ast.jinja;
@@ -2323,7 +2371,7 @@ public final class JinjaForStmt extends AbstractTemplateElement {
 
 }
  
-.
+. 
 ### ?? File: JinjaIfStmt.java 
  
 package compiler.ast.jinja;
@@ -2406,7 +2454,7 @@ public final class JinjaIfStmt extends AbstractTemplateElement {
     }
 }
  
-.
+. 
 ### ?? File: Template.java 
  
 package compiler.ast.jinja;
@@ -2463,7 +2511,7 @@ public final class Template extends AbstractAstNode {
 
 }
  
-.
+. 
 ### ?? File: TemplateElement.java 
  
 package compiler.ast.jinja;
@@ -2477,7 +2525,7 @@ import compiler.ast.common.AstNode;
 public interface TemplateElement extends AstNode {
 }
  
-.
+. 
 ### ?? File: AbstractStatement.java 
  
 package compiler.ast.python;
@@ -2496,7 +2544,7 @@ public abstract class AbstractStatement
     }
 
 } 
-.
+. 
 ### ?? File: Assign.java 
  
 package compiler.ast.python;
@@ -2570,7 +2618,7 @@ public final class Assign extends AbstractStatement {
     }
 
 } 
-.
+. 
 ### ?? File: Decorator.java 
  
 package compiler.ast.python;
@@ -2635,7 +2683,7 @@ public final class Decorator extends AbstractAstNode {
         return sb.toString();
     }
 } 
-.
+. 
 ### ?? File: DictEntry.java 
  
 package compiler.ast.python;
@@ -2689,7 +2737,7 @@ public final class DictEntry extends AbstractAstNode {
     }
 
 } 
-.
+. 
 ### ?? File: DictExpr.java 
  
 package compiler.ast.python;
@@ -2748,7 +2796,7 @@ public final class DictExpr extends LiteralExpression {
     }
 
 } 
-.
+. 
 ### ?? File: ElifClause.java 
  
 package compiler.ast.python;
@@ -2805,7 +2853,7 @@ public final class ElifClause extends AbstractStatement {
         return sb.toString();
     }
 } 
-.
+. 
 ### ?? File: ElseClause.java 
  
 package compiler.ast.python;
@@ -2853,7 +2901,7 @@ public final class ElseClause extends AbstractStatement {
     }
 }
  
-.
+. 
 ### ?? File: ExprStmt.java 
  
 package compiler.ast.python;
@@ -2909,7 +2957,7 @@ public final class ExprStmt extends AbstractStatement {
         return sb.toString();
     }
 } 
-.
+. 
 ### ?? File: ForStmt.java 
  
 package compiler.ast.python;
@@ -2982,7 +3030,7 @@ public final class ForStmt
     }
 
 } 
-.
+. 
 ### ?? File: FunctionDef.java 
  
 package compiler.ast.python;
@@ -3092,7 +3140,7 @@ public final class FunctionDef extends AbstractStatement {
         return sb.toString();
     }
 } 
-.
+. 
 ### ?? File: FunctionParameter.java 
  
 package compiler.ast.python;
@@ -3136,7 +3184,7 @@ public final class FunctionParameter extends AbstractAstNode {
                 "]";
     }
 } 
-.
+. 
 ### ?? File: IfStmt.java 
  
 package compiler.ast.python;
@@ -3214,7 +3262,7 @@ public final class IfStmt extends AbstractStatement {
         return sb.toString();
     }
 } 
-.
+. 
 ### ?? File: ListExpr.java 
  
 package compiler.ast.python;
@@ -3274,7 +3322,7 @@ public final class ListExpr extends LiteralExpression {
     }
 
 } 
-.
+. 
 ### ?? File: Program.java 
  
 package compiler.ast.python;
@@ -3330,7 +3378,7 @@ public final class Program extends AbstractAstNode {
     }
 
 } 
-.
+. 
 ### ?? File: ReturnStmt.java 
  
 package compiler.ast.python;
@@ -3377,7 +3425,7 @@ public final class ReturnStmt
     }
 
 } 
-.
+. 
 ### ?? File: Statement.java 
  
 package compiler.ast.python;
@@ -3389,7 +3437,7 @@ import compiler.ast.common.AstNode;
  */
 public interface Statement extends AstNode {
 } 
-.
+. 
 ### ?? File: WhileStmt.java 
  
 package compiler.ast.python;
@@ -3445,7 +3493,7 @@ public final class WhileStmt
     }
 }
  
-.
+. 
 ### ?? File: LexicalException.java 
  
 package compiler.exception;
@@ -3456,7 +3504,7 @@ public class LexicalException extends RuntimeException {
         super(message);
     }
 } 
-.
+. 
 ### ?? File: AstBuilder.java 
  
 package compiler.frontend.jinja;
@@ -3847,7 +3895,7 @@ public final class AstBuilder extends JinjaParserBaseVisitor<Object> {
     }
 }
  
-.
+. 
 ### ?? File: AstBuilder.java 
  
 package compiler.frontend.python;
@@ -4337,7 +4385,7 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
     }
 }
  
-.
+. 
 ### ?? File: JinjaLexer.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaLexer.g4 by ANTLR 4.13.2
@@ -4628,7 +4676,7 @@ public class JinjaLexer extends Lexer {
 		}
 	}
 } 
-.
+. 
 ### ?? File: JinjaParser.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
@@ -6945,7 +6993,7 @@ public class JinjaParser extends Parser {
 		}
 	}
 } 
-.
+. 
 ### ?? File: JinjaParserBaseListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
@@ -7444,7 +7492,7 @@ public class JinjaParserBaseListener implements JinjaParserListener {
 	 */
 	@Override public void visitErrorNode(ErrorNode node) { }
 } 
-.
+. 
 ### ?? File: JinjaParserBaseVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
@@ -7728,7 +7776,7 @@ public class JinjaParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 */
 	@Override public T visitArgList(JinjaParser.ArgListContext ctx) { return visitChildren(ctx); }
 } 
-.
+. 
 ### ?? File: JinjaParserListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
@@ -8179,7 +8227,7 @@ public interface JinjaParserListener extends ParseTreeListener {
 	 */
 	void exitArgList(JinjaParser.ArgListContext ctx);
 } 
-.
+. 
 ### ?? File: JinjaParserVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/jinja/JinjaParser.g4 by ANTLR 4.13.2
@@ -8452,7 +8500,7 @@ public interface JinjaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArgList(JinjaParser.ArgListContext ctx);
 } 
-.
+. 
 ### ?? File: BasePythonLexer.java 
  
 package compiler.generated.python;
@@ -8641,7 +8689,7 @@ public class BasePythonLexer extends PythonLexer {
     }
 }
  
-.
+. 
 ### ?? File: PythonLexer.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonLexer.g4 by ANTLR 4.13.2
@@ -8947,7 +8995,7 @@ public class PythonLexer extends Lexer {
 		}
 	}
 } 
-.
+. 
 ### ?? File: PythonParser.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
@@ -11432,7 +11480,7 @@ public class PythonParser extends Parser {
 		}
 	}
 } 
-.
+. 
 ### ?? File: PythonParserBaseListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
@@ -11943,7 +11991,7 @@ public class PythonParserBaseListener implements PythonParserListener {
 	 */
 	@Override public void visitErrorNode(ErrorNode node) { }
 } 
-.
+. 
 ### ?? File: PythonParserBaseVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
@@ -12234,7 +12282,7 @@ public class PythonParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> impl
 	 */
 	@Override public T visitDictItem(PythonParser.DictItemContext ctx) { return visitChildren(ctx); }
 } 
-.
+. 
 ### ?? File: PythonParserListener.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
@@ -12699,7 +12747,7 @@ public interface PythonParserListener extends ParseTreeListener {
 	 */
 	void exitDictItem(PythonParser.DictItemContext ctx);
 } 
-.
+. 
 ### ?? File: PythonParserVisitor.java 
  
 // Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
@@ -12980,7 +13028,7 @@ public interface PythonParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDictItem(PythonParser.DictItemContext ctx);
 } 
-.
+. 
 ### ?? File: ASTPrinter.java 
  
 package compiler.printer;
@@ -13529,7 +13577,7 @@ public class ASTPrinter {
     }
 }
  
-.
+. 
 ### ?? File: ParseTreePrinter.java 
  
 package compiler.printer;
@@ -13920,7 +13968,7 @@ public class ParseTreePrinter {
     }
 }
  
-.
+. 
 ### ?? File: TokenPrinter.java 
  
 package compiler.printer;
@@ -14026,7 +14074,7 @@ public class TokenPrinter {
     }
 }
  
-.
+. 
 ### ?? File: TreeVisualizer.java 
  
 package compiler.printer;
@@ -14201,10 +14249,10 @@ public class TreeVisualizer {
     }
 }
  
-.
+. 
 ### ?? File: Scope.java 
  
-package compiler.semantic.python;
+package compiler.semantic.common;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14295,14 +14343,807 @@ public class Scope {
     }
 }
  
-.
-### ?? File: SemanticAnalyzer.java 
+. 
+### ?? File: SemanticError.java 
+ 
+package compiler.semantic.common;
+
+/**
+ * Represents a semantic error found during analysis.
+ */
+public class SemanticError {
+    
+    public enum ErrorType {
+        DUPLICATE_FUNCTION_DEFINITION,
+        UNDEFINED_VARIABLE,
+        UNDEFINED_FUNCTION,
+        NOT_CALLABLE,
+        DUPLICATE_PARAMETER,
+        WRONG_ARGUMENT_COUNT,
+        NON_ITERABLE_IN_FOR,
+        TYPE_MISMATCH
+    }
+    
+    private final int line;
+    private final ErrorType errorType;
+    private final String message;
+    
+    public SemanticError(int line, ErrorType errorType, String message) {
+        this.line = line;
+        this.errorType = errorType;
+        this.message = message;
+    }
+    
+    public int getLine() {
+        return line;
+    }
+    
+    public ErrorType getErrorType() {
+        return errorType;
+    }
+    
+    public String getMessage() {
+        return message;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("Line %d: %s", line, message);
+    }
+}
+ 
+. 
+### ?? File: Symbol.java 
+ 
+package compiler.semantic.common;
+
+/**
+ * Represents a symbol in the symbol table.
+ */
+public class Symbol {
+    
+    public enum Kind {
+        VARIABLE,
+        FUNCTION,
+        PARAMETER
+    }
+    
+    private final String name;
+    private final Kind kind;
+    private final int declaredLine;
+    private Type inferredType;
+    
+    public Symbol(String name, Kind kind, int declaredLine) {
+        this.name = name;
+        this.kind = kind;
+        this.declaredLine = declaredLine;
+        this.inferredType = Type.UNKNOWN;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public Kind getKind() {
+        return kind;
+    }
+    
+    public int getDeclaredLine() {
+        return declaredLine;
+    }
+    
+    public Type getInferredType() {
+        return inferredType;
+    }
+    
+    public void setInferredType(Type inferredType) {
+        this.inferredType = inferredType;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("%s (%s) [line %d] : %s", 
+            name, kind, declaredLine, inferredType);
+    }
+}
+ 
+. 
+### ?? File: SymbolTable.java 
+ 
+package compiler.semantic.common;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Manages the symbol table with scope hierarchy.
+ */
+public class SymbolTable {
+    
+    private Scope currentScope;
+    private final List<Scope> allScopes;
+    
+    public SymbolTable() {
+        this.currentScope = new Scope(Scope.ScopeKind.GLOBAL, null);
+        this.allScopes = new ArrayList<>();
+        this.allScopes.add(currentScope);
+    }
+    
+    public Scope getCurrentScope() {
+        return currentScope;
+    }
+    
+    public void enterScope(Scope.ScopeKind kind) {
+        Scope newScope = new Scope(kind, currentScope);
+        currentScope = newScope;
+        allScopes.add(newScope);
+    }
+    
+    public void exitScope() {
+        if (currentScope.getParent() != null) {
+            currentScope = currentScope.getParent();
+        }
+    }
+    
+    public boolean addSymbol(Symbol symbol) {
+        return currentScope.addSymbol(symbol);
+    }
+    
+    public Symbol lookup(String name) {
+        return currentScope.lookup(name);
+    }
+    
+    public List<Scope> getAllScopes() {
+        return new ArrayList<>(allScopes);
+    }
+    
+    public void print() {
+        prettyPrint("");
+    }
+
+    public void prettyPrint() {
+        prettyPrint("");
+    }
+    public void prettyPrint(String indent) {
+        for (Scope scope : allScopes) {
+            System.out.println(indent + "Scope (" + scope.getKind() + ") [depth " + scope.getDepth() + "]");
+            for (Symbol symbol : scope.getSymbols().values()) {
+                System.out.println(indent + "  " + symbol);
+            }
+            System.out.println();
+        }
+    }
+}
+ 
+. 
+### ?? File: Type.java 
+ 
+package compiler.semantic.common;
+
+/**
+ * Simple type system for semantic analysis.
+ */
+public enum Type {
+    UNKNOWN,
+    INTEGER,
+    FLOAT,
+    BOOLEAN,
+    STRING,
+    LIST,
+    DICTIONARY,
+    NONE,
+    FUNCTION
+}
+ 
+. 
+### ?? File: JinjaSemanticAnalyzer.java 
+ 
+package compiler.semantic.jinja;
+
+import compiler.ast.jinja.*;
+import compiler.ast.common.*;
+import compiler.ast.python.*;
+
+import compiler.semantic.common.Scope;
+import compiler.semantic.common.SemanticError;
+import compiler.semantic.common.Symbol;
+import compiler.semantic.common.SymbolTable;
+import compiler.semantic.common.Type;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+
+
+public class JinjaSemanticAnalyzer implements AstVisitor<Void> {
+
+    private final SymbolTable symbolTable;
+    private final List<SemanticError> errors;
+
+
+    public JinjaSemanticAnalyzer(SymbolTable symbolTable) {
+        this.symbolTable = symbolTable;
+        this.errors = new ArrayList<>();
+    }
+
+
+
+
+
+    public List<SemanticError> analyze(Template template) {
+        template.accept(this);
+        return new ArrayList<>(errors);
+    }
+
+    public SymbolTable getSymbolTable() {
+        return symbolTable;
+    }
+
+    /* -------------------------
+       Jinja-tree nodes
+       ------------------------- */
+
+    @Override
+    public Void visitTemplate(Template node) {
+        for (TemplateElement element : node.getElements()) {
+            element.accept(this);
+        }
+        return null;
+    }
+
+    @Override
+    public Void visitHtmlText(HtmlText node) {
+        // Raw text - nothing to check.
+        return null;
+    }
+
+    @Override
+    public Void visitExpressionOutput(ExpressionOutput node) {
+        node.getExpression().accept(this);
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaIfStmt(JinjaIfStmt node) {
+        node.getCondition().accept(this);
+
+        symbolTable.enterScope(Scope.ScopeKind.BLOCK);
+        for (TemplateElement element : node.getThenBody()) {
+            element.accept(this);
+        }
+        symbolTable.exitScope();
+
+        for (JinjaElifClause elif : node.getElifClauses()) {
+            elif.accept(this);
+        }
+
+        if (node.getElseClause() != null) {
+            node.getElseClause().accept(this);
+        }
+
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaElifClause(JinjaElifClause node) {
+        node.getCondition().accept(this);
+
+        symbolTable.enterScope(Scope.ScopeKind.BLOCK);
+        for (TemplateElement element : node.getBody()) {
+            element.accept(this);
+        }
+        symbolTable.exitScope();
+
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaElseClause(JinjaElseClause node) {
+        symbolTable.enterScope(Scope.ScopeKind.BLOCK);
+        for (TemplateElement element : node.getBody()) {
+            element.accept(this);
+        }
+        symbolTable.exitScope();
+
+        return null;
+    }
+
+    @Override
+    public Void visitJinjaForStmt(JinjaForStmt node) {
+        // Check if the iterable is actually iterable (visit it first so
+        // undefined-variable errors inside the iterable expression are
+        // still reported even when the type can't be inferred).
+        node.getIterable().accept(this);
+
+        Type iterableType = inferType(node.getIterable());
+        if (iterableType != Type.UNKNOWN &&
+            iterableType != Type.LIST &&
+            iterableType != Type.STRING &&
+            iterableType != Type.DICTIONARY) {
+            errors.add(new SemanticError(
+                node.getLine(),
+                SemanticError.ErrorType.NON_ITERABLE_IN_FOR,
+                "Non-iterable type '" + iterableType + "' used in for loop"
+            ));
+        }
+
+        symbolTable.enterScope(Scope.ScopeKind.BLOCK);
+
+        Type elementType = Type.UNKNOWN;
+
+        switch (iterableType) {
+
+            case LIST:
+                elementType = Type.UNKNOWN;
+                break;
+
+            case STRING:
+                elementType = Type.STRING;
+                break;
+
+            case DICTIONARY:
+                elementType = Type.STRING;
+                break;
+
+            default:
+                elementType = Type.UNKNOWN;
+        }
+
+        Symbol loopVar = new Symbol(
+                node.getVariable().getName(),
+                Symbol.Kind.VARIABLE,
+                node.getLine()
+        );
+
+        loopVar.setInferredType(elementType);
+
+        symbolTable.addSymbol(loopVar);
+
+        for (TemplateElement element : node.getBody()) {
+            element.accept(this);
+        }
+
+        symbolTable.exitScope();
+
+        return null;
+    }
+
+    /* -------------------------
+       Common expression nodes
+       ------------------------- */
+
+    @Override
+    public Void visitIdentifier(Identifier node) {
+        Symbol symbol = symbolTable.lookup(node.getName());
+        if (symbol == null) {
+            errors.add(new SemanticError(
+                node.getLine(),
+                SemanticError.ErrorType.UNDEFINED_VARIABLE,
+                "Undefined variable '" + node.getName() + "'"
+            ));
+        }
+        return null;
+    }
+    private boolean isBinaryOperationValid(
+            BinaryExpr node,
+            Type left,
+            Type right) {
+
+        switch (node.getOperator()) {
+
+            case ADD:
+
+                if (left == Type.STRING && right == Type.STRING)
+                    return true;
+
+                if (left == Type.INTEGER && right == Type.INTEGER)
+                    return true;
+
+                if (left == Type.FLOAT && right == Type.FLOAT)
+                    return true;
+
+                if ((left == Type.INTEGER && right == Type.FLOAT) ||
+                        (left == Type.FLOAT && right == Type.INTEGER))
+                    return true;
+
+                return false;
+
+            case SUBTRACT:
+            case MULTIPLY:
+            case DIVIDE:
+            case MODULO:
+
+                return (left == Type.INTEGER || left == Type.FLOAT)
+                        &&
+                        (right == Type.INTEGER || right == Type.FLOAT);
+
+            case EQ:
+            case NE:
+
+                return true;
+
+            case LT:
+            case GT:
+            case LE:
+            case GE:
+
+                return left == right;
+
+            case AND:
+            case OR:
+
+                return left == Type.BOOLEAN
+                        &&
+                        right == Type.BOOLEAN;
+
+            default:
+                return true;
+        }
+    }
+
+    @Override
+    public Void visitBinaryExpr(BinaryExpr node) {
+
+        node.getLeft().accept(this);
+        node.getRight().accept(this);
+
+        Type leftType = inferType(node.getLeft());
+        Type rightType = inferType(node.getRight());
+
+        if (leftType == Type.UNKNOWN || rightType == Type.UNKNOWN) {
+            return null;
+        }
+
+        if (!isBinaryOperationValid(node, leftType, rightType)) {
+
+            errors.add(new SemanticError(
+                    node.getLine(),
+                    SemanticError.ErrorType.TYPE_MISMATCH,
+                    "Invalid operation: " +
+                            leftType +
+                            " " +
+                            node.getOperator() +
+                            " " +
+                            rightType
+            ));
+        }
+
+        return null;
+    }
+
+    @Override
+    public Void visitUnaryExpr(UnaryExpr node) {
+        node.getExpr().accept(this);
+        return null;
+    }
+
+    @Override
+    public Void visitCallExpr(CallExpr node) {
+        String functionName = null;
+        Symbol calleeSymbol = null;
+
+        if (node.getCallee() instanceof Identifier) {
+            functionName = ((Identifier) node.getCallee()).getName();
+            calleeSymbol = symbolTable.lookup(functionName);
+        } else {
+            // e.g. calling the result of an attribute/index access -
+            // just walk it for undefined-variable checks.
+            node.getCallee().accept(this);
+        }
+
+        if (functionName != null && calleeSymbol == null) {
+            errors.add(new SemanticError(
+                node.getLine(),
+                SemanticError.ErrorType.UNDEFINED_FUNCTION,
+                "Call to undefined function '" + functionName + "'"
+            ));
+        } else if (calleeSymbol != null && calleeSymbol.getInferredType() != Type.FUNCTION) {
+            errors.add(new SemanticError(
+                node.getLine(),
+                SemanticError.ErrorType.NOT_CALLABLE,
+                "'" + functionName + "' is not callable"
+            ));
+        }
+
+        for (Argument arg : node.getArguments()) {
+            arg.accept(this);
+        }
+
+        return null;
+    }
+
+    @Override
+    public Void visitAttributeAccess(AttributeAccess node) {
+
+        node.getTarget().accept(this);
+
+        Type targetType = inferType(node.getTarget());
+
+        if (targetType == Type.UNKNOWN) {
+
+            errors.add(new SemanticError(
+                    node.getLine(),
+                    SemanticError.ErrorType.TYPE_MISMATCH,
+                    "Cannot access attribute '" +
+                            node.getAttribute() +
+                            "' of unknown type"));
+        }
+
+        return null;
+    }
+
+    @Override
+    public Void visitIndexAccess(IndexAccess node) {
+
+        node.getTarget().accept(this);
+        node.getIndex().accept(this);
+
+        Type target = inferType(node.getTarget());
+
+        if (target != Type.LIST &&
+                target != Type.STRING &&
+                target != Type.DICTIONARY &&
+                target != Type.UNKNOWN) {
+
+            errors.add(new SemanticError(
+                    node.getLine(),
+                    SemanticError.ErrorType.TYPE_MISMATCH,
+                    "Cannot index value of type " + target));
+        }
+
+        return null;
+    }
+
+    @Override
+    public Void visitPositionalArgument(PositionalArgument node) {
+        node.getValue().accept(this);
+        return null;
+    }
+
+    @Override
+    public Void visitKeywordArgument(KeywordArgument node) {
+        // Not produced by the Jinja grammar (argList has no keyword
+        // arguments), but implemented for interface completeness.
+        node.getValue().accept(this);
+        return null;
+    }
+
+    @Override
+    public Void visitIntegerLiteral(IntegerLiteral node) {
+        return null;
+    }
+
+    @Override
+    public Void visitFloatLiteral(FloatLiteral node) {
+        return null;
+    }
+
+    @Override
+    public Void visitStringLiteral(StringLiteral node) {
+        return null;
+    }
+
+    @Override
+    public Void visitBooleanLiteral(BooleanLiteral node) {
+        return null;
+    }
+
+    @Override
+    public Void visitNoneLiteral(NoneLiteral node) {
+        return null;
+    }
+
+    /**
+     * Infer the type of an expression for type checking (mirrors
+     * SemanticAnalyzer#inferType on the Python side).
+     */
+    private Type inferType(Expression expr) {
+        if (expr instanceof IntegerLiteral) {
+            return Type.INTEGER;
+        } else if (expr instanceof FloatLiteral) {
+            return Type.FLOAT;
+        } else if (expr instanceof StringLiteral) {
+            return Type.STRING;
+        } else if (expr instanceof BooleanLiteral) {
+            return Type.BOOLEAN;
+        } else if (expr instanceof NoneLiteral) {
+            return Type.NONE;
+        } else if (expr instanceof Identifier) {
+            Symbol symbol = symbolTable.lookup(((Identifier) expr).getName());
+            if (symbol != null) {
+                return symbol.getInferredType();
+            }
+        } else if (expr instanceof BinaryExpr binary) {
+
+            Type left = inferType(binary.getLeft());
+            Type right = inferType(binary.getRight());
+
+            switch (binary.getOperator()) {
+
+                case ADD:
+
+                    if (left == Type.STRING &&
+                            right == Type.STRING)
+                        return Type.STRING;
+
+                    if (left == Type.FLOAT ||
+                            right == Type.FLOAT)
+                        return Type.FLOAT;
+
+                    if (left == Type.INTEGER &&
+                            right == Type.INTEGER)
+                        return Type.INTEGER;
+
+                    return Type.UNKNOWN;
+
+                case SUBTRACT:
+                case MULTIPLY:
+                case DIVIDE:
+                case MODULO:
+
+                    if (left == Type.FLOAT ||
+                            right == Type.FLOAT)
+                        return Type.FLOAT;
+
+                    if (left == Type.INTEGER &&
+                            right == Type.INTEGER)
+                        return Type.INTEGER;
+
+                    return Type.UNKNOWN;
+
+                case EQ:
+                case NE:
+                case LT:
+                case GT:
+                case LE:
+                case GE:
+                case AND:
+                case OR:
+
+                    return Type.BOOLEAN;
+
+                default:
+                    return Type.UNKNOWN;
+            }
+        } else if (expr instanceof UnaryExpr) {
+            return inferType(((UnaryExpr) expr).getExpr());
+        }else if (expr instanceof AttributeAccess attribute) {
+
+            Type target = inferType(attribute.getTarget());
+
+            if (target == Type.STRING) {
+                return Type.STRING;
+            }
+
+            return Type.UNKNOWN;
+        }
+        else if (expr instanceof IndexAccess index) {
+
+            Type target = inferType(index.getTarget());
+
+            switch (target) {
+
+                case LIST:
+                    return Type.UNKNOWN;
+
+                case STRING:
+                    return Type.STRING;
+
+                case DICTIONARY:
+                    return Type.UNKNOWN;
+
+                default:
+                    return Type.UNKNOWN;
+            }
+        }else if (expr instanceof CallExpr call) {
+
+            if (call.getCallee() instanceof Identifier id) {
+
+                Symbol symbol = symbolTable.lookup(id.getName());
+
+                if (symbol != null) {
+                    return symbol.getInferredType();
+                }
+            }
+
+            return Type.UNKNOWN;
+        }
+        return Type.UNKNOWN;
+    }
+
+    /* -------------------------
+       Python-tree nodes
+       -------------------------
+       Unreachable from a Jinja Template (see the mirror-image comment in
+       compiler.semantic.python.SemanticAnalyzer). Implemented only to
+       satisfy the shared AstVisitor<T> interface. */
+
+    @Override
+    public Void visitProgram(Program node) {
+        return null;
+    }
+
+    @Override
+    public Void visitListExpr(ListExpr node) {
+        return null;
+    }
+
+    @Override
+    public Void visitDictExpr(DictExpr node) {
+        return null;
+    }
+
+    @Override
+    public Void visitDictEntry(DictEntry node) {
+        return null;
+    }
+
+    @Override
+    public Void visitForStmt(ForStmt node) {
+        return null;
+    }
+
+    @Override
+    public Void visitAssign(Assign node) {
+        return null;
+    }
+
+    @Override
+    public Void visitExprStmt(ExprStmt node) {
+        return null;
+    }
+
+    @Override
+    public Void visitElifClause(ElifClause node) {
+        return null;
+    }
+
+    @Override
+    public Void visitReturnStmt(ReturnStmt node) {
+        return null;
+    }
+
+    @Override
+    public Void visitFunctionParameter(FunctionParameter node) {
+        return null;
+    }
+
+    @Override
+    public Void visitDecorator(Decorator node) {
+        return null;
+    }
+
+    @Override
+    public Void visitIfStmt(IfStmt node) {
+        return null;
+    }
+
+    @Override
+    public Void visitElseClause(ElseClause node) {
+        return null;
+    }
+
+    @Override
+    public Void visitWhileStmt(WhileStmt node) {
+        return null;
+    }
+
+    @Override
+    public Void visitFunctionDef(FunctionDef node) {
+        return null;
+    }
+}
+ 
+. 
+### ?? File: PythonSemanticAnalyzer.java 
  
 package compiler.semantic.python;
 
 import compiler.ast.python.*;
 import compiler.ast.common.AstVisitor;
 import compiler.ast.common.*;
+import compiler.semantic.common.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14313,13 +15154,13 @@ import java.util.Map;
  * Semantic analyzer for Python AST.
  * Performs symbol table construction and semantic checks.
  */
-public class SemanticAnalyzer implements AstVisitor<Void> {
+public class PythonSemanticAnalyzer implements AstVisitor<Void> {
 
     private final SymbolTable symbolTable;
     private final List<SemanticError> errors;
     private final Map<String, Integer> functionParameterCounts;
 
-    public SemanticAnalyzer() {
+    public PythonSemanticAnalyzer() {
         this.symbolTable = new SymbolTable();
         this.errors = new ArrayList<>();
         this.functionParameterCounts = new HashMap<>();
@@ -14827,199 +15668,7 @@ public class SemanticAnalyzer implements AstVisitor<Void> {
     }
 }
  
-.
-### ?? File: SemanticError.java 
- 
-package compiler.semantic.python;
-
-/**
- * Represents a semantic error found during analysis.
- */
-public class SemanticError {
-    
-    public enum ErrorType {
-        DUPLICATE_FUNCTION_DEFINITION,
-        UNDEFINED_VARIABLE,
-        UNDEFINED_FUNCTION,
-        NOT_CALLABLE,
-        DUPLICATE_PARAMETER,
-        WRONG_ARGUMENT_COUNT,
-        NON_ITERABLE_IN_FOR,
-        TYPE_MISMATCH
-    }
-    
-    private final int line;
-    private final ErrorType errorType;
-    private final String message;
-    
-    public SemanticError(int line, ErrorType errorType, String message) {
-        this.line = line;
-        this.errorType = errorType;
-        this.message = message;
-    }
-    
-    public int getLine() {
-        return line;
-    }
-    
-    public ErrorType getErrorType() {
-        return errorType;
-    }
-    
-    public String getMessage() {
-        return message;
-    }
-    
-    @Override
-    public String toString() {
-        return String.format("Line %d: %s", line, message);
-    }
-}
- 
-.
-### ?? File: Symbol.java 
- 
-package compiler.semantic.python;
-
-/**
- * Represents a symbol in the symbol table.
- */
-public class Symbol {
-    
-    public enum Kind {
-        VARIABLE,
-        FUNCTION,
-        PARAMETER
-    }
-    
-    private final String name;
-    private final Kind kind;
-    private final int declaredLine;
-    private Type inferredType;
-    
-    public Symbol(String name, Kind kind, int declaredLine) {
-        this.name = name;
-        this.kind = kind;
-        this.declaredLine = declaredLine;
-        this.inferredType = Type.UNKNOWN;
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public Kind getKind() {
-        return kind;
-    }
-    
-    public int getDeclaredLine() {
-        return declaredLine;
-    }
-    
-    public Type getInferredType() {
-        return inferredType;
-    }
-    
-    public void setInferredType(Type inferredType) {
-        this.inferredType = inferredType;
-    }
-    
-    @Override
-    public String toString() {
-        return String.format("%s (%s) [line %d] : %s", 
-            name, kind, declaredLine, inferredType);
-    }
-}
- 
-.
-### ?? File: SymbolTable.java 
- 
-package compiler.semantic.python;
-
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Manages the symbol table with scope hierarchy.
- */
-public class SymbolTable {
-    
-    private Scope currentScope;
-    private final List<Scope> allScopes;
-    
-    public SymbolTable() {
-        this.currentScope = new Scope(Scope.ScopeKind.GLOBAL, null);
-        this.allScopes = new ArrayList<>();
-        this.allScopes.add(currentScope);
-    }
-    
-    public Scope getCurrentScope() {
-        return currentScope;
-    }
-    
-    public void enterScope(Scope.ScopeKind kind) {
-        Scope newScope = new Scope(kind, currentScope);
-        currentScope = newScope;
-        allScopes.add(newScope);
-    }
-    
-    public void exitScope() {
-        if (currentScope.getParent() != null) {
-            currentScope = currentScope.getParent();
-        }
-    }
-    
-    public boolean addSymbol(Symbol symbol) {
-        return currentScope.addSymbol(symbol);
-    }
-    
-    public Symbol lookup(String name) {
-        return currentScope.lookup(name);
-    }
-    
-    public List<Scope> getAllScopes() {
-        return new ArrayList<>(allScopes);
-    }
-    
-    public void print() {
-        prettyPrint("");
-    }
-
-    public void prettyPrint() {
-        prettyPrint("");
-    }
-    public void prettyPrint(String indent) {
-        for (Scope scope : allScopes) {
-            System.out.println(indent + "Scope (" + scope.getKind() + ") [depth " + scope.getDepth() + "]");
-            for (Symbol symbol : scope.getSymbols().values()) {
-                System.out.println(indent + "  " + symbol);
-            }
-            System.out.println();
-        }
-    }
-}
- 
-.
-### ?? File: Type.java 
- 
-package compiler.semantic.python;
-
-/**
- * Simple type system for semantic analysis.
- */
-public enum Type {
-    UNKNOWN,
-    INTEGER,
-    FLOAT,
-    BOOLEAN,
-    STRING,
-    LIST,
-    DICTIONARY,
-    NONE,
-    FUNCTION
-}
- 
-.
+. 
 ### ?? File: JinjaLexer.g4 
  
 lexer grammar JinjaLexer;
@@ -15082,7 +15731,7 @@ WS : [ \t\r\n]+ -> skip;
 
 
  
-.
+. 
 ### ?? File: JinjaParser.g4 
  
 parser grammar JinjaParser;
@@ -15227,7 +15876,7 @@ argList
     : expr (COMMA expr)* (COMMA)?
     ;
  
-.
+. 
 ### ?? File: PythonLexer.g4 
  
 lexer grammar PythonLexer;
@@ -15304,7 +15953,7 @@ WS
 fragment DIGIT : [0-9];
 fragment ESC_SEQ : '\\' . ;
  
-.
+. 
 ### ?? File: PythonParser.g4 
  
 parser grammar PythonParser;
@@ -15394,7 +16043,7 @@ dictItem
     : (STRING_LITERAL | IDENTIFIER) COLON expr
     ;
  
-.
+. 
 ### ?? File: test.g4 
  
 parser grammar PythonParser;
@@ -15682,7 +16331,7 @@ comparisonExpression
     ;
 
  
-.
+. 
 ### ?? File: CompilerTest.java 
  
 package test;
@@ -15691,7 +16340,7 @@ public interface CompilerTest {
     public  void test(String filePath) throws Exception;
 }
  
-.
+. 
 ### ?? File: JinjaAstBuilderTest.java 
  
 package test;
@@ -15761,7 +16410,7 @@ public final class JinjaAstBuilderTest implements CompilerTest {
     }
 }
  
-.
+. 
 ### ?? File: JinjaLexerTest.java 
  
 package test;
@@ -15783,7 +16432,7 @@ public class JinjaLexerTest implements CompilerTest{
     }
 }
  
-.
+. 
 ### ?? File: JinjaParserTest.java 
  
 package test;
@@ -15824,7 +16473,106 @@ public class JinjaParserTest implements CompilerTest {
     }
 }
  
-.
+. 
+### ?? File: JinjaSemanticAnalyzerTest.java 
+ 
+package test;
+
+import compiler.ast.jinja.Template;
+import compiler.ast.python.Program;
+import compiler.frontend.python.AstBuilder;
+import compiler.generated.jinja.JinjaLexer;
+import compiler.generated.jinja.JinjaParser;
+import compiler.generated.python.BasePythonLexer;
+import compiler.generated.python.PythonLexer;
+import compiler.generated.python.PythonParser;
+import compiler.semantic.common.SemanticError;
+import compiler.semantic.common.SymbolTable;
+import compiler.semantic.jinja.JinjaSemanticAnalyzer;
+import compiler.semantic.python.PythonSemanticAnalyzer;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.List;
+
+public class JinjaSemanticAnalyzerTest {
+    public void test(String pythonFile, String jinjaFile) throws IOException {
+        String pythonSource = Files.readString(Path.of(pythonFile));
+
+        CharStream pythonInput = CharStreams.fromString(pythonSource);
+
+        BasePythonLexer pythonLexer = new BasePythonLexer(pythonInput);
+
+        CommonTokenStream pythonTokens = new CommonTokenStream(pythonLexer);
+
+        PythonParser pythonParser = new PythonParser(pythonTokens);
+
+        ParseTree pythonParseTree = pythonParser.program();
+
+        compiler.frontend.python.AstBuilder pythonAstBuilder = new compiler.frontend.python.AstBuilder();
+
+        Program program = (Program) pythonAstBuilder.visit(pythonParseTree);
+
+        PythonSemanticAnalyzer pythonAnalyzer = new PythonSemanticAnalyzer();
+        pythonAnalyzer.analyze(program);
+        SymbolTable symbolTable = pythonAnalyzer.getSymbolTable();
+
+
+        String jinjaSource = Files.readString(Path.of(jinjaFile));
+
+        CharStream jinjaInput = CharStreams.fromString(jinjaSource);
+
+        JinjaLexer jinjaLexer = new JinjaLexer(jinjaInput);
+
+        CommonTokenStream jinjaTokens = new CommonTokenStream(jinjaLexer);
+
+        JinjaParser jinjaParser = new JinjaParser(jinjaTokens);
+
+        ParseTree jinjaParseTree = jinjaParser.template();
+
+        compiler.frontend.jinja.AstBuilder jinjaAstBuilder = new compiler.frontend.jinja.AstBuilder();
+
+        Template template = (Template) jinjaAstBuilder.visit(jinjaParseTree);
+
+        JinjaSemanticAnalyzer analyzer =
+                new JinjaSemanticAnalyzer(symbolTable);
+
+        List<SemanticError> errors =
+                analyzer.analyze(template);
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("Semantic Analysis");
+        System.out.println("======================================");
+
+        if (errors.isEmpty()) {
+
+            System.out.println("No semantic errors.");
+
+        } else {
+
+            for (SemanticError error : errors) {
+                System.out.println(error);
+            }
+
+            System.out.println();
+            System.out.println(errors.size() + " semantic error(s).");
+        }
+
+        System.out.println();
+        System.out.println("======================================");
+        System.out.println("Symbol Table");
+        System.out.println("======================================");
+
+        analyzer.getSymbolTable().prettyPrint();
+
+    }
+}
+ 
+. 
 ### ?? File: PythonAnalyzerTest.java 
  
 package test;
@@ -15875,7 +16623,7 @@ public final class PythonAnalyzerTest implements CompilerTest {
 //        System.out.println("======================================");
 //        System.out.println(program.prettyPrint(""));
 
-        SemanticAnalyzer analyzer = new SemanticAnalyzer();
+        PythonSemanticAnalyzer analyzer = new PythonSemanticAnalyzer();
 
         List<SemanticError> errors = analyzer.analyze(program);
 
@@ -15906,7 +16654,7 @@ public final class PythonAnalyzerTest implements CompilerTest {
         analyzer.getSymbolTable().prettyPrint();
     }
 } 
-.
+. 
 ### ?? File: PythonAstBuilderTest.java 
  
 package test;
@@ -15976,7 +16724,7 @@ public final class PythonAstBuilderTest implements CompilerTest {
     }
 }
  
-.
+. 
 ### ?? File: PythonLexerTest.java 
  
 package test;
@@ -15999,7 +16747,7 @@ public class PythonLexerTest implements CompilerTest {
     }
 }
  
-.
+. 
 ### ?? File: PythonParserTest.java 
  
 package test;
@@ -16025,7 +16773,7 @@ public class PythonParserTest implements CompilerTest{
     }
 }
  
-.
+. 
 ### ?? File: Tester.java 
  
 package test;
@@ -16121,4 +16869,4 @@ public class Tester {
     }
 }
  
-.
+. 

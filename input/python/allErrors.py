@@ -1,4 +1,4 @@
-def add(x, x,x):
+def add(x, x):
     return x
 
 
@@ -17,7 +17,7 @@ for i in number:
 
 text = "abc"
 
-result = text + 5
+result = 6.6 * 5
 
 
 value = add(1)
