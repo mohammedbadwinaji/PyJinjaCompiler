@@ -51,5 +51,7 @@ src/compiler/generated/
 *.txt
 *.md
 *.pdf
+*.docx
+
 # Exceptions (Optional): If you want to keep your project README visible on GitHub
 !README.md
