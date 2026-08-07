@@ -24,6 +24,7 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
         this.symbolTable = new SymbolTable();
         this.errors = new ArrayList<>();
         this.functionParameterCounts = new HashMap<>();
+        initializeBuiltInFunctions();
     }
 
     public List<SemanticError> analyze(Program program) {
@@ -41,6 +42,28 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
             stmt.accept(this);
         }
         return null;
+    }
+
+    /**
+     * Initialize built-in functions that don't need to be defined in Python code.
+     * This makes it easy to add more built-in functions later.
+     */
+    private void initializeBuiltInFunctions() {
+        // render_template - used by Generator to discover template rendering calls
+        // Use -1 to indicate variable number of arguments (skip argument count checking)
+        addBuiltInFunction("render_template", -1);
+    }
+
+    /**
+     * Add a built-in function to the symbol table.
+     * @param name Function name
+     * @param paramCount Number of parameters, or -1 for variable arguments (skip checking)
+     */
+    private void addBuiltInFunction(String name, int paramCount) {
+        Symbol functionSymbol = new Symbol(name, Symbol.Kind.FUNCTION, 0);
+        functionSymbol.setInferredType(Type.FUNCTION);
+        symbolTable.addSymbol(functionSymbol);
+        functionParameterCounts.put(name, paramCount);
     }
 
     @Override
@@ -229,11 +252,13 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
         }
 
         // Check argument count (only if function exists and is actually a function)
+        // Skip checking for built-in functions with -1 parameter count (variable arguments)
         if (functionName != null && functionParameterCounts.containsKey(functionName)) {
             int expectedParams = functionParameterCounts.get(functionName);
             int actualArgs = node.getArguments().size();
 
-            if (expectedParams != actualArgs) {
+            // -1 indicates variable arguments (built-in functions like render_template)
+            if (expectedParams != -1 && expectedParams != actualArgs) {
                 errors.add(new SemanticError(
                         node.getLine(),
                         SemanticError.ErrorType.WRONG_ARGUMENT_COUNT,
