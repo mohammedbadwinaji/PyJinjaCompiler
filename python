@@ -1,0 +1,744 @@
+
+## A. Statements
+
+### Function definitions
+
+Supported:
+
+```python
+def index():
+    ...
+```
+
+with parameters:
+
+```python
+def add(x, y):
+    return x + y
+```
+
+The grammar supports `def`, function name, optional parameter list, and a suite/body.
+
+### Function parameters
+
+Supported:
+
+```python
+def add(x, y, z):
+    ...
+```
+
+Parameters are identifiers separated by commas.
+
+### Return
+
+Supported:
+
+```python
+return x
+```
+
+The grammar currently also allows comma-separated expressions after `return`.
+
+The AST has `ReturnStmt`.
+
+### Assignment
+
+Supported:
+
+```python
+x = 10
+title = "Hello"
+products = [...]
+```
+
+The grammar uses:
+
+```text
+expr (ASSIGN expr)*
+```
+
+so chained assignments are syntactically accepted too.
+
+The AST has `Assign`.
+
+### Expression statements
+
+Supported:
+
+```python
+save(p)
+foo()
+x
+```
+
+The grammar allows an expression as a statement.
+
+The AST contains `ExprStmt`.
+
+---
+
+# 2. Control flow
+
+## `if`
+
+Supported:
+
+```python
+if price > 350:
+    save(p)
+```
+
+The grammar supports `if` with a suite.
+
+AST:
+
+```text
+IfStmt
+```
+
+
+
+## `elif`
+
+Supported:
+
+```python
+if x > 10:
+    ...
+elif x == 10:
+    ...
+```
+
+The grammar explicitly supports zero or more `elif` clauses.
+
+AST:
+
+```text
+ElifClause
+```
+
+
+
+## `else`
+
+Supported:
+
+```python
+if x:
+    ...
+else:
+    ...
+```
+
+
+
+AST:
+
+```text
+ElseClause
+```
+
+
+
+## `for`
+
+Supported:
+
+```python
+for p in products:
+    ...
+```
+
+Grammar:
+
+```text
+FOR IDENTIFIER IN expr COLON suite
+```
+
+
+
+AST:
+
+```text
+ForStmt
+```
+
+# 3. Python expressions
+
+Your Python grammar supports these binary/logical operators:
+
+```text
+or
+and
+==
+!=
+<
+>
+<=
+>=
++
+-
+*
+/
+%
+```
+
+and unary:
+
+```text
+not
+-
+```
+
+The grammar is visible here.
+
+## Logical OR
+
+```python
+a or b
+```
+
+## Logical AND
+
+```python
+a and b
+```
+
+## Logical NOT
+
+```python
+not a
+```
+
+## Equality
+
+```python
+a == b
+```
+
+## Not equal
+
+```python
+a != b
+```
+
+## Less than
+
+```python
+a < b
+```
+
+## Greater than
+
+```python
+a > b
+```
+
+## Less than or equal
+
+```python
+a <= b
+```
+
+## Greater than or equal
+
+```python
+a >= b
+```
+
+## Addition
+
+```python
+a + b
+```
+
+## Subtraction
+
+```python
+a - b
+```
+
+## Multiplication
+
+```python
+a * b
+```
+
+## Division
+
+```python
+a / b
+```
+
+## Modulo
+
+```python
+a % b
+```
+
+## Unary minus
+
+```python
+-x
+```
+
+The AST explicitly has:
+
+```text
+UnaryExpr
+UnaryOperator
+    PLUS
+    MINUS
+    NOT
+```
+
+
+
+Note: the current Python grammar visibly has unary `MINUS`, but not a separate unary `PLUS` grammar alternative. So `UnaryOperator.PLUS` exists in the AST infrastructure, but the current grammar does not establish `+x` as a supported Python syntax feature.
+
+---
+
+# 4. Python literals
+
+The lexer supports:
+
+### Integer
+
+```python
+10
+0
+123
+```
+
+### Float
+
+```python
+10.5
+3.14
+```
+
+### String
+
+Both single and double quoted strings:
+
+```python
+"Hello"
+'Hello'
+```
+
+with escape sequences.
+
+### Boolean
+
+```python
+True
+False
+```
+
+### None
+
+```python
+None
+```
+
+These are all present in the `atom` grammar.
+
+---
+
+# 5. Python collections
+
+## Lists
+
+Supported:
+
+```python
+[1, 2, 3]
+```
+
+and nested expressions:
+
+```python
+[1, x + 2, "hello"]
+```
+
+Grammar:
+
+```text
+LBRACK listItems? RBRACK
+```
+
+
+
+AST:
+
+```text
+ListExpr
+```
+
+
+
+## Dictionaries
+
+Supported:
+
+```python
+{
+    "name": "Phone",
+    "price": 300
+}
+```
+
+Keys can be:
+
+```text
+STRING_LITERAL
+IDENTIFIER
+```
+
+and values are expressions.
+
+AST:
+
+```text
+DictExpr
+DictEntry
+```
+
+
+
+---
+
+# 6. Parentheses
+
+Supported:
+
+```python
+(a + b) * c
+```
+
+The grammar includes:
+
+```text
+LPAREN expr RPAREN
+```
+
+
+
+---
+
+# 7. Variable / identifier access
+
+Supported:
+
+```python
+x
+title
+products
+```
+
+The AST has:
+
+```text
+Identifier
+```
+
+
+
+---
+
+# 8. Attribute access
+
+Supported:
+
+```python
+product.name
+product.price
+object.field
+```
+
+The grammar has:
+
+```text
+DOT IDENTIFIER
+```
+
+
+
+AST:
+
+```text
+AttributeAccess
+```
+
+
+
+---
+
+# 9. Index access
+
+Supported:
+
+```python
+products[0]
+product["name"]
+items[index]
+```
+
+The grammar has:
+
+```text
+LBRACK expr RBRACK
+```
+
+
+
+AST:
+
+```text
+IndexAccess
+```
+
+
+
+---
+
+# 10. Function calls
+
+Supported:
+
+```python
+save(p)
+render_template(...)
+foo()
+```
+
+The grammar supports:
+
+```text
+IDENTIFIER atomTrailer*
+```
+
+and:
+
+```text
+LPAREN argList? RPAREN
+```
+
+
+
+AST:
+
+```text
+CallExpr
+```
+
+
+
+---
+
+# 11. Python function arguments
+
+The custom Python language supports:
+
+### Positional arguments
+
+```python
+foo(a, b, c)
+```
+
+### Keyword arguments
+
+```python
+render_template(
+    "index.jinja",
+    title=title,
+    products=products
+)
+```
+
+The grammar has:
+
+```text
+argument
+    : expr
+    | IDENTIFIER ASSIGN expr
+```
+
+
+
+The AST has:
+
+```text
+PositionalArgument
+KeywordArgument
+```
+
+
+
+---
+
+# 12. Python indentation / blocks
+
+Your custom Python lexer has explicit support for:
+
+```text
+NEWLINE
+INDENT
+DEDENT
+```
+
+and tracks indentation levels itself.
+
+It also handles indentation changes and emits synthetic `INDENT`/`DEDENT` tokens.
+
+So these are supported:
+
+```python
+if x:
+    a = 1
+    b = 2
+```
+
+and nested blocks:
+
+```python
+if x:
+    for p in products:
+        if p.price > 100:
+            ...
+```
+
+---
+
+# 13. Python comments
+
+The lexer supports:
+
+```python
+# this is a comment
+```
+
+using:
+
+```text
+COMMENT : '#' ~[\r\n]* -> skip
+```
+
+
+
+---
+
+# 14. Python operator precedence
+
+The Python grammar has the expression hierarchy:
+
+```text
+OR
+→ AND
+→ NOT
+→ comparison
+→ + -
+→ * / %
+→ unary -
+→ atom
+```
+
+So the grammar does distinguish operator levels.
+
+---
+
+# Python feature summary
+
+So, based on the actual current code:
+
+```text
+PYTHON-LIKE LANGUAGE
+────────────────────────────────────────────
+
+Statements
+✓ function definitions
+✓ function parameters
+✓ decorators
+✓ assignments
+✓ return
+✓ expression statements
+
+Control flow
+✓ if
+✓ elif
+✓ else
+✓ for
+✓ while
+
+Expressions
+✓ or
+✓ and
+✓ not
+✓ ==
+✓ !=
+✓ <
+✓ >
+✓ <=
+✓ >=
+✓ +
+✓ -
+✓ *
+✓ /
+✓ %
+
+Unary
+✓ unary -
+⚠ unary + exists in AST enum but is not present in current Python grammar
+
+Literals
+✓ integer
+✓ float
+✓ string
+✓ True
+✓ False
+✓ None
+
+Collections
+✓ list
+✓ dictionary
+
+Access
+✓ identifier
+✓ attribute access
+✓ index access
+
+Calls
+✓ function calls
+✓ positional arguments
+✓ keyword arguments
+
+Syntax
+✓ parentheses
+✓ indentation
+✓ newline
+✓ comments
+
+AST
+✓ Program
+✓ FunctionDef
+✓ FunctionParameter
+✓ Decorator
+✓ Assign
+✓ ExprStmt
+✓ ReturnStmt
+✓ IfStmt
+✓ ElifClause
+✓ ElseClause
+✓ ForStmt
+✓ WhileStmt
+✓ ListExpr
+✓ DictExpr
+✓ DictEntry
+✓ Identifier
+✓ AttributeAccess
+✓ IndexAccess
+✓ CallExpr
+✓ UnaryExpr
+✓ BinaryExpr
+```

@@ -225,9 +225,9 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
 
     @Override
     public Object visitNotExpr(PythonParser.NotExprContext ctx) {
-        // Represent 'not x' as (x == False) using BinaryExpr and BooleanLiteral(false).
+        // Represent 'not x' as a UnaryExpr with NOT operator
         Expression inner = toExpression(ctx.expr());
-        return new BinaryExpr(lineOf(ctx), inner, BinaryOperator.EQ, new BooleanLiteral(lineOf(ctx), false));
+        return new UnaryExpr(lineOf(ctx), UnaryOperator.NOT, inner);
     }
 
     @Override
@@ -260,10 +260,9 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
 
     @Override
     public Object visitUnaryMinus(PythonParser.UnaryMinusContext ctx) {
+        // Represent '-x' as a UnaryExpr with MINUS operator
         Expression inner = toExpression(ctx.expr());
-        // Represent unary minus as 0 - inner using IntegerLiteral(0).
-        Expression zero = new IntegerLiteral(lineOf(ctx), 0);
-        return new BinaryExpr(lineOf(ctx), zero, BinaryOperator.SUBTRACT, inner);
+        return new UnaryExpr(lineOf(ctx), UnaryOperator.MINUS, inner);
     }
 
     @Override

@@ -71,8 +71,8 @@ public final class EndToEndTest {
     // ================================================================
     // EDIT THESE TWO PATHS TO TEST A DIFFERENT PYTHON / JINJA FILE PAIR
     // ================================================================
-    public static String PYTHON_FILE = "input/python/test01.py";
-    public static String JINJA_FILE  = "input/jinja/index.html";
+    public static String PYTHON_FILE = "test-data/python/compiler_full_test.py";
+    public static String JINJA_FILE  = "test-data/jinja/hello.jinja";
     // ================================================================
 
     public static void main(String[] args) throws Exception {

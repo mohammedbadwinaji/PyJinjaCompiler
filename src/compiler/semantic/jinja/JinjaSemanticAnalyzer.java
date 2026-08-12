@@ -135,7 +135,16 @@ public class JinjaSemanticAnalyzer implements AstVisitor<Void> {
         switch (iterableType) {
 
             case LIST:
-                elementType = Type.UNKNOWN;
+                // Try to get element type from the iterable symbol
+                if (node.getIterable() instanceof Identifier) {
+                    Symbol iterableSymbol = symbolTable.lookup(((Identifier) node.getIterable()).getName());
+                    if (iterableSymbol != null) {
+                        elementType = iterableSymbol.getElementType();
+                    }
+                }
+                if (elementType == Type.UNKNOWN) {
+                    elementType = Type.UNKNOWN;
+                }
                 break;
 
             case STRING:
@@ -157,6 +166,18 @@ public class JinjaSemanticAnalyzer implements AstVisitor<Void> {
         );
 
         loopVar.setInferredType(elementType);
+        
+        // If the iterable is a LIST with DICTIONARY elements, propagate field types
+        if (iterableType == Type.LIST && node.getIterable() instanceof Identifier) {
+            Symbol iterableSymbol = symbolTable.lookup(((Identifier) node.getIterable()).getName());
+            if (iterableSymbol != null && iterableSymbol.getElementType() == Type.DICTIONARY) {
+                loopVar.setInferredType(Type.DICTIONARY);
+                // Propagate field types from the list's element type metadata
+                if (iterableSymbol.getElementFieldTypes() != null) {
+                    loopVar.setFieldTypes(iterableSymbol.getElementFieldTypes());
+                }
+            }
+        }
 
         symbolTable.addSymbol(loopVar);
 
@@ -321,14 +342,40 @@ public class JinjaSemanticAnalyzer implements AstVisitor<Void> {
         Type targetType = inferType(node.getTarget());
 
         if (targetType == Type.UNKNOWN) {
-
-            errors.add(new SemanticError(
-                    node.getLine(),
-                    SemanticError.ErrorType.TYPE_MISMATCH,
-                    "Cannot access attribute '" +
-                            node.getAttribute() +
-                            "' of unknown type"));
+            // Allow attribute access on unknown types - we can't validate
+            return null;
         }
+
+        if (targetType == Type.DICTIONARY) {
+            // For dictionary types, check if the attribute is a known field
+            if (node.getTarget() instanceof Identifier) {
+                Symbol targetSymbol = symbolTable.lookup(((Identifier) node.getTarget()).getName());
+                if (targetSymbol != null && targetSymbol.getFieldTypes() != null) {
+                    Type fieldType = targetSymbol.getFieldTypes().get(node.getAttribute());
+                    if (fieldType != null) {
+                        // Known field - allow access
+                        return null;
+                    }
+                }
+            }
+            // If we can't determine field types, allow access (conservative)
+            return null;
+        }
+
+        if (targetType == Type.STRING) {
+            // String has known attributes like .length, .upper, etc.
+            // For now, allow any attribute access on strings
+            return null;
+        }
+
+        // For other types, attribute access is not supported
+        errors.add(new SemanticError(
+                node.getLine(),
+                SemanticError.ErrorType.TYPE_MISMATCH,
+                "Cannot access attribute '" +
+                        node.getAttribute() +
+                        "' on type " + targetType
+        ));
 
         return null;
     }
@@ -414,6 +461,37 @@ public class JinjaSemanticAnalyzer implements AstVisitor<Void> {
             if (symbol != null) {
                 return symbol.getInferredType();
             }
+        } else if (expr instanceof AttributeAccess attribute) {
+
+            Type target = inferType(attribute.getTarget());
+
+            if (target == Type.STRING) {
+                return Type.STRING;
+            }
+
+            if (target == Type.DICTIONARY) {
+                // Try to get field type from symbol
+                if (attribute.getTarget() instanceof Identifier) {
+                    Symbol targetSymbol = symbolTable.lookup(((Identifier) attribute.getTarget()).getName());
+                    if (targetSymbol != null && targetSymbol.getFieldTypes() != null) {
+                        Type fieldType = targetSymbol.getFieldTypes().get(attribute.getAttribute());
+                        if (fieldType != null) {
+                            return fieldType;
+                        }
+                    }
+                }
+                // For loop variables that are dictionaries, we may not have field types
+                // Check if the target is a loop variable with DICTIONARY type
+                if (attribute.getTarget() instanceof Identifier) {
+                    Symbol targetSymbol = symbolTable.lookup(((Identifier) attribute.getTarget()).getName());
+                    if (targetSymbol != null && targetSymbol.getInferredType() == Type.DICTIONARY) {
+                        // Conservative: return UNKNOWN for dictionary field access
+                        return Type.UNKNOWN;
+                    }
+                }
+            }
+
+            return Type.UNKNOWN;
         } else if (expr instanceof BinaryExpr binary) {
 
             Type left = inferType(binary.getLeft());
@@ -468,35 +546,44 @@ public class JinjaSemanticAnalyzer implements AstVisitor<Void> {
             }
         } else if (expr instanceof UnaryExpr) {
             return inferType(((UnaryExpr) expr).getExpr());
-        }else if (expr instanceof AttributeAccess attribute) {
-
-            Type target = inferType(attribute.getTarget());
-
-            if (target == Type.STRING) {
-                return Type.STRING;
-            }
-
-            return Type.UNKNOWN;
-        }
-        else if (expr instanceof IndexAccess index) {
+        } else if (expr instanceof IndexAccess index) {
 
             Type target = inferType(index.getTarget());
 
             switch (target) {
 
                 case LIST:
+                    // Try to get element type from the target symbol
+                    if (index.getTarget() instanceof Identifier) {
+                        Symbol targetSymbol = symbolTable.lookup(((Identifier) index.getTarget()).getName());
+                        if (targetSymbol != null) {
+                            Type elementType = targetSymbol.getElementType();
+                            if (elementType != Type.UNKNOWN) {
+                                return elementType;
+                            }
+                        }
+                    }
                     return Type.UNKNOWN;
 
                 case STRING:
                     return Type.STRING;
 
                 case DICTIONARY:
+                    // Try to get field type from the target symbol
+                    if (index.getTarget() instanceof Identifier) {
+                        Symbol targetSymbol = symbolTable.lookup(((Identifier) index.getTarget()).getName());
+                        if (targetSymbol != null && targetSymbol.getFieldTypes() != null) {
+                            // For dictionary index access, we'd need to know the key value
+                            // For now, return UNKNOWN
+                            return Type.UNKNOWN;
+                        }
+                    }
                     return Type.UNKNOWN;
 
                 default:
                     return Type.UNKNOWN;
             }
-        }else if (expr instanceof CallExpr call) {
+        } else if (expr instanceof CallExpr call) {
 
             if (call.getCallee() instanceof Identifier id) {
 

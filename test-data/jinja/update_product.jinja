@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product Form</title>
+    <style>
+        /* Modern Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #059669; /* Emerald Green for Updates */
+            --primary-hover: #047857;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --border-color: #d1d5db;
+            --focus-ring: #a7f3d0;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            padding: 2rem 1rem;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        p.subtitle {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Form Layout */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.85rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .info-box {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Update Product</h1>
+        <p class="subtitle">Modify the fields below to update this product item in your inventory database.</p>
+
+        <!-- Form targets a backend API route using standard POST -->
+        <form action="/api/products/update" method="POST">
+
+            <!-- Hidden field to pass product ID/Index to your backend -->
+            <input type="hidden" name="productId" value="PROD-10294">
+
+            <div class="form-group">
+                <label for="title">Product Title</label>
+                <input type="text" id="title" name="title" value="{{title}}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="Electronics" selected>Electronics</option>
+                    <option value="Apparel">Apparel</option>
+                    <option value="Home & Kitchen">Home & Kitchen</option>
+                    <option value="Fitness & Outdoors">Fitness & Outdoors</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="currentPrice">Current Price ($)</label>
+                    <input type="number" id="currentPrice" name="currentPrice" step="0.01" min="0" value="{{ currentPrice }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="originalPrice">Original Price ($)</label>
+                    <input type="number" id="originalPrice" name="originalPrice" step="0.01" min="0" value="{{ originalPrice }}">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="description">Product Description</label>
+                <textarea id="description" name="description" required>{{ description }}</textarea>
+            </div>
+
+
+            <button type="submit" class="submit-btn">Save Updates</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -286,28 +286,116 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
         Type leftType = inferType(node.getLeft());
         Type rightType = inferType(node.getRight());
 
-        // Check for type mismatch in operators
-        if (leftType != Type.UNKNOWN && rightType != Type.UNKNOWN && leftType != rightType) {
-            // Only allow certain numeric combinations (int + float)
-            boolean isNumericMix = (leftType == Type.INTEGER && rightType == Type.FLOAT) ||
-                    (leftType == Type.FLOAT && rightType == Type.INTEGER);
+        // If either type is UNKNOWN, skip validation (cannot determine incompatibility)
+        if (leftType == Type.UNKNOWN || rightType == Type.UNKNOWN) {
+            return null;
+        }
 
-            if (!isNumericMix) {
-                errors.add(new SemanticError(
-                        node.getLine(),
-                        SemanticError.ErrorType.TYPE_MISMATCH,
-                        "Type mismatch in binary expression: '" + leftType +
-                                "' " + node.getOperator() + " '" + rightType + "'"
-                ));
-            }
+        // Check operator-specific compatibility
+        if (!isBinaryOperationValid(node, leftType, rightType)) {
+            errors.add(new SemanticError(
+                    node.getLine(),
+                    SemanticError.ErrorType.TYPE_MISMATCH,
+                    "Invalid operation: " + leftType + " " + node.getOperator() + " " + rightType
+            ));
         }
 
         return null;
     }
 
+    /**
+     * Check if a binary operation is valid for the given operand types.
+     * Operator-specific compatibility rules.
+     */
+    private boolean isBinaryOperationValid(BinaryExpr node, Type left, Type right) {
+        switch (node.getOperator()) {
+            case ADD:
+                // STRING + STRING -> STRING
+                if (left == Type.STRING && right == Type.STRING)
+                    return true;
+                // INTEGER + INTEGER -> INTEGER
+                if (left == Type.INTEGER && right == Type.INTEGER)
+                    return true;
+                // FLOAT + FLOAT -> FLOAT
+                if (left == Type.FLOAT && right == Type.FLOAT)
+                    return true;
+                // INTEGER + FLOAT or FLOAT + INTEGER -> FLOAT
+                if ((left == Type.INTEGER && right == Type.FLOAT) ||
+                        (left == Type.FLOAT && right == Type.INTEGER))
+                    return true;
+                return false;
+
+            case SUBTRACT:
+            case MULTIPLY:
+            case DIVIDE:
+            case MODULO:
+                // Only numeric types allowed
+                return (left == Type.INTEGER || left == Type.FLOAT) &&
+                        (right == Type.INTEGER || right == Type.FLOAT);
+
+            case EQ:
+            case NE:
+                // Equality/inequality allowed for any types
+                return true;
+
+            case LT:
+            case GT:
+            case LE:
+            case GE:
+                // Ordered comparisons only for same types (numeric/numeric or string/string)
+                return left == right &&
+                        (left == Type.INTEGER || left == Type.FLOAT || left == Type.STRING);
+
+            case AND:
+            case OR:
+                // Boolean operations only for BOOLEAN
+                return left == Type.BOOLEAN && right == Type.BOOLEAN;
+
+            default:
+                return true;
+        }
+    }
+
     @Override
     public Void visitUnaryExpr(UnaryExpr node) {
         node.getExpr().accept(this);
+
+        Type operandType = inferType(node.getExpr());
+
+        // If operand type is UNKNOWN, skip validation
+        if (operandType == Type.UNKNOWN) {
+            return null;
+        }
+
+        // Check operator-specific compatibility
+        switch (node.getOperator()) {
+            case PLUS:
+            case MINUS:
+                // +x and -x only valid for numeric types
+                if (operandType != Type.INTEGER && operandType != Type.FLOAT) {
+                    errors.add(new SemanticError(
+                            node.getLine(),
+                            SemanticError.ErrorType.TYPE_MISMATCH,
+                            "Invalid operation: " + node.getOperator() + " " + operandType
+                    ));
+                }
+                break;
+
+            case NOT:
+                // not x only valid for BOOLEAN
+                if (operandType != Type.BOOLEAN) {
+                    errors.add(new SemanticError(
+                            node.getLine(),
+                            SemanticError.ErrorType.TYPE_MISMATCH,
+                            "Invalid operation: " + node.getOperator() + " " + operandType
+                    ));
+                }
+                break;
+
+            default:
+                break;
+        }
+
         return null;
     }
 
@@ -497,12 +585,77 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
             BinaryExpr binary = (BinaryExpr) expr;
             Type left = inferType(binary.getLeft());
             Type right = inferType(binary.getRight());
-            // For arithmetic, result is numeric
-            if (left == Type.FLOAT || right == Type.FLOAT) {
-                return Type.FLOAT;
-            } else if (left == Type.INTEGER && right == Type.INTEGER) {
-                return Type.INTEGER;
+
+            switch (binary.getOperator()) {
+                case ADD:
+                    // STRING + STRING -> STRING
+                    if (left == Type.STRING && right == Type.STRING)
+                        return Type.STRING;
+                    // INTEGER + FLOAT or FLOAT + INTEGER -> FLOAT
+                    if (left == Type.FLOAT || right == Type.FLOAT)
+                        return Type.FLOAT;
+                    // INTEGER + INTEGER -> INTEGER
+                    if (left == Type.INTEGER && right == Type.INTEGER)
+                        return Type.INTEGER;
+                    return Type.UNKNOWN;
+
+                case SUBTRACT:
+                case MULTIPLY:
+                case DIVIDE:
+                case MODULO:
+                    // Numeric operations
+                    if (left == Type.FLOAT || right == Type.FLOAT)
+                        return Type.FLOAT;
+                    if (left == Type.INTEGER && right == Type.INTEGER)
+                        return Type.INTEGER;
+                    return Type.UNKNOWN;
+
+                case EQ:
+                case NE:
+                case LT:
+                case GT:
+                case LE:
+                case GE:
+                case AND:
+                case OR:
+                    // All comparisons and boolean operations return BOOLEAN
+                    return Type.BOOLEAN;
+
+                default:
+                    return Type.UNKNOWN;
             }
+        } else if (expr instanceof UnaryExpr) {
+            UnaryExpr unary = (UnaryExpr) expr;
+            Type operandType = inferType(unary.getExpr());
+
+            switch (unary.getOperator()) {
+                case PLUS:
+                case MINUS:
+                    // +x or -x preserves numeric type
+                    if (operandType == Type.INTEGER || operandType == Type.FLOAT)
+                        return operandType;
+                    return Type.UNKNOWN;
+
+                case NOT:
+                    // not x always returns BOOLEAN
+                    return Type.BOOLEAN;
+
+                default:
+                    return Type.UNKNOWN;
+            }
+        } else if (expr instanceof CallExpr) {
+            // For function calls, if we know the callee's return type, use it
+            // Otherwise return UNKNOWN
+            CallExpr call = (CallExpr) expr;
+            if (call.getCallee() instanceof Identifier) {
+                Symbol symbol = symbolTable.lookup(((Identifier) call.getCallee()).getName());
+                if (symbol != null && symbol.getKind() == Symbol.Kind.FUNCTION) {
+                    // We don't track function return types in this simple system
+                    // Return UNKNOWN for function call results
+                    return Type.UNKNOWN;
+                }
+            }
+            return Type.UNKNOWN;
         }
         return Type.UNKNOWN;
     }

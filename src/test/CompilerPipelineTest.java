@@ -121,7 +121,7 @@ public class CompilerPipelineTest {
         List<Generator.RenderCall> renderCalls = generator.generate(program, pythonSymbols);
 
         if (renderCalls.isEmpty()) {
-            System.err.println("No render_template calls found.");
+            System.out.println("No render_template calls found.");
             return allGeneratedHtml;
         }
 
@@ -217,6 +217,9 @@ public class CompilerPipelineTest {
 
             System.out.println("\nGenerated " + html.length() + " characters of HTML.");
 
+            // Write HTML to file
+            writeHtmlToFile(templateName, html);
+
             return html;
 
         } catch (IOException e) {
@@ -229,6 +232,28 @@ public class CompilerPipelineTest {
     /* -------------------------
        Helper Methods
        ------------------------- */
+
+    private void writeHtmlToFile(String templateName, String html) {
+        try {
+            // Create output directory if it doesn't exist
+            Path outputDir = Path.of("test-data/generated-html");
+            if (!Files.exists(outputDir)) {
+                Files.createDirectories(outputDir);
+            }
+
+            // Convert template name to HTML filename (e.g., products.jinja -> products.html)
+            String htmlFileName = templateName.replace(".jinja", ".html");
+            Path outputPath = outputDir.resolve(htmlFileName);
+
+            // Write HTML to file
+            Files.writeString(outputPath, html);
+            System.out.println("HTML written to: " + outputPath);
+
+        } catch (IOException e) {
+            System.err.println("Error writing HTML to file: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     private static void banner(String title, String subtitle) {
         String line = "=".repeat(72);

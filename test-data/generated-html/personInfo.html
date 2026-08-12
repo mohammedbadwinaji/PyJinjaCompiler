@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Person Information</title>
+    <style>
+        /* Modern Reset and Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #4f46e5; /* Indigo theme */
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --light-bg: #f3f4f6;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* Profile Card Wrapper */
+        .profile-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05),
+                        0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        /* Top Header Visual Accent */
+        .profile-header {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            height: 100px;
+            position: relative;
+        }
+
+        /* Avatar Circle Placement */
+        .avatar-container {
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 4px solid #ffffff;
+        }
+
+        /* Fallback Graphic User Icon placeholder */
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #e0e7ff;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+
+        /* Info Display Section */
+        .profile-body {
+            padding: 4rem 2rem 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .profile-body h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* Data Rows Layout */
+        .info-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Remove border from the absolute last row */
+        .info-group:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="avatar-container">
+                <div class="avatar-placeholder">JD</div>
+            </div>
+        </div>
+
+
+        <div class="profile-body">
+            <h2>Personal Profile</h2>
+
+
+            <div class="info-group">
+                <span class="info-label">Full Name</span>
+                <span class="info-value">mohammed</span>
+            </div>
+
+            <!-- Age Row -->
+            <div class="info-group">
+                <span class="info-label">Age</span>
+                <span class="info-value">36 Years</span>
+            </div>
+
+            <div class="info-group">
+                <span class="info-label">Gender</span>
+                <span class="info-value">Male</span>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

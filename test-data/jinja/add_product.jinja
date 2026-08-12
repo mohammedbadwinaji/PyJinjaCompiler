@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --border-color: #d1d5db;
+            --focus-ring: #93c5fd;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            padding: 2rem 1rem;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        p.subtitle {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Form Layout */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.85rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Optional Image Preview Block */
+        .image-preview {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed var(--border-color);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            overflow: hidden;
+            background: #f9fafb;
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1> {{ header }}</h1>
+
+        <p class="subtitle">Fill out the information below to add a new product to your inventory database.</p>
+
+        <form id="productForm">
+
+            <!-- Title -->
+            <div class="form-group">
+                <label for="title">Product Title</label>
+                <input type="text" id="title" name="title" placeholder="e.g., Quantum ANC Wireless Headphones" required>
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Apparel">Apparel</option>
+                    <option value="Home & Kitchen">Home & Kitchen</option>
+                    <option value="Fitness & Outdoors">Fitness & Outdoors</option>
+                </select>
+            </div>
+
+            <!-- Prices Layout (Side-by-side) -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="currentPrice">Current Price ($)</label>
+                    <input type="number" id="currentPrice" name="currentPrice" step="0.01" min="0" placeholder="149.99" required>
+                </div>
+                <div class="form-group">
+                    <label for="originalPrice">Original Price ($) <span style="font-weight: normal; color: #6b7280;">(Optional)</span></label>
+                    <input type="number" id="originalPrice" name="originalPrice" step="0.01" min="0" placeholder="199.99">
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description">Product Description</label>
+                <textarea id="description" name="description" placeholder="Write a short summary detailing features, battery life, materials, etc..." required></textarea>
+            </div>
+
+            <!-- Optional Image Input -->
+            <div class="form-group">
+                <label for="productImage">Product Image URL</label>
+                <input type="text" id="productImage" placeholder="https://example.com" oninput="previewImage(this.value)">
+                <div class="image-preview" id="previewContainer">No image preview available</div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="submit-btn">Save Product</button>
+        </form>
+    </div>
+
+    <script>
+        // Simple client-side utility to preview image when an external link is pasted
+        function previewImage(url) {
+            const container = document.getElementById('previewContainer');
+            if(url.trim() !== "") {
+                container.innerHTML = `<img src="${url}" onerror="this.parentElement.innerHTML='Invalid image link'">`;
+            } else {
+                container.innerHTML = 'No image preview available';
+            }
+        }
+
+        // Intercept form submission to see the generated dictionary
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Generate dictionary format matching your data structure
+            const newProduct = {
+                category: document.getElementById('category').value,
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                currentPrice: parseFloat(document.getElementById('currentPrice').value),
+                originalPrice: document.getElementById('originalPrice').value ? parseFloat(document.getElementById('originalPrice').value) : null
+            };
+
+            console.log("Structured Product Dictionary Data:", newProduct);
+            alert("Success! Check your browser console to see the formatted data structure output.");
+
+            // Optional: reset the form fields
+            // this.reset();
+            // document.getElementById('previewContainer').innerHTML = 'No image preview available';
+        });
+    </script>
+
+</body>
+</html>
