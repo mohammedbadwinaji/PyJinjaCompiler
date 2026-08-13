@@ -1,4 +1,4 @@
-package compiler.frontend.python;
+package compiler.visitor.python;
 
 import compiler.ast.python.*;
 import compiler.ast.common.*;

@@ -24,9 +24,9 @@ AND     : 'and';
 OR      : 'or';
 NOT     : 'not';
 
-TRUE    : 'true';
-FALSE   : 'false';
-NONE    : 'none';
+TRUE    : 'True';
+FALSE   : 'False';
+NONE    : 'None';
 
 EQ      : '==';
 NE      : '!=';

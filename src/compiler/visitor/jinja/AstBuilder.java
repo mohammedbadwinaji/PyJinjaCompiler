@@ -1,4 +1,4 @@
-package compiler.frontend.jinja;
+package compiler.visitor.jinja;
 
 import compiler.ast.jinja.*;
 import compiler.ast.common.*;

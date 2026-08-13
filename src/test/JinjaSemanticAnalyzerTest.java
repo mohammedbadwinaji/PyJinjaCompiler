@@ -2,11 +2,9 @@ package test;
 
 import compiler.ast.jinja.Template;
 import compiler.ast.python.Program;
-import compiler.frontend.python.AstBuilder;
 import compiler.generated.jinja.JinjaLexer;
 import compiler.generated.jinja.JinjaParser;
 import compiler.generated.python.BasePythonLexer;
-import compiler.generated.python.PythonLexer;
 import compiler.generated.python.PythonParser;
 import compiler.semantic.common.SemanticError;
 import compiler.semantic.common.SymbolTable;
@@ -35,7 +33,7 @@ public class JinjaSemanticAnalyzerTest {
 
         ParseTree pythonParseTree = pythonParser.program();
 
-        compiler.frontend.python.AstBuilder pythonAstBuilder = new compiler.frontend.python.AstBuilder();
+        compiler.visitor.python.AstBuilder pythonAstBuilder = new compiler.visitor.python.AstBuilder();
 
         Program program = (Program) pythonAstBuilder.visit(pythonParseTree);
 
@@ -56,7 +54,7 @@ public class JinjaSemanticAnalyzerTest {
 
         ParseTree jinjaParseTree = jinjaParser.template();
 
-        compiler.frontend.jinja.AstBuilder jinjaAstBuilder = new compiler.frontend.jinja.AstBuilder();
+        compiler.visitor.jinja.AstBuilder jinjaAstBuilder = new compiler.visitor.jinja.AstBuilder();
 
         Template template = (Template) jinjaAstBuilder.visit(jinjaParseTree);
 

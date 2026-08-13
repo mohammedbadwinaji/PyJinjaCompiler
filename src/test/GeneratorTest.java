@@ -179,7 +179,7 @@ public class GeneratorTest implements CompilerTest {
         PythonParser parser = new PythonParser(tokens);
         ParseTree tree = parser.program();
 
-        Program program = (Program) new compiler.frontend.python.AstBuilder().visit(tree);
+        Program program = (Program) new compiler.visitor.python.AstBuilder().visit(tree);
         PythonSemanticAnalyzer analyzer = new PythonSemanticAnalyzer();
         analyzer.analyze(program);
         SymbolTable symbols = analyzer.getSymbolTable();

@@ -1,7 +1,7 @@
 package compiler.webapp;
 
 import compiler.ast.jinja.Template;
-import compiler.frontend.jinja.AstBuilder;
+import compiler.visitor.jinja.AstBuilder;
 import compiler.generated.jinja.JinjaLexer;
 import compiler.generated.jinja.JinjaParser;
 import compiler.generator.Renderer;

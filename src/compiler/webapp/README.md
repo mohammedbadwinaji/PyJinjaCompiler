@@ -41,7 +41,7 @@ Then open **http://localhost:8080/products** in a browser.
 
 Every page - list, add, edit, view details, delete-and-redirect - is
 produced by `TemplateEngine`, which runs your own
-`JinjaLexer -> JinjaParser -> compiler.frontend.jinja.AstBuilder ->
+`JinjaLexer -> JinjaParser -> compiler.visitor.jinja.AstBuilder ->
 compiler.generator.Renderer` chain against the real `.html` files in
 `templates/`. `ProductStore` is just an in-memory stand-in for what
 would otherwise be a database, so the whole thing runs with zero

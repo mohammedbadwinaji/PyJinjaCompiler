@@ -174,6 +174,8 @@ public final class ExpressionEvaluator {
 
         if (isNumeric(left) && isNumeric(right)) {
             boolean useDouble = (left instanceof Double) || (right instanceof Double);
+            // Division always returns double in Python 3
+            boolean isDivision = (op == BinaryOperator.DIVIDE);
             double l = ((Number) left).doubleValue();
             double r = ((Number) right).doubleValue();
 
@@ -188,7 +190,60 @@ public final class ExpressionEvaluator {
             }
 
             if (result == null) return null;
-            return useDouble ? result : (Object) result.longValue();
+            // Always return double for division, otherwise use long if both operands were integers
+            return (useDouble || isDivision) ? result : (Object) result.longValue();
+        }
+
+        return null;
+    }
+
+    /**
+     * Evaluate a binary operation with pre-evaluated operands.
+     * This is used for evaluating binary expressions in recursive function calls.
+     */
+    public Object evaluateBinary(BinaryOperator op, Object left, Object right) {
+        if (op == BinaryOperator.AND) {
+            return truthy(left) && truthy(right);
+        }
+
+        if (op == BinaryOperator.OR) {
+            return truthy(left) || truthy(right);
+        }
+
+        switch (op) {
+            case EQ: return equalsValue(left, right);
+            case NE: return !equalsValue(left, right);
+            case LT: return compare(left, right) < 0;
+            case LE: return compare(left, right) <= 0;
+            case GT: return compare(left, right) > 0;
+            case GE: return compare(left, right) >= 0;
+            default: break;
+        }
+
+        if (op == BinaryOperator.ADD && left instanceof String && right instanceof String) {
+            return (String) left + (String) right;
+        }
+
+        if (isNumeric(left) && isNumeric(right)) {
+            boolean useDouble = (left instanceof Double) || (right instanceof Double);
+            // Division always returns double in Python 3
+            boolean isDivision = (op == BinaryOperator.DIVIDE);
+            double l = ((Number) left).doubleValue();
+            double r = ((Number) right).doubleValue();
+
+            Double result;
+            switch (op) {
+                case ADD: result = l + r; break;
+                case SUBTRACT: result = l - r; break;
+                case MULTIPLY: result = l * r; break;
+                case DIVIDE: result = r == 0 ? null : l / r; break;
+                case MODULO: result = r == 0 ? null : l % r; break;
+                default: return null;
+            }
+
+            if (result == null) return null;
+            // Always return double for division, otherwise use long if both operands were integers
+            return (useDouble || isDivision) ? result : (Object) result.longValue();
         }
 
         return null;
@@ -238,6 +293,12 @@ public final class ExpressionEvaluator {
                 return evaluateRange(args);
 
             default:
+                // Check if it's a user-defined function passed in the environment
+                Object funcObj = env.get(name);
+                if (funcObj instanceof FunctionEvaluator.CallableFunction) {
+                    FunctionEvaluator.CallableFunction callable = (FunctionEvaluator.CallableFunction) funcObj;
+                    return callable.call(args.toArray());
+                }
                 // No user-defined functions - not something this evaluator executes.
                 return null;
         }

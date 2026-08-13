@@ -90,7 +90,7 @@ public class CompilerPipelineTest {
         }
 
         // Step 3: Python AST Builder
-        Program program = (Program) new compiler.frontend.python.AstBuilder().visit(pythonParseTree);
+        Program program = (Program) new compiler.visitor.python.AstBuilder().visit(pythonParseTree);
         if (program == null) {
             System.err.println("Python AST building failed.");
             return null;
@@ -186,7 +186,7 @@ public class CompilerPipelineTest {
             }
 
             // Jinja AST Builder
-            Template template = (Template) new compiler.frontend.jinja.AstBuilder().visit(jinjaParseTree);
+            Template template = (Template) new compiler.visitor.jinja.AstBuilder().visit(jinjaParseTree);
             if (template == null) {
                 System.err.println("Jinja AST building failed for template: " + templateName);
                 return null;

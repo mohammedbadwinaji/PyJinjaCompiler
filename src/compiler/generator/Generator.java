@@ -110,16 +110,16 @@ public final class Generator {
         // Create a single environment for module-level statements
         Map<String, Object> moduleEnv = new LinkedHashMap<>();
         
-        // First pass: identify which functions are called at module level
-        java.util.Set<String> calledFunctions = identifyCalledFunctions(program);
-        
-        // Map to store function definitions for later evaluation
+        // Map to store ALL function definitions for later evaluation
         Map<String, FunctionDef> functionDefs = new HashMap<>();
         for (Statement stmt : program.getStatements()) {
             if (stmt instanceof FunctionDef) {
                 functionDefs.put(((FunctionDef) stmt).getName(), (FunctionDef) stmt);
             }
         }
+        
+        // First pass: identify which functions are called at module level
+        java.util.Set<String> calledFunctions = identifyCalledFunctions(program);
         
         // Map to store function call arguments
         Map<String, List<Object>> functionCallArguments = new HashMap<>();
@@ -146,44 +146,147 @@ public final class Generator {
     }
 
     /* -------------------------
-       Identify which functions are called at module level
+       Identify which functions are called at module level or inside other functions
        ------------------------- */
 
     private java.util.Set<String> identifyCalledFunctions(Program program) {
         java.util.Set<String> calledFunctions = new java.util.HashSet<>();
         
         for (Statement stmt : program.getStatements()) {
-            if (stmt instanceof ExprStmt) {
-                Expression expr = ((ExprStmt) stmt).getExpression();
+            identifyCalledFunctionsInStatement(stmt, calledFunctions);
+        }
+        
+        return calledFunctions;
+    }
+
+    private void identifyCalledFunctionsInStatement(Statement stmt, java.util.Set<String> calledFunctions) {
+        if (stmt instanceof ExprStmt) {
+            Expression expr = ((ExprStmt) stmt).getExpression();
+            if (expr instanceof CallExpr) {
+                Expression callee = ((CallExpr) expr).getCallee();
+                if (callee instanceof Identifier) {
+                    calledFunctions.add(((Identifier) callee).getName());
+                }
+            }
+        } else if (stmt instanceof Assign) {
+            Expression value = ((Assign) stmt).getValue();
+            if (value instanceof CallExpr) {
+                Expression callee = ((CallExpr) value).getCallee();
+                if (callee instanceof Identifier) {
+                    calledFunctions.add(((Identifier) callee).getName());
+                }
+            }
+        } else if (stmt instanceof FunctionDef) {
+            // Also scan inside function bodies for function calls
+            FunctionDef funcDef = (FunctionDef) stmt;
+            for (Statement inner : funcDef.getBody()) {
+                identifyCalledFunctionsInStatement(inner, calledFunctions);
+            }
+        } else if (stmt instanceof IfStmt) {
+            IfStmt ifStmt = (IfStmt) stmt;
+            for (Statement inner : ifStmt.getThenBody()) {
+                identifyCalledFunctionsInStatement(inner, calledFunctions);
+            }
+            for (ElifClause elif : ifStmt.getElifClauses()) {
+                for (Statement inner : elif.getBody()) {
+                    identifyCalledFunctionsInStatement(inner, calledFunctions);
+                }
+            }
+            if (ifStmt.getElseClause() != null) {
+                for (Statement inner : ifStmt.getElseClause().getBody()) {
+                    identifyCalledFunctionsInStatement(inner, calledFunctions);
+                }
+            }
+        } else if (stmt instanceof ForStmt) {
+            for (Statement inner : ((ForStmt) stmt).getBody()) {
+                identifyCalledFunctionsInStatement(inner, calledFunctions);
+            }
+        } else if (stmt instanceof WhileStmt) {
+            for (Statement inner : ((WhileStmt) stmt).getBody()) {
+                identifyCalledFunctionsInStatement(inner, calledFunctions);
+            }
+        } else if (stmt instanceof ReturnStmt) {
+            ((ReturnStmt) stmt).getValue().ifPresent(expr -> {
                 if (expr instanceof CallExpr) {
                     Expression callee = ((CallExpr) expr).getCallee();
                     if (callee instanceof Identifier) {
                         calledFunctions.add(((Identifier) callee).getName());
                     }
                 }
-            } else if (stmt instanceof Assign) {
-                Expression value = ((Assign) stmt).getValue();
-                if (value instanceof CallExpr) {
-                    Expression callee = ((CallExpr) value).getCallee();
-                    if (callee instanceof Identifier) {
-                        calledFunctions.add(((Identifier) callee).getName());
-                    }
-                }
-            }
+            });
         }
-        
-        return calledFunctions;
     }
 
     /**
-     * Collect function call arguments by evaluating them at module level.
+     * Collect function call arguments by evaluating them at module level and inside functions.
      */
     private void collectFunctionCallArguments(Program program, Map<String, List<Object>> functionCallArguments,
                                                Map<String, Object> env, Map<String, Symbol> symbols,
                                                Map<String, FunctionDef> functionDefs) {
         for (Statement stmt : program.getStatements()) {
-            if (stmt instanceof ExprStmt) {
-                Expression expr = ((ExprStmt) stmt).getExpression();
+            collectFunctionCallArgumentsInStatement(stmt, functionCallArguments, env, symbols, functionDefs);
+        }
+    }
+
+    private void collectFunctionCallArgumentsInStatement(Statement stmt, Map<String, List<Object>> functionCallArguments,
+                                                       Map<String, Object> env, Map<String, Symbol> symbols,
+                                                       Map<String, FunctionDef> functionDefs) {
+        if (stmt instanceof ExprStmt) {
+            Expression expr = ((ExprStmt) stmt).getExpression();
+            if (expr instanceof CallExpr) {
+                CallExpr call = (CallExpr) expr;
+                if (call.getCallee() instanceof Identifier) {
+                    String funcName = ((Identifier) call.getCallee()).getName();
+                    List<Object> args = functionEvaluator.evaluateCallArguments(call, env, symbols, functionDefs);
+                    if (args != null && !args.isEmpty()) {
+                        functionCallArguments.put(funcName, args);
+                    }
+                }
+            }
+        } else if (stmt instanceof Assign) {
+            // Also collect arguments for function calls in assignments
+            Expression value = ((Assign) stmt).getValue();
+            if (value instanceof CallExpr) {
+                CallExpr call = (CallExpr) value;
+                if (call.getCallee() instanceof Identifier) {
+                    String funcName = ((Identifier) call.getCallee()).getName();
+                    List<Object> args = functionEvaluator.evaluateCallArguments(call, env, symbols, functionDefs);
+                    if (args != null && !args.isEmpty()) {
+                        functionCallArguments.put(funcName, args);
+                    }
+                }
+            }
+        } else if (stmt instanceof FunctionDef) {
+            // Also scan inside function bodies for function calls
+            FunctionDef funcDef = (FunctionDef) stmt;
+            for (Statement inner : funcDef.getBody()) {
+                collectFunctionCallArgumentsInStatement(inner, functionCallArguments, env, symbols, functionDefs);
+            }
+        } else if (stmt instanceof IfStmt) {
+            IfStmt ifStmt = (IfStmt) stmt;
+            for (Statement inner : ifStmt.getThenBody()) {
+                collectFunctionCallArgumentsInStatement(inner, functionCallArguments, env, symbols, functionDefs);
+            }
+            for (ElifClause elif : ifStmt.getElifClauses()) {
+                for (Statement inner : elif.getBody()) {
+                    collectFunctionCallArgumentsInStatement(inner, functionCallArguments, env, symbols, functionDefs);
+                }
+            }
+            if (ifStmt.getElseClause() != null) {
+                for (Statement inner : ifStmt.getElseClause().getBody()) {
+                    collectFunctionCallArgumentsInStatement(inner, functionCallArguments, env, symbols, functionDefs);
+                }
+            }
+        } else if (stmt instanceof ForStmt) {
+            for (Statement inner : ((ForStmt) stmt).getBody()) {
+                collectFunctionCallArgumentsInStatement(inner, functionCallArguments, env, symbols, functionDefs);
+            }
+        } else if (stmt instanceof WhileStmt) {
+            for (Statement inner : ((WhileStmt) stmt).getBody()) {
+                collectFunctionCallArgumentsInStatement(inner, functionCallArguments, env, symbols, functionDefs);
+            }
+        } else if (stmt instanceof ReturnStmt) {
+            ((ReturnStmt) stmt).getValue().ifPresent(expr -> {
                 if (expr instanceof CallExpr) {
                     CallExpr call = (CallExpr) expr;
                     if (call.getCallee() instanceof Identifier) {
@@ -194,7 +297,7 @@ public final class Generator {
                         }
                     }
                 }
-            }
+            });
         }
     }
 
@@ -213,29 +316,26 @@ public final class Generator {
 
         if (stmt instanceof FunctionDef) {
             FunctionDef funcDef = (FunctionDef) stmt;
-            // Only scan function body if this function is called at module level
-            if (calledFunctions.contains(funcDef.getName())) {
-                // Get the call arguments for this function
-                List<Object> callArguments = functionCallArguments.get(funcDef.getName());
-                
-                // Fresh environment per function - Python variables don't
-                // leak across functions.
-                Map<String, Object> functionEnv = new LinkedHashMap<>();
-                
-                // Bind parameters to their evaluated argument values
-                if (callArguments != null) {
-                    int paramIndex = 0;
-                    for (FunctionParameter param : funcDef.getParameters()) {
-                        if (paramIndex < callArguments.size()) {
-                            functionEnv.put(param.getName(), callArguments.get(paramIndex));
-                            paramIndex++;
-                        }
+            // Always scan function bodies to collect function calls inside them
+            // This is needed for recursive functions like fibonacci
+            Map<String, Object> functionEnv = new LinkedHashMap<>();
+            
+            // Get the call arguments for this function if available
+            List<Object> callArguments = functionCallArguments.get(funcDef.getName());
+            
+            // Bind parameters to their evaluated argument values
+            if (callArguments != null) {
+                int paramIndex = 0;
+                for (FunctionParameter param : funcDef.getParameters()) {
+                    if (paramIndex < callArguments.size()) {
+                        functionEnv.put(param.getName(), callArguments.get(paramIndex));
+                        paramIndex++;
                     }
                 }
-                
-                for (Statement inner : funcDef.getBody()) {
-                    scanStatement(inner, functionEnv, symbols, results, calledFunctions, functionDefs, functionCallArguments);
-                }
+            }
+            
+            for (Statement inner : funcDef.getBody()) {
+                scanStatement(inner, functionEnv, symbols, results, calledFunctions, functionDefs, functionCallArguments);
             }
 
         } else if (stmt instanceof Assign) {
@@ -291,6 +391,17 @@ public final class Generator {
         String name = ((Identifier) target).getName();
         Object value = evaluateAssignmentValue(assign.getValue(), env, symbols, functionDefs);
         env.put(name, value);
+        
+        // If the assignment value is a function call, also store it with a temp name
+        // so it can be used by other parts of the function
+        if (assign.getValue() instanceof CallExpr) {
+            CallExpr call = (CallExpr) assign.getValue();
+            if (call.getCallee() instanceof Identifier) {
+                String funcName = ((Identifier) call.getCallee()).getName();
+                String tempName = "__temp_" + funcName + "_" + call.getLine();
+                env.put(tempName, value);
+            }
+        }
     }
 
     /**
@@ -425,6 +536,7 @@ public final class Generator {
         if (value instanceof Boolean) return Type.BOOLEAN;
         if (value instanceof List) return Type.LIST;
         if (value instanceof Map) return Type.DICTIONARY;
+        if (value instanceof FunctionEvaluator.CallableFunction) return Type.FUNCTION;
         return Type.UNKNOWN;
     }
 

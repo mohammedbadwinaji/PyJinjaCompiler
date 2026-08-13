@@ -56,7 +56,7 @@ public class TestAll {
            ============================================================ */
         section(3, "PYTHON AST", "Built by compiler.frontend.python.AstBuilder");
 
-        Program program = (Program) new compiler.frontend.python.AstBuilder().visit(pythonParseTree);
+        Program program = (Program) new compiler.visitor.python.AstBuilder().visit(pythonParseTree);
         ASTPrinter.printText(program);
 
         /* ============================================================
@@ -131,7 +131,7 @@ public class TestAll {
            ============================================================ */
         section(8, "JINJA AST", "Built by compiler.frontend.jinja.AstBuilder");
 
-        Template template = (Template) new compiler.frontend.jinja.AstBuilder().visit(jinjaParseTree);
+        Template template = (Template) new compiler.visitor.jinja.AstBuilder().visit(jinjaParseTree);
         ASTPrinter.printText(template);
 
         /* ============================================================

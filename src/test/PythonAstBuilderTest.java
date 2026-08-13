@@ -1,6 +1,6 @@
 package test;
 
-import compiler.frontend.python.AstBuilder;
+import compiler.visitor.python.AstBuilder;
 import compiler.ast.python.Program;
 import compiler.generated.python.BasePythonLexer;
 import compiler.generated.python.PythonParser;

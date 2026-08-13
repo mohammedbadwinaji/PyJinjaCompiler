@@ -1,6 +1,6 @@
 package test;
 
-import compiler.frontend.jinja.AstBuilder;
+import compiler.visitor.jinja.AstBuilder;
 import compiler.ast.jinja.Template;
 import compiler.generated.jinja.JinjaLexer;
 import compiler.generated.jinja.JinjaParser;

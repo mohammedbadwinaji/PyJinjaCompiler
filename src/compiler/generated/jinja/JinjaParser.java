@@ -42,8 +42,8 @@ public class JinjaParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, "'{{'", "'{%'", null, "'}}'", "'%}'", "'if'", "'elif'", "'else'", 
-			"'endif'", "'for'", "'in'", "'endfor'", "'and'", "'or'", "'not'", "'true'", 
-			"'false'", "'none'", "'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "'+'", 
+			"'endif'", "'for'", "'in'", "'endfor'", "'and'", "'or'", "'not'", "'True'", 
+			"'False'", "'None'", "'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "'+'", 
 			"'-'", "'*'", "'/'", "'%'", "'.'", "'('", "')'", "'['", "']'", "','"
 		};
 	}

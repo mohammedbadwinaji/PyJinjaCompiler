@@ -1,7 +1,7 @@
 package test;
 
 import compiler.ast.python.Program;
-import compiler.frontend.python.AstBuilder;
+import compiler.visitor.python.AstBuilder;
 import compiler.generated.python.BasePythonLexer;
 import compiler.generated.python.PythonParser;
 import compiler.semantic.python.PythonSemanticAnalyzer;
