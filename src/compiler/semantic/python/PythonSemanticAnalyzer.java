@@ -28,8 +28,45 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
     }
 
     public List<SemanticError> analyze(Program program) {
+        // First pass: collect all function definitions
+        collectFunctionDefinitions(program);
+        
+        // Second pass: full semantic analysis
         program.accept(this);
         return new ArrayList<>(errors);
+    }
+
+    /**
+     * First pass: collect all function definitions and add them to the symbol table.
+     * This allows functions to be called before they are defined.
+     */
+    private void collectFunctionDefinitions(Program program) {
+        for (Statement stmt : program.getStatements()) {
+            if (stmt instanceof FunctionDef) {
+                FunctionDef funcDef = (FunctionDef) stmt;
+                
+                // Check for duplicate function definition
+                Symbol existing = symbolTable.lookup(funcDef.getName());
+                if (existing != null && existing.getKind() == Symbol.Kind.FUNCTION) {
+                    errors.add(new SemanticError(
+                            funcDef.getLine(),
+                            SemanticError.ErrorType.DUPLICATE_FUNCTION_DEFINITION,
+                            "Duplicate function definition '" + funcDef.getName() + "'"
+                    ));
+                } else {
+                    Symbol functionSymbol = new Symbol(
+                            funcDef.getName(),
+                            Symbol.Kind.FUNCTION,
+                            funcDef.getLine()
+                    );
+                    functionSymbol.setInferredType(Type.FUNCTION);
+                    symbolTable.addSymbol(functionSymbol);
+                }
+
+                // Store parameter count for call checking
+                functionParameterCounts.put(funcDef.getName(), funcDef.getParameters().size());
+            }
+        }
     }
 
     public SymbolTable getSymbolTable() {
@@ -68,28 +105,7 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
 
     @Override
     public Void visitFunctionDef(FunctionDef node) {
-        // Check for duplicate function definition
-        Symbol existing = symbolTable.lookup(node.getName());
-        if (existing != null && existing.getKind() == Symbol.Kind.FUNCTION) {
-            errors.add(new SemanticError(
-                    node.getLine(),
-                    SemanticError.ErrorType.DUPLICATE_FUNCTION_DEFINITION,
-                    "Duplicate function definition '" + node.getName() + "'"
-            ));
-        } else {
-            Symbol functionSymbol = new Symbol(
-                    node.getName(),
-                    Symbol.Kind.FUNCTION,
-                    node.getLine()
-            );
-            functionSymbol.setInferredType(Type.FUNCTION);
-            symbolTable.addSymbol(functionSymbol);
-        }
-
-        // Store parameter count for call checking
-        functionParameterCounts.put(node.getName(), node.getParameters().size());
-
-        // Check for duplicate parameter names
+        // Function symbol already added in first pass, just check for duplicate parameter names
         for (int i = 0; i < node.getParameters().size(); i++) {
             FunctionParameter param = node.getParameters().get(i);
             for (int j = i + 1; j < node.getParameters().size(); j++) {
