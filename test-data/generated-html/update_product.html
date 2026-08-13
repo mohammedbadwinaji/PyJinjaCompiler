@@ -17,14 +17,14 @@
 <body>
 
     <div class="form-card">
-        <h2>{{ header }}</h2>
+        <h2>Modify Product</h2>
         <form action="/products/save-update" method="POST">
             <!-- Invisible context handle value mapping -->
-            <input type="hidden" name="id" value="{{ product.id }}">
+            <input type="hidden" name="id" value="None">
 
             <div class="field">
                 <label>Modify Product Title</label>
-                <input type="text" name="title" value="{{ product.title }}" required>
+                <input type="text" name="title" value="None" required>
             </div>
             <div class="field">
                 <label>Verify Current Category</label>
@@ -38,11 +38,11 @@
             </div>
             <div class="field">
                 <label>Update Selling Price ($)</label>
-                <input type="number" name="currentPrice" step="0.01" value="{{ product.currentPrice }}" required>
+                <input type="number" name="currentPrice" step="0.01" value="None" required>
             </div>
             <div class="field">
                 <label>Edit Details Content</label>
-                <textarea name="description" required>{{ product.description }}</textarea>
+                <textarea name="description" required>None</textarea>
             </div>
             <button type="submit" class="btn-update">Commit Modification Updates</button>
         </form>

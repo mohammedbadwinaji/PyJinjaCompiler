@@ -1,98 +1,69 @@
-def showProducts() :
-    products = [
-        {
-            "category": "Electronics",
-            "title": "Quantum ANC Wireless Headphones",
-            "description": "Immersive over-ear headphones featuring hybrid active noise cancellation, 50-hour battery life, and high-fidelity spatial audio.",
-            "currentPrice": 149.99,
-            "originalPrice": 199.99,
-            "image": "https://unsplash.com"
-        },
-        {
-            "category": "Electronics",
-            "title": "Apex Mechanical Gaming Keyboard",
-            "description": "Ultra-responsive RGB backlit keyboard with hot-swappable linear switches and an aircraft-grade aluminum top frame.",
-            "currentPrice": 89.99,
-            "originalPrice": 119.99,
-            "image": "https://unsplash.com"
-        },
-        {
-            "category": "Apparel",
-            "title": "All-Weather Performance Parka",
-            "description": "Windproof and waterproof winter jacket engineered with breathable thermal insulation and an adjustable storm hood.",
-            "currentPrice": 175.00,
-            "originalPrice": 240.00,
-            "image": "https://unsplash.com"
-        },
-        {
-            "category": "Apparel",
-            "title": "Classic Leather Chelsea Boots",
-            "description": "Handcrafted full-grain leather boots with flexible elastic side panels and durable Goodyear welt construction.",
-            "currentPrice": 120.00,
-            "originalPrice": 160.00,
-            "image": "https://unsplash.com"
-        },
-        {
-            "category": "Home & Kitchen",
-            "title": "Barista Pro Espresso Machine",
-            "description": "Compact 15-bar pressure espresso maker featuring a built-in commercial steam wand for professional latte art at home.",
-            "currentPrice": 299.95,
-            "originalPrice": 379.95,
-            "image": "https://unsplash.com"
-        },
-        {
-            "category": "Home & Kitchen",
-            "title": "Smart Air Purifier HEPA H13",
-            "description": "Medical-grade air filtration system that removes 99.97% of airborne particles, compatible with Alexa and Google Assistant.",
-            "currentPrice": 79.00,
-            "originalPrice": 99.00,
-            "image": "https://unsplash.com"
-        },
-        {
-            "category": "Fitness & Outdoors",
-            "title": "Ergonomic Hydration Backpack",
-            "description": "Lightweight 10L trail running pack equipped with a leak-proof 2-liter water bladder and breathable mesh shoulder straps.",
-            "currentPrice": 45.50,
-            "originalPrice": 65.00,
-            "image": "https://unsplash.com"
-        },
-        {
-            "category": "Fitness & Outdoors",
-            "title": "Adjustable Smart Dumbbell Set",
-            "description": "Space-saving strength training weights that quickly adjust from 5 to 52.5 lbs with a smooth dial mechanism.",
-            "currentPrice": 249.99,
-            "originalPrice": 329.99,
-            "image": "https://unsplash.com"
-        }
-    ]
-    render_template("products.jinja", products = products)
+# 1. DEFINE HELPER FUNCTIONS FIRST FOR SINGLE-PASS COMPILING
+def showProducts(view_name, data_list):
+    render_template("products.jinja", products=data_list, view_title=view_name)
 
-def addProduct() :
-    header = "Add Product"
-    render_template("add_product.jinja",header=header,)
+def showProductDetails(product_item):
+    render_template("product_details.jinja", product=product_item)
+
+def viewAddForm():
+    render_template("add_product.jinja", header="Add New Product")
+
+def viewUpdateForm(product_item):
+    render_template("update_product.jinja", product=product_item, header="Modify Product")
 
 
+# 2. STATIC INVENTORY DATA LAYOUTS (With live, direct image URLs)
+products_initial = [
+    {
+        "id": 0,
+        "category": "Electronics",
+        "title": "Quantum ANC Wireless Headphones",
+        "description": "Immersive sound with active noise cancellation.",
+        "currentPrice": 149.99,
+        "originalPrice": 199.99,
+        # Direct link to a real headphones photo
+        "image": "https://unsplash.com"
+    },
+    {
+        "id": 1,
+        "category": "Electronics",
+        "title": "Apex Mechanical Gaming Keyboard",
+        "description": "Ultra-responsive RGB backlit keyboard with linear switches.",
+        "currentPrice": 89.99,
+        "originalPrice": 119.99,
+        # Direct link to a real keyboard photo
+        "image": "https://unsplash.com"
+    }
+]
 
-def showPersonInfo(name,age,gender) :
-    render_template("personInfo.jinja",name=name,age=age,gender=gender)
+products_after_crud = [
+    {
+        "id": 1,
+        "category": "Electronics",
+        "title": "Apex Mechanical Keyboard V2",
+        "description": "Ultra-responsive RGB backlit keyboard with linear switches.",
+        "currentPrice": 95.00,
+        "originalPrice": 119.99,
+        "image": "https://unsplash.com"
+    },
+    {
+        "id": 2,
+        "category": "Electronics",
+        "title": "Smart Watch Series X",
+        "description": "Track health metrics.",
+        "currentPrice": 199.99,
+        "originalPrice": 249.99,
+        # Direct link to a real smart watch photo
+        "image": "https://unsplash.com"
+    }
+]
 
 
-name = "Yaya"
-def updateProduct() :
-    category =  "Home & Kitchen"
-    title =  "Barista Pro Espresso Machine"
-    description =  "Compact 15-bar pressure espresso maker featuring a built-in commercial steam wand for professional latte art at home."
-    currentPrice =  299.95
-    originalPrice =  379.95
-    render_template("personInfo.jinja",title=title,description=description,currentPrice=currentPrice,originalPrice=originalPrice,category)
+# 3. EXECUTING COMPILER SNAPSHOT RENDERS
+showProducts("Initial_Inventory_List", products_initial)
 
+showProductDetails(products_initial[0])
+viewAddForm()
+viewUpdateForm(products_initial[0])
 
-age = 14
-gender = "Male"
-showPersonInfo(name,age,gender)
-
-
-showProducts()
-
-
-
+showProducts("Updated_Inventory_List", products_after_crud)

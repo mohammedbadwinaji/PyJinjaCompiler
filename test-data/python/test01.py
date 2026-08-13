@@ -216,3 +216,5 @@ def getMaximumNumber(list):
             max = i
     return  max
 
+
+render_template("test.jinja",greet="This Is Isparta")
