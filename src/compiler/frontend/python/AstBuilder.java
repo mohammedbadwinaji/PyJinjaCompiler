@@ -113,9 +113,10 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
         // expr (ASSIGN expr)* NEWLINE
         List<PythonParser.ExprContext> exprs = ctx.expr();
         if (ctx.ASSIGN().size() > 0) {
-            List<Expression> targets = exprs.subList(0, exprs.size() - 1).stream()
-                    .map(this::toExpression)
-                    .collect(Collectors.toList());
+            List<Expression> targets = new ArrayList<>();
+            for (int i = 0; i < exprs.size() - 1; i++) {
+                targets.add(toExpression(exprs.get(i)));
+            }
             Expression value = toExpression(exprs.get(exprs.size() - 1));
             return new Assign(lineOf(ctx), targets, value);
         } else {
@@ -211,58 +212,87 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
 
     @Override
     public Object visitOrExpr(PythonParser.OrExprContext ctx) {
-        Expression left = toExpression(ctx.expr(0));
-        Expression right = toExpression(ctx.expr(1));
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
         return new BinaryExpr(lineOf(ctx), left, BinaryOperator.OR, right);
     }
 
     @Override
+    public Object visitLogicalAndExpr(PythonParser.LogicalAndExprContext ctx) {
+        return visit(ctx.logicalAnd());
+    }
+
+    @Override
     public Object visitAndExpr(PythonParser.AndExprContext ctx) {
-        Expression left = toExpression(ctx.expr(0));
-        Expression right = toExpression(ctx.expr(1));
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
         return new BinaryExpr(lineOf(ctx), left, BinaryOperator.AND, right);
     }
 
     @Override
-    public Object visitNotExpr(PythonParser.NotExprContext ctx) {
-        // Represent 'not x' as a UnaryExpr with NOT operator
-        Expression inner = toExpression(ctx.expr());
-        return new UnaryExpr(lineOf(ctx), UnaryOperator.NOT, inner);
+    public Object visitLogicalAndComparisonExpr(PythonParser.LogicalAndComparisonExprContext ctx) {
+        return visit(ctx.comparison());
     }
 
     @Override
-    public Object visitComparisonExpr(PythonParser.ComparisonExprContext ctx) {
-        Expression left = toExpression(ctx.expr(0));
-        Expression right = toExpression(ctx.expr(1));
-        String op = ctx.getChild(1).getText();
+    public Object visitComparisonOpExpr(PythonParser.ComparisonOpExprContext ctx) {
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
+        String op = ctx.op.getText();
         BinaryOperator binOp = mapComparisonOperator(op);
         return new BinaryExpr(lineOf(ctx), left, binOp, right);
     }
 
     @Override
+    public Object visitComparisonAdditiveExpr(PythonParser.ComparisonAdditiveExprContext ctx) {
+        return visit(ctx.additive());
+    }
+
+    @Override
+    public Object visitAdditiveMultiplicativeExpr(PythonParser.AdditiveMultiplicativeExprContext ctx) {
+        return visit(ctx.multiplicative());
+    }
+
+    @Override
     public Object visitAddExpr(PythonParser.AddExprContext ctx) {
-        Expression left = toExpression(ctx.expr(0));
-        Expression right = toExpression(ctx.expr(1));
-        BinaryOperator op = ctx.PLUS() != null ? BinaryOperator.ADD : BinaryOperator.SUBTRACT;
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
+        BinaryOperator op = ctx.op.getType() == PythonParser.PLUS ? BinaryOperator.ADD : BinaryOperator.SUBTRACT;
         return new BinaryExpr(lineOf(ctx), left, op, right);
     }
 
     @Override
+    public Object visitMultiplicativeUnaryExpr(PythonParser.MultiplicativeUnaryExprContext ctx) {
+        return visit(ctx.unary());
+    }
+
+    @Override
     public Object visitMulExpr(PythonParser.MulExprContext ctx) {
-        Expression left = toExpression(ctx.expr(0));
-        Expression right = toExpression(ctx.expr(1));
+        Expression left = (Expression) visit(ctx.left);
+        Expression right = (Expression) visit(ctx.right);
         BinaryOperator op;
-        if (ctx.STAR() != null) op = BinaryOperator.MULTIPLY;
-        else if (ctx.SLASH() != null) op = BinaryOperator.DIVIDE;
+        int opType = ctx.op.getType();
+        if (opType == PythonParser.STAR) op = BinaryOperator.MULTIPLY;
+        else if (opType == PythonParser.SLASH) op = BinaryOperator.DIVIDE;
         else op = BinaryOperator.MODULO;
         return new BinaryExpr(lineOf(ctx), left, op, right);
     }
 
     @Override
+    public Object visitNotExpr(PythonParser.NotExprContext ctx) {
+        Expression inner = (Expression) visit(ctx.operand);
+        return new UnaryExpr(lineOf(ctx), UnaryOperator.NOT, inner);
+    }
+
+    @Override
     public Object visitUnaryMinus(PythonParser.UnaryMinusContext ctx) {
-        // Represent '-x' as a UnaryExpr with MINUS operator
-        Expression inner = toExpression(ctx.expr());
+        Expression inner = (Expression) visit(ctx.operand);
         return new UnaryExpr(lineOf(ctx), UnaryOperator.MINUS, inner);
+    }
+
+    @Override
+    public Object visitPrimaryExpr(PythonParser.PrimaryExprContext ctx) {
+        return visit(ctx.primary());
     }
 
     @Override
@@ -276,7 +306,7 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
 
     @Override
     public Object visitParenExpr(PythonParser.ParenExprContext ctx) {
-        return toExpression(ctx.expr());
+        return toExpression(ctx.expression);
     }
 
     @Override

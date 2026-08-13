@@ -39,9 +39,9 @@ target/
 *.class
 
 # Automatically generated ANTLR components (Keep your .g4 files, ignore generated ones)
-src/compiler/generated/
-*.tokens
-*.interp
+#src/compiler/generated/
+#*.tokens
+#*.interp
 
 
 # Windows Batch Scripts

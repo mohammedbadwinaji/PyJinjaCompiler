@@ -35,13 +35,42 @@ simpleLine
 
 
 expr
-    : expr OR expr                         #orExpr
-    | expr AND expr                        #andExpr
-    | NOT expr                             #notExpr
-    | expr (EQ|NE|LT|GT|LE|GE) expr        #comparisonExpr
-    | expr (PLUS|MINUS) expr               #addExpr
-    | expr (STAR|SLASH|MOD) expr           #mulExpr
-    | MINUS expr                           #unaryMinus
+    : logicalOr
+    ;
+
+logicalOr
+    : left=logicalOr op=OR right=logicalAnd              #orExpr
+    | logicalAnd                           #logicalAndExpr
+    ;
+
+logicalAnd
+    : left=logicalAnd op=AND right=comparison           #andExpr
+    | comparison                          #logicalAndComparisonExpr
+    ;
+
+comparison
+    : left=comparison op=(EQ|NE|LT|GT|LE|GE) right=additive  #comparisonOpExpr
+    | additive                            #comparisonAdditiveExpr
+    ;
+
+additive
+    : left=additive op=(PLUS|MINUS) right=multiplicative    #addExpr
+    | multiplicative                      #additiveMultiplicativeExpr
+    ;
+
+multiplicative
+    : left=multiplicative op=(STAR|SLASH|MOD) right=unary   #mulExpr
+    | unary                               #multiplicativeUnaryExpr
+    ;
+
+unary
+    : op=NOT operand=unary                #notExpr
+    | op=MINUS operand=unary              #unaryMinus
+    | primary                             #primaryExpr
+    ;
+
+primary
+    : LPAREN expression=expr RPAREN       #parenExpr
     | atom                                 #atomExpr
     ;
 
@@ -50,8 +79,7 @@ listItems
     ;
 
 atom
-    : LPAREN expr RPAREN                   #parenExpr
-    | LBRACK listItems? RBRACK              #listExpr
+    : LBRACK listItems? RBRACK              #listExpr
     | LBRACE dictItems? RBRACE             #dictExpr
     | STRING_LITERAL                       #stringLiteral
     | INTEGER_LITERAL                      #intLiteral
