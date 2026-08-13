@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Formula Processing System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            padding: 2.5rem 1rem;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+            text-align: center;
+        }
+        p.subtitle {
+            font-size: 0.875rem;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .formula-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .formula-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 1.2rem;
+            background-color: #f1f5f9;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+        }
+        .equation {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.95rem;
+        }
+        .evaluation {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            color: #2563eb;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Formula Execution Engine</h1>
+        <p class="subtitle">Rendering computed evaluation results for structured string streams.</p>
+
+        <div class="formula-list">
+            <!--
+              Since the template cannot calculate raw strings like "5 + 5" on its own,
+              your backend view engine should pass an object mapping containing the properties
+              below (e.g., mathFormulas = [{"expr": "5 + 5 * 10", "val": 55}, ...])
+            -->
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">5 + 5 * 10</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 100</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">6 / 5 - 5 * 1</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= None</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">12 % 5 + 4 * 2</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 6</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">18 * 12 / 9 + 15</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 9</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">20 - 16 / 4 + 7 % 3</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">15 * 14 % 8 - 3</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">16 / 2 * 5 + 13 % 4</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">100 * 2 / 10 % 7 + 1</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 4</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">9 + 9 * 9 / 3 - 5</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -81</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">25 % 4 * 12 + 8 - 2</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 18</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">14 + 2 % 15 / 10 * 4</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">13 + 7 * 12 - 19 % 5</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">45 / 5 * 3 + 12 - 8</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 63</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">8 - 17 * 2 + 16 / 4</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -40</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">19 % 2 / 7 + 11 * 3</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">2 * 16 - 1 + 14 % 6</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 4</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">50 / 2 % 11 * 3 - 4</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -3</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">6 * 8 + 12 / 4 - 15</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -10</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">88 % 10 * 4 / 2 + 9</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 2</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">13 + 9 % 7 / 8 * 12</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">35 / 7 * 5 - 20 + 8</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -35</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">12 * 11 % 15 - 7 + 5</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 2</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">10 - 8 - 1 + 40 / 5</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 8</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">6 + 9 - 7 % 4 * 2</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">16 % 3 * 20 / 4 + 11</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 1</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">15 + 5 + 14 % 3 * 6</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 6</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">30 / 3 / 2 * 5 - 1</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 20</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">7 * 7 - 49 + 12 % 5</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 0</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">18 + 4 - 3 * 6 / 2</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 57</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">99 % 10 * 8 + 4 / 2</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 54</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">20 + 10 % 11 * 3 - 5</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -16</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">14 / 4 * 8 - 12 + 6</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 6</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">16 * 10 / 14 + 2 - 5</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 14</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">5 + 10 * 15 / 3 % 7</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 5</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">12 / 4 + 5 * 6 - 2</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 4</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">80 % 9 * 8 - 14 / 2</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -24</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">3 + 14 % 19 * 2 - 1</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 17</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">70 / 7 * 2 - 15 % 4</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= -2</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">4 * 4 * 4 / 2 + 8</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 6</span>
+                </div>
+            
+                <div class="formula-row">
+                    <!-- Displays the raw equation formula string -->
+                    <span class="equation">100 - 50 * 2 / 4 % 3</span>
+
+                    <!-- Displays the matching answer outcome -->
+                    <span class="evaluation">= 1</span>
+                </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

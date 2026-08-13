@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw Flow Template</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            padding: 2rem;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 1.25rem;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        ul { list-style: none; padding: 0; }
+        li { padding: 0.5rem 0; border-bottom: 1px solid #f3f4f6; }
+        .highlight-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; margin-bottom: 2rem;">Pure Control-Flow Analysis</h1>
+
+    <div class="dashboard-grid">
+
+        <div class="card">
+            <h2>Number Analysis Loop</h2>
+            <p style="font-size: 0.85rem; color:#6b7280; margin-bottom: 0.5rem;">Scanning raw array numbers [1, 2, 3, 4, 5, 6]:</p>
+            <ul>
+                {% for num in numbers %}
+                    {% if num == 1 %}
+                        <li> <strong>{{ num }}</strong> — Is  the Minimum Number</li>
+                    {% elif num == 6 %}
+                        <li> <strong>{{ num }}</strong> — Is the Maximum Number</li>
+                    {% else %}
+                        <li> Item Value: {{ num }} (between minimum and maximum)</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Product Price Classification</h2>
+            <p style="font-size: 0.85rem; color:#6b7280; margin-bottom: 0.5rem;">Isolating budget limits across product structures:</p>
+
+            {% for product in products %}
+                {% if product.price == 15 %}
+                    <div class="highlight-box"> <strong>Lowest Price Found:</strong> ${{ product.price }}</div>
+                {% elif product.price == 30 %}
+                    <div class="highlight-box"><strong>Highest Price Found:</strong> ${{ product.price }}</div>
+                {% else %}
+                    <div class="highlight-box"> Mid-Range Price: ${{ product.price }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="card">
+            <h2>Name Sorting & Processing</h2>
+            <p style="font-size: 0.85rem; color:#6b7280; margin-bottom: 0.5rem;">Filtering name data arrays via text character criteria:</p>
+            <ul>
+                {% for name in names %}
+                    {% if name == "Mohammed" %}
+                        <li> Verified match: <strong>{{ name }}</strong> starts with "M"</li>
+                    {% elif name == "Ahmad" %}
+                        <li> Alternative layout: <strong>{{ name }}</strong> starts with "A"</li>
+                    {% else %}
+                        <li> Fallback row: <strong>{{ name }}</strong> fell into the default block</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+    <div>
+        <h1> Expressions Test </h2>
+        <p> 5 + 5 = {{ 5 + 5 }}</p>
+        <p> 15 - 5 = {{ 15 - 5 }}</p>
+        <p> 10 * 5 = {{ 10 * 5 }}</p>
+        <p> 5 / 5 = {{ 5 / 5 }}</p>
+        <p> 10 % 5 = {{ 10 % 5 }}</p>
+        <p> 5 + 5 - 5 * 5 = {{ 5 + 5 - 5 * 5 }} </p>
+        <p> 55 + 10 + 5 * 5 = {{ 55 + 10 + 5 * 5 }} </p>
+        <p> 5 + 6 * 10 / 3 = {{ 5 + 6 * 10 / 3 }} </p>
+    <div>
+
+</body>
+</html>
