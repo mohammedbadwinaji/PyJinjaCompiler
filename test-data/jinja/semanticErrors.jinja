@@ -1,0 +1,18 @@
+<p> call Non Iterable  </p>
+{% for i in nonIterable %}
+    <div>
+        <p> {{ i }} </p>
+    <div>
+{% endfor %}
+
+<p> call Undefined Variable {{ undefinedVariable }} </p>
+
+<p> call Undefined Function {{ undefinedFunction() }} </p>
+
+<p> invalid operation <type mismatch> {{ True + 10 }} </p>
+<p> invalid operation <type mismatch> {{ 5 * "Ahmad" }} </p>
+<p> invalid operation <type mismatch> {{ "Ali" - False}} </p>
+
+<p> call Not Callable Identifier {{ notCallable() }} </p>
+
+
