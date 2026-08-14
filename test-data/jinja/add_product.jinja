@@ -8,20 +8,48 @@
         .form { background: white; max-width: 400px; margin: 0 auto; padding: 2rem; border-radius: 8px; }
         .field { margin-bottom: 1rem; }
         label { display: block; margin-bottom: 0.3rem; font-weight: bold; }
-        input { width: 100%; padding: 0.5rem; }
+        input, select, textarea { width: 100%; padding: 0.5rem; }
+        .nav { text-align: center; margin-bottom: 2rem; }
+        .nav a { margin: 0 1rem; text-decoration: none; color: #2563eb; }
+        button { background: #059669; color: white; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; width: 100%; }
     </style>
 </head>
 <body>
+    <div class="nav">
+        <a href="/products">Products</a>
+        <a href="/products/new">Add Product</a>
+    </div>
+    
     <div class="form">
         <h2>{{ header }}</h2>
-        <div class="field">
-            <label>Product Title</label>
-            <input type="text" placeholder="Enter name...">
-        </div>
-        <div class="field">
-            <label>Price</label>
-            <input type="number">
-        </div>
+        <form action="/products" method="POST">
+            <div class="field">
+                <label>Product Title</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="field">
+                <label>Category</label>
+                <select name="category" required>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Apparel">Apparel</option>
+                    <option value="Home & Kitchen">Home & Kitchen</option>
+                    <option value="Fitness & Outdoors">Fitness & Outdoors</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Price</label>
+                <input type="number" name="currentPrice" step="0.01" required>
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <textarea name="description" required></textarea>
+            </div>
+            <div class="field">
+                <label>Image URL</label>
+                <input type="text" name="imageUrl" placeholder="https://example.com/image.jpg">
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
     </div>
 </body>
 </html>

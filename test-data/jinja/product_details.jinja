@@ -6,14 +6,28 @@
     <style>
         body { font-family: sans-serif; background: #f3f4f6; padding: 3rem; text-align: center; }
         .box { background: white; max-width: 400px; margin: 0 auto; padding: 2rem; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .nav { text-align: center; margin-bottom: 2rem; }
+        .nav a { margin: 0 1rem; text-decoration: none; color: #2563eb; }
     </style>
 </head>
 <body>
+    <div class="nav">
+        <a href="/products">Products</a>
+        <a href="/products/new">Add Product</a>
+    </div>
+    
     <div class="box">
+        <img src="/{{ product.imageUrl }}" alt="{{ product.title }}" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">
         <span style="color: #4f46e5; font-weight: bold;">{{ product.category }}</span>
         <h1>{{ product.title }}</h1>
         <p>{{ product.description }}</p>
         <h2>${{ product.currentPrice }}</h2>
+        <div style="margin-top: 2rem;">
+            <a href="/products/{{ product.id }}/edit">Edit Product</a> |
+            <form action="/products/{{ product.id }}/delete" method="POST" style="display: inline;">
+                <button type="submit" style="background: none; border: none; color: #dc2626; cursor: pointer;">Delete</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

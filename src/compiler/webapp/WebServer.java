@@ -8,7 +8,9 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -53,14 +55,16 @@ public final class WebServer {
     }
 
     public static void main(String[] args) throws IOException {
-        Path templatesDir = Path.of(args.length > 0 ? args[0] : "templates");
+        Path templatesDir = Path.of(args.length > 0 ? args[0] : "test-data/jinja");
         WebServer server = new WebServer(templatesDir);
-        server.start(8080);
+        int port = args.length > 1 ? Integer.parseInt(args[1]) : 8080;
+        server.start(port);
     }
 
     public void start(int port) throws IOException {
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         httpServer.createContext("/", this::handle);
+        httpServer.createContext("/images", this::serveStaticFile);
         httpServer.setExecutor(null);
         httpServer.start();
         System.out.println("Listening on http://localhost:" + port + "/products");
@@ -68,8 +72,13 @@ public final class WebServer {
 
     private void handle(HttpExchange exchange) {
         try {
+            String method = exchange.getRequestMethod();
+            String path = exchange.getRequestURI().getPath();
+            System.out.println("[HTTP] " + method + " " + path);
             route(exchange);
         } catch (Exception e) {
+            System.err.println("[ERROR] " + e.getMessage());
+            e.printStackTrace();
             respond(exchange, 500, "Internal error: " + e.getMessage());
         }
     }
@@ -121,14 +130,15 @@ public final class WebServer {
     private void listProducts(HttpExchange exchange) {
         Map<String, Object> context = baseContext();
         context.put("products", store.all());
-        renderResponse(exchange, "list.jinja", context);
+        context.put("view_title", "Product Catalog");
+        renderResponse(exchange, "products.jinja", context);
     }
 
     private void newProductForm(HttpExchange exchange) {
         Map<String, Object> context = baseContext();
-        context.put("mode", "new");
+        context.put("header", "Add Product");
         context.put("product", emptyProduct());
-        renderResponse(exchange, "form.jinja", context);
+        renderResponse(exchange, "add_product.jinja", context);
     }
 
     private void editProductForm(HttpExchange exchange, long id) {
@@ -138,9 +148,9 @@ public final class WebServer {
             return;
         }
         Map<String, Object> context = baseContext();
-        context.put("mode", "edit");
+        context.put("header", "Update Product");
         context.put("product", product);
-        renderResponse(exchange, "form.jinja", context);
+        renderResponse(exchange, "update_product.jinja", context);
     }
 
     private void viewProduct(HttpExchange exchange, long id) {
@@ -151,25 +161,37 @@ public final class WebServer {
         }
         Map<String, Object> context = baseContext();
         context.put("product", product);
-        renderResponse(exchange, "detail.jinja", context);
+        renderResponse(exchange, "product_details.jinja", context);
     }
 
     private void createProduct(HttpExchange exchange) throws IOException {
         Map<String, String> form = readForm(exchange);
+        String imageUrl = form.get("imageUrl");
+        if (imageUrl == null || imageUrl.trim().isEmpty()) {
+            imageUrl = "images/screen.jpg";
+        }
         store.add(
-                form.getOrDefault("name", ""),
-                parseDouble(form.get("price")),
-                form.getOrDefault("description", ""));
+                form.getOrDefault("title", ""),
+                form.getOrDefault("category", "Electronics"),
+                parseDouble(form.get("currentPrice")),
+                form.getOrDefault("description", ""),
+                imageUrl);
         redirect(exchange, "/products");
     }
 
     private void updateProduct(HttpExchange exchange, long id) throws IOException {
         Map<String, String> form = readForm(exchange);
+        String imageUrl = form.get("imageUrl");
+        if (imageUrl == null || imageUrl.trim().isEmpty()) {
+            imageUrl = "images/screen.jpg";
+        }
         boolean updated = store.update(
                 id,
-                form.getOrDefault("name", ""),
-                parseDouble(form.get("price")),
-                form.getOrDefault("description", ""));
+                form.getOrDefault("title", ""),
+                form.getOrDefault("category", "Electronics"),
+                parseDouble(form.get("currentPrice")),
+                form.getOrDefault("description", ""),
+                imageUrl);
         redirect(exchange, updated ? "/products/" + id : "/products");
     }
 
@@ -191,9 +213,11 @@ public final class WebServer {
     private Map<String, Object> emptyProduct() {
         Map<String, Object> product = new LinkedHashMap<>();
         product.put("id", "");
-        product.put("name", "");
-        product.put("price", "");
+        product.put("title", "");
+        product.put("category", "Electronics");
+        product.put("currentPrice", "");
         product.put("description", "");
+        product.put("imageUrl", "images/screen.jpg");
         return product;
     }
 
@@ -207,6 +231,7 @@ public final class WebServer {
 
     private void renderResponse(HttpExchange exchange, String template, Map<String, Object> context) {
         try {
+            System.out.println("[JINJA] Rendering template: " + template);
             String html = templates.render(template, context);
             byte[] bytes = html.getBytes(StandardCharsets.UTF_8);
             exchange.getResponseHeaders().add("Content-Type", "text/html; charset=utf-8");
@@ -214,7 +239,9 @@ public final class WebServer {
             try (OutputStream os = exchange.getResponseBody()) {
                 os.write(bytes);
             }
+            System.out.println("[HTTP] 200 OK");
         } catch (IOException e) {
+            System.err.println("[ERROR] Failed to render " + template + ": " + e.getMessage());
             respond(exchange, 500, "Failed to render " + template + ": " + e.getMessage());
         }
     }
@@ -255,5 +282,43 @@ public final class WebServer {
                     URLDecoder.decode(value, StandardCharsets.UTF_8));
         }
         return result;
+    }
+
+    private void serveStaticFile(HttpExchange exchange) throws IOException {
+        String path = exchange.getRequestURI().getPath();
+        System.out.println("[STATIC] " + path);
+        
+        // Remove leading /images/ to get relative path
+        String relativePath = path.substring("/images/".length());
+        Path filePath = Paths.get("images").resolve(relativePath).normalize();
+        
+        if (!Files.exists(filePath) || !Files.isRegularFile(filePath)) {
+            respond(exchange, 404, "File not found: " + path);
+            return;
+        }
+        
+        // Determine content type
+        String contentType = "application/octet-stream";
+        if (path.endsWith(".jpg") || path.endsWith(".jpeg")) {
+            contentType = "image/jpeg";
+        } else if (path.endsWith(".png")) {
+            contentType = "image/png";
+        } else if (path.endsWith(".gif")) {
+            contentType = "image/gif";
+        } else if (path.endsWith(".svg")) {
+            contentType = "image/svg+xml";
+        } else if (path.endsWith(".css")) {
+            contentType = "text/css";
+        } else if (path.endsWith(".js")) {
+            contentType = "application/javascript";
+        }
+        
+        byte[] bytes = Files.readAllBytes(filePath);
+        exchange.getResponseHeaders().add("Content-Type", contentType);
+        exchange.sendResponseHeaders(200, bytes.length);
+        try (OutputStream os = exchange.getResponseBody()) {
+            os.write(bytes);
+        }
+        System.out.println("[STATIC] 200 OK");
     }
 }

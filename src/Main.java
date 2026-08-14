@@ -1,10 +1,33 @@
-import test.CompilerPipelineTest;
+import compiler.webapp.WebServer;
+
+import java.nio.file.Path;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-//        CompilerPipelineTest test =new CompilerPipelineTest();
-//        test.test("test-data/python/semanticErrors.py","test-data/jinja");
-
-        Compiler.run("test-data/python/semanticErrors.py","test-data/jinja");
+        if (args.length > 0 && args[0].equals("--web")) {
+            // Web server mode
+            Path templatesDir = Path.of(args.length > 1 ? args[1] : "test-data/jinja");
+            int port = args.length > 2 ? Integer.parseInt(args[2]) : 8080;
+            
+            System.out.println("========================================");
+            System.out.println("PyJinjaCompiler Web Application");
+            System.out.println("========================================");
+            System.out.println("Templates directory: " + templatesDir);
+            System.out.println("Starting server on port " + port + "...");
+            
+            WebServer server = new WebServer(templatesDir);
+            server.start(port);
+            
+            System.out.println("========================================");
+            System.out.println("Server started on:");
+            System.out.println("http://localhost:" + port + "/");
+            System.out.println("http://localhost:" + port + "/products");
+            System.out.println("========================================");
+            System.out.println("Press Ctrl+C to stop.");
+            
+        } else {
+            // Compiler mode (default)
+            Compiler.run("test-data/python/semanticErrors.py", "test-data/jinja");
+        }
     }
 }

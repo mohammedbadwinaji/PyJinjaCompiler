@@ -12,16 +12,19 @@
         input, select, textarea { width: 100%; padding: 0.65rem; border: 1px solid #d1d5db; border-radius: 4px; font-size: 0.95rem; }
         textarea { height: 80px; resize: vertical; }
         .btn-update { width: 100%; background: #059669; color: white; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; }
+        .nav { text-align: center; margin-bottom: 2rem; }
+        .nav a { margin: 0 1rem; text-decoration: none; color: #2563eb; }
     </style>
 </head>
 <body>
+    <div class="nav">
+        <a href="/products">Products</a>
+        <a href="/products/new">Add Product</a>
+    </div>
 
     <div class="form-card">
         <h2>{{ header }}</h2>
-        <form action="/products/save-update" method="POST">
-            <!-- Invisible context handle value mapping -->
-            <input type="hidden" name="id" value="{{ product.id }}">
-
+        <form action="/products/{{ product.id }}" method="POST">
             <div class="field">
                 <label>Modify Product Title</label>
                 <input type="text" name="title" value="{{ product.title }}" required>
@@ -29,11 +32,10 @@
             <div class="field">
                 <label>Verify Current Category</label>
                 <select name="category" required>
-                    <!-- Default fallback options structure -->
-                    <option value="Electronics">Electronics</option>
-                    <option value="Apparel">Apparel</option>
-                    <option value="Home & Kitchen">Home & Kitchen</option>
-                    <option value="Fitness & Outdoors">Fitness & Outdoors</option>
+                    <option value="Electronics" {% if product.category == "Electronics" %}selected{% endif %}>Electronics</option>
+                    <option value="Apparel" {% if product.category == "Apparel" %}selected{% endif %}>Apparel</option>
+                    <option value="Home & Kitchen" {% if product.category == "Home & Kitchen" %}selected{% endif %}>Home & Kitchen</option>
+                    <option value="Fitness & Outdoors" {% if product.category == "Fitness & Outdoors" %}selected{% endif %}>Fitness & Outdoors</option>
                 </select>
             </div>
             <div class="field">
@@ -43,6 +45,10 @@
             <div class="field">
                 <label>Edit Details Content</label>
                 <textarea name="description" required>{{ product.description }}</textarea>
+            </div>
+            <div class="field">
+                <label>Image URL</label>
+                <input type="url" name="imageUrl" value="{{ product.imageUrl }}" placeholder="https://example.com/image.jpg">
             </div>
             <button type="submit" class="btn-update">Commit Modification Updates</button>
         </form>
