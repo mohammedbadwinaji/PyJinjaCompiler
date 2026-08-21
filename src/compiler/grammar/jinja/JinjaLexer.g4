@@ -1,4 +1,4 @@
-lexer grammar JinjaLexer;
+lexer compiler.grammar JinjaLexer;
 
 // Jinja delimiters must come before HTML_TEXT to ensure they're matched first
 JINJA_EXPR_START : '{{' -> pushMode(JINJA_MODE);

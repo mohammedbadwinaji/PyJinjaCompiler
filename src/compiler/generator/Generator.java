@@ -26,7 +26,7 @@ import java.util.Map;
  * scope. Handing that table straight to JinjaSemanticAnalyzer therefore
  * only works for module-level Python variables, not the Flask-style
  * `render_template("index.jinja", title=title, products=products)`
- * pattern used in test01.py / test02.py.
+ * pattern used in compiler_full_test.py / test02.py.
  *
  * This class finds that render_template(...) call and, while walking
  * toward it, maintains a real evaluated environment (via

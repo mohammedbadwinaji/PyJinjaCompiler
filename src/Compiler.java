@@ -46,7 +46,7 @@ public class Compiler {
      * @param pythonFilePath Path to the Python source file
      * @param jinjaFolderPath Path to the directory containing Jinja templates
      */
-    public static void run(String pythonFilePath, String jinjaFolderPath) {
+    public static void compile(String pythonFilePath, String jinjaFolderPath) {
         printBanner("COMPILER PIPELINE START", "Python: " + pythonFilePath + " | Templates: " + jinjaFolderPath);
 
         // Validate inputs

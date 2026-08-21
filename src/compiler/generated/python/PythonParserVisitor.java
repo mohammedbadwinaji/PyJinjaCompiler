@@ -1,4 +1,4 @@
-// Generated from D:/Compiler/PyJinjaCompiler/src/grammar/python/PythonParser.g4 by ANTLR 4.13.2
+// Generated from D:/Compiler/PyJinjaCompiler/src/compiler.grammar/python/PythonParser.g4 by ANTLR 4.13.2
 package compiler.generated.python;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 

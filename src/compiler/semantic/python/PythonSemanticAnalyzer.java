@@ -86,16 +86,9 @@ public class PythonSemanticAnalyzer implements AstVisitor<Void> {
      * This makes it easy to add more built-in functions later.
      */
     private void initializeBuiltInFunctions() {
-        // render_template - used by Generator to discover template rendering calls
-        // Use -1 to indicate variable number of arguments (skip argument count checking)
         addBuiltInFunction("render_template", -1);
     }
 
-    /**
-     * Add a built-in function to the symbol table.
-     * @param name Function name
-     * @param paramCount Number of parameters, or -1 for variable arguments (skip checking)
-     */
     private void addBuiltInFunction(String name, int paramCount) {
         Symbol functionSymbol = new Symbol(name, Symbol.Kind.FUNCTION, 0);
         functionSymbol.setInferredType(Type.FUNCTION);

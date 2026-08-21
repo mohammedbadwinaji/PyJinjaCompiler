@@ -1,4 +1,7 @@
 import compiler.webapp.WebServer;
+import test.CompilerPipelineTest;
+import test.PythonAstBuilderTest;
+import test.Tester;
 
 import java.nio.file.Path;
 
@@ -26,8 +29,7 @@ public class Main {
             System.out.println("Press Ctrl+C to stop.");
             
         } else {
-            // Compiler mode (default)
-            Compiler.run("test-data/python/semanticErrors.py", "test-data/jinja");
+            Compiler.compile("test-data/python/test.py", "test-data/jinja");
         }
     }
 }

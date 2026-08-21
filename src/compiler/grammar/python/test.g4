@@ -1,4 +1,4 @@
-parser grammar PythonParser;
+parser compiler.grammar PythonParser;
 
 options {
     tokenVocab = PythonLexer;

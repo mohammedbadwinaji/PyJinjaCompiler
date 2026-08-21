@@ -1,4 +1,4 @@
-lexer grammar PythonLexer;
+lexer compiler.grammar PythonLexer;
 
 DEF         : 'def';
 RETURN      : 'return';

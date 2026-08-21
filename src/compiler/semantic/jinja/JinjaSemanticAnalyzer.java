@@ -410,7 +410,7 @@ public class JinjaSemanticAnalyzer implements AstVisitor<Void> {
 
     @Override
     public Void visitKeywordArgument(KeywordArgument node) {
-        // Not produced by the Jinja grammar (argList has no keyword
+        // Not produced by the Jinja compiler.grammar (argList has no keyword
         // arguments), but implemented for interface completeness.
         node.getValue().accept(this);
         return null;

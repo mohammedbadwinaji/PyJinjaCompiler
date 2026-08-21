@@ -1,4 +1,4 @@
-parser grammar JinjaParser;
+parser compiler.grammar JinjaParser;
 
 options { tokenVocab = JinjaLexer; }
 

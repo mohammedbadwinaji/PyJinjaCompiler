@@ -87,7 +87,7 @@ public final class AstBuilder extends PythonParserBaseVisitor<Object> {
     }
 
     /* -------------------------
-       Statement visitors (labels from grammar)
+       Statement visitors (labels from compiler.grammar)
        ------------------------- */
 
     @Override

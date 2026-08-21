@@ -54,7 +54,7 @@ import java.util.Map;
  * to touch - point them at whatever .py / .html (Jinja) pair you want
  * to test and re-run:
  *
- *     public static String PYTHON_FILE = "input/python/test01.py";
+ *     public static String PYTHON_FILE = "input/python/compiler_full_test.py";
  *     public static String JINJA_FILE  = "input/jinja/index.html";
  *
  * Run it directly:
@@ -64,14 +64,14 @@ import java.util.Map;
  *     java test.EndToEndTest input/python/test02.py input/jinja/other.html
  *
  * Or call it from your own Main.java / another test:
- *     test.EndToEndTest.run("input/python/test01.py", "input/jinja/index.html");
+ *     test.EndToEndTest.run("input/python/compiler_full_test.py", "input/jinja/index.html");
  */
 public final class EndToEndTest {
 
     // ================================================================
     // EDIT THESE TWO PATHS TO TEST A DIFFERENT PYTHON / JINJA FILE PAIR
     // ================================================================
-    public static String PYTHON_FILE = "test-data/python/compiler_full_test.py";
+    public static String PYTHON_FILE = "test-data/python/test.py";
     public static String JINJA_FILE  = "test-data/jinja/hello.jinja";
     // ================================================================
 

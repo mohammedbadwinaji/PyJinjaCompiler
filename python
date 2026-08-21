@@ -17,7 +17,7 @@ def add(x, y):
     return x + y
 ```
 
-The grammar supports `def`, function name, optional parameter list, and a suite/body.
+The compiler.grammar supports `def`, function name, optional parameter list, and a suite/body.
 
 ### Function parameters
 
@@ -38,7 +38,7 @@ Supported:
 return x
 ```
 
-The grammar currently also allows comma-separated expressions after `return`.
+The compiler.grammar currently also allows comma-separated expressions after `return`.
 
 The AST has `ReturnStmt`.
 
@@ -52,7 +52,7 @@ title = "Hello"
 products = [...]
 ```
 
-The grammar uses:
+The compiler.grammar uses:
 
 ```text
 expr (ASSIGN expr)*
@@ -72,7 +72,7 @@ foo()
 x
 ```
 
-The grammar allows an expression as a statement.
+The compiler.grammar allows an expression as a statement.
 
 The AST contains `ExprStmt`.
 
@@ -89,7 +89,7 @@ if price > 350:
     save(p)
 ```
 
-The grammar supports `if` with a suite.
+The compiler.grammar supports `if` with a suite.
 
 AST:
 
@@ -110,7 +110,7 @@ elif x == 10:
     ...
 ```
 
-The grammar explicitly supports zero or more `elif` clauses.
+The compiler.grammar explicitly supports zero or more `elif` clauses.
 
 AST:
 
@@ -166,7 +166,7 @@ ForStmt
 
 # 3. Python expressions
 
-Your Python grammar supports these binary/logical operators:
+Your Python compiler.grammar supports these binary/logical operators:
 
 ```text
 or
@@ -191,7 +191,7 @@ not
 -
 ```
 
-The grammar is visible here.
+The compiler.grammar is visible here.
 
 ## Logical OR
 
@@ -295,7 +295,7 @@ UnaryOperator
 
 
 
-Note: the current Python grammar visibly has unary `MINUS`, but not a separate unary `PLUS` grammar alternative. So `UnaryOperator.PLUS` exists in the AST infrastructure, but the current grammar does not establish `+x` as a supported Python syntax feature.
+Note: the current Python compiler.grammar visibly has unary `MINUS`, but not a separate unary `PLUS` compiler.grammar alternative. So `UnaryOperator.PLUS` exists in the AST infrastructure, but the current compiler.grammar does not establish `+x` as a supported Python syntax feature.
 
 ---
 
@@ -342,7 +342,7 @@ False
 None
 ```
 
-These are all present in the `atom` grammar.
+These are all present in the `atom` compiler.grammar.
 
 ---
 
@@ -417,7 +417,7 @@ Supported:
 (a + b) * c
 ```
 
-The grammar includes:
+The compiler.grammar includes:
 
 ```text
 LPAREN expr RPAREN
@@ -457,7 +457,7 @@ product.price
 object.field
 ```
 
-The grammar has:
+The compiler.grammar has:
 
 ```text
 DOT IDENTIFIER
@@ -485,7 +485,7 @@ product["name"]
 items[index]
 ```
 
-The grammar has:
+The compiler.grammar has:
 
 ```text
 LBRACK expr RBRACK
@@ -513,7 +513,7 @@ render_template(...)
 foo()
 ```
 
-The grammar supports:
+The compiler.grammar supports:
 
 ```text
 IDENTIFIER atomTrailer*
@@ -557,7 +557,7 @@ render_template(
 )
 ```
 
-The grammar has:
+The compiler.grammar has:
 
 ```text
 argument
@@ -631,7 +631,7 @@ COMMENT : '#' ~[\r\n]* -> skip
 
 # 14. Python operator precedence
 
-The Python grammar has the expression hierarchy:
+The Python compiler.grammar has the expression hierarchy:
 
 ```text
 OR
@@ -644,7 +644,7 @@ OR
 → atom
 ```
 
-So the grammar does distinguish operator levels.
+So the compiler.grammar does distinguish operator levels.
 
 ---
 
@@ -689,7 +689,7 @@ Expressions
 
 Unary
 ✓ unary -
-⚠ unary + exists in AST enum but is not present in current Python grammar
+⚠ unary + exists in AST enum but is not present in current Python compiler.grammar
 
 Literals
 ✓ integer
